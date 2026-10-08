@@ -1,0 +1,5126 @@
+{
+ "ran_at": "2026-10-08T23:37:52+00:00",
+ "duration_s": 67,
+ "passes": 2,
+ "questions": 30,
+ "dead_air_ms": 800,
+ "tier": "fast",
+ "summary": {
+  "keenable": {
+   "label": "realtime",
+   "races": 60,
+   "errors": 0,
+   "median_ms": 278,
+   "p95_ms": 337,
+   "mean_ms": 282,
+   "cost_per_1k": 1.0,
+   "dead_air": 0
+  },
+  "tavily": {
+   "label": "ultra-fast",
+   "races": 60,
+   "errors": 0,
+   "median_ms": 452,
+   "p95_ms": 624,
+   "mean_ms": 454,
+   "cost_per_1k": 8.0,
+   "dead_air": 0
+  },
+  "exa": {
+   "label": "instant",
+   "races": 60,
+   "errors": 0,
+   "median_ms": 496,
+   "p95_ms": 650,
+   "mean_ms": 444,
+   "cost_per_1k": 4.0,
+   "dead_air": 0
+  }
+ },
+ "runs": [
+  {
+   "pass": 1,
+   "q": "Are there any changes to today's flights out of Heathrow?",
+   "keenable": {
+    "api_ms": 337,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "18-Hour Flights: Heathrow's 11 New Ultra-Long Nonstop Routes Revealed",
+      "url": "https://simpleflying.com/18-hour-flights-heathrows-11-new-ultra-long-nonstop-routes"
+     },
+     {
+      "title": "live flights and how early to arrive",
+      "url": "https://heathrowairport-info.co.uk/departures"
+     },
+     {
+      "title": "Signature Aviation | Private Aviation Terminals & FBO Services",
+      "url": "https://www.signatureaviation.com/locations/LHR"
+     },
+     {
+      "title": "Airlines 'to announce new wave of cancellations next week' as holidaymakers face more disruption - London Daily",
+      "url": "https://londondaily.com/hkzevt-airlines-to-announce-new-wave-of-cancellations-next-week-as-holidaymakers-face-more-disruption"
+     },
+     {
+      "title": "British Airways Adds Five Heathrow Routes in Three Months: Full List of New and Returning Flights",
+      "url": "https://boltflight.com/british-airways-adds-five-heathrow-routes-in-three-months-full-list-of-new-and-returning-flights"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 499,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Dozens of flights cancelled at Heathrow Airport - find out if yours is affected",
+      "url": "https://www.thescottishsun.co.uk/travel/10104610/cancelled-flights-heathrow-airport-british-airways-fog"
+     },
+     {
+      "title": "Flights London Heathrow Iraq | find and compare cheap flights",
+      "url": "https://www.flights-idealo.co.uk/route/London-Heathrow-LHR/Iraq-IQ"
+     },
+     {
+      "title": "NEWS & OFFERS: Heathrow BA Terminal changes, Sydney flights, BA crew and catering changes and London City improvements - Turning Left For Less",
+      "url": "https://www.turningleftforless.com/news-offers-heathrow-ba-terminal-changes-sydney-flights-ba-crew-and-catering-changes-and-london-city-improvements"
+     },
+     {
+      "title": "Flights London Heathrow Morocco | find and compare cheap flights",
+      "url": "https://www.flights-idealo.co.uk/route/London-Heathrow-LHR/Morocco-MA"
+     },
+     {
+      "title": "Flights London Heathrow Pakistan | find and compare cheap flights",
+      "url": "https://www.flights-idealo.co.uk/route/London-Heathrow-LHR/Pakistan-PK"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 788,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "London Heathrow (LHR) (EGLL) live departures | Flightradar24",
+      "url": "https://www.flightradar24.com/data/airports/lhr/departures"
+     },
+     {
+      "title": "LHR \u2022 London Heathrow - Live Departures",
+      "url": "https://www.avionio.com/en/airport/lhr/departures"
+     },
+     {
+      "title": "Heathrow Airport (LHR) Departures Today: Live Flight Status",
+      "url": "https://proflightsearch.com/airport-departures/london-LHR"
+     },
+     {
+      "title": "London Heathrow Airport Flight Cancellations Today | Live Cancelled Flights",
+      "url": "https://whichterminal.co.uk/london-heathrow-airport/cancelled-flights"
+     },
+     {
+      "title": "Major flight delays at Heathrow Airport (Thu 8 Oct) \u2014 Heathrow Airport Guide",
+      "url": "https://heathrowairportguide.org/news/major-flight-delays-at-heathrow-airport-thu-8-oct-487300"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is BA117 to New York delayed this morning?",
+   "keenable": {
+    "api_ms": 279,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Check BA117 Flight Status \u2013 Live British Airways Tracker | Trip.com",
+      "url": "https://ca.trip.com/flights/status-ba117"
+     },
+     {
+      "title": "British Airways BA117 Flight Status Today, Real Time Tracker | Trip.com",
+      "url": "https://ph.trip.com/flights/status-ba117"
+     },
+     {
+      "title": "BA117 Flight Status - British Airways London to New York Today | Trip.com",
+      "url": "https://ae.trip.com/flights/status-ba117"
+     },
+     {
+      "title": "British Airways BA117 Flight Status Today: Live Tracker, Arrivals & Departures | Trip.com",
+      "url": "https://trip.com/flights/status-ba117"
+     },
+     {
+      "title": "BA117 British LHR\u2192JFK \u00b7 Live Status, Delay Risk & Forecast",
+      "url": "https://proflightsearch.com/flight/BA117"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 506,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "BA117 Flight Status British Airways: London to New York (BAW117)",
+      "url": "https://www.airportia.com/flights/ba117/london/new-york"
+     },
+     {
+      "title": "BA117 Flight Status & Live Tracker \u2013 London to New York",
+      "url": "https://flightera.net/en/flight/British+Airways-London-New+York/BA117"
+     },
+     {
+      "title": "BA117 (BAW117) Flight Status \u2013 21. Apr 2026 \u2013 London to New York",
+      "url": "https://www.flightera.net/en/flight_details/British+Airways-London-New+York/BA117/EGLL/2026-04-21"
+     },
+     {
+      "title": "BA117 (BAW117) Flight Status \u2013 21. Apr 2026 \u2013 London to New York",
+      "url": "https://flightera.net/en/flight_details/British+Airways-London-New+York/BA117/EGLL/2026-04-21"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 463,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "British Airways BA 117 Flight Details, Notes, History - FlightStats",
+      "url": "https://www.flightstats.com/v2/flight-details/BA/117"
+     },
+     {
+      "title": "BA117 - British Airways BA 117 Flight Tracker",
+      "url": "https://www.flightstats.com/v2/flight-tracker/BA/117"
+     },
+     {
+      "title": "BA117 British Airways Flight Status & Tracker | LHR - JFK",
+      "url": "https://www.flightinformation.com/BA117-LHR-JFK"
+     },
+     {
+      "title": "BA117 Flight Status | British Airways | BAW17R | London to New York",
+      "url": "https://www.flightera.net/en/flight/British+Airways-London-New+York/BA117"
+     },
+     {
+      "title": "BA117 Live Flight Status: London (LHR) to New York (JFK)",
+      "url": "https://flight-tracker.net/flight/BAW117"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What's the Ryanair cabin bag size limit at the moment?",
+   "keenable": {
+    "api_ms": 291,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "How Strict Is Ryanair With Carry-On Size? 2026 Rules",
+      "url": "https://travelmarketnews.com/how-strict-is-ryanair-carry-on-size"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size 2026: 55 x 40 x 20 cm (21.6 x 15.7 x 7.9\")",
+      "url": "https://travelvient.com/tools/carry-on-size/ryanair"
+     },
+     {
+      "title": "Ryanair Baggage Policy 2026 \u2013 Sizes, Fees & Tips to Avoid Charges",
+      "url": "https://baggagepolicies.com/ryanair-baggage-policy/"
+     },
+     {
+      "title": "Ryanair Cabin Bag + Carry-On Sizes 2026: 40\u00d730\u00d720 and 55\u00d740\u00d720 Rules",
+      "url": "https://packfitter.com/ryanair-carry-on-rules.html"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size and Baggage Allowance 2026",
+      "url": "https://travellon.com/ryanair-cabin-bag-size-baggage-allowance"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 579,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Ryanair ups size limit for free cabin bag",
+      "url": "https://www.yourmoney.com/household-bills/ryanair-ups-size-limit-for-free-cabin-bag"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size and Baggage Allowance 2026",
+      "url": "https://travellon.com/ryanair-cabin-bag-size-baggage-allowance"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size 2025 \u2013 Dimensions, Rules and Costs - newsfrontuk.uk",
+      "url": "https://newsfrontuk.uk/politics/ryanair-cabin-bag-size-2025"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size & Hand Luggage Allowance",
+      "url": "https://luggageguide.co.uk/ryanair-hand-luggage"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 538,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Bag Policies \u2013 Ryanair Help Centre",
+      "url": "https://help.ryanair.com/hc/en-gb/sections/12489178346129-Bag-Policies"
+     },
+     {
+      "title": "Guide to cabin bag size for Ryanair, easyJet, Wizz and BA, 2026 - Which?",
+      "url": "https://www.which.co.uk/reviews/airlines/article/most-generous-airline-hand-luggage-aF9jK9M1uoMk"
+     },
+     {
+      "title": "Ryanair baggage rules 2026: cabin bag size, fees and what catches travellers out | The Travel Daily",
+      "url": "https://www.thetraveldaily.co.uk/article/2026/04/21/ryanair-baggage-rules-2026-cabin-bag-size-fees-and-what-catches-travellers-out"
+     },
+     {
+      "title": "Ryanair underseat bag size set to increase - Which?",
+      "url": "https://www.which.co.uk/news/article/ryanair-hand-luggage-size-set-to-increase-a1CGn5z4rcvN"
+     },
+     {
+      "title": "Ryanair 40x30x20: Which Bag Fits? (Avoid 80 EUR Fee) - Kofferly",
+      "url": "https://kofferly.com/en/posts/ryanair-hand-luggage-40x30x20"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is there an air traffic control strike in France this week?",
+   "keenable": {
+    "api_ms": 269,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "French air traffic control strike averted but second strike by Air France pilots on notice",
+      "url": "https://travelextra.ie/french-air-traffic-control-strike-averted-but-pilots-and-cabin-crew-still-on-notice"
+     },
+     {
+      "title": "French air traffic control strike cancels about 40% of flights in Paris",
+      "url": "https://kgw.com/article/news/nation-world/air-traffic-controllers-france-strike/507-940c568e-1b93-410d-bf31-111a4e6696c6"
+     },
+     {
+      "title": "French air traffic strike prompts hundreds of cancellations",
+      "url": "https://bbcbreakingnews.pages.dev/news/business-32203876"
+     },
+     {
+      "title": "French Air Traffic Control Strike Grounds Hundreds of Flights Across France and Europe - United Kingdom",
+      "url": "https://europesays.com/uk/857134"
+     },
+     {
+      "title": "European airport strikes tracker",
+      "url": "https://airadvisor.com/en/airport-strikes-tracker"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 614,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "France Air Traffic Control Strike to Disrupt July Travel",
+      "url": "https://adept.travel/news/2025-06-27-france-air-traffic-control-strike"
+     },
+     {
+      "title": "A Thousand Flights To Be Cancelled As Week-Long Air Traffic Control Strike Starts In France",
+      "url": "https://www.forbes.com/sites/ceciliarodriguez/2017/03/06/a-thousand-flights-to-be-cancelled-as-week-long-air-traffic-control-strike-starts-in-france"
+     },
+     {
+      "title": "Air traffic control strike to hit many French flights next week",
+      "url": "https://www.connexionfrance.com/news/air-traffic-control-strike-to-hit-many-french-flights-next-week/136343"
+     },
+     {
+      "title": "France air traffic control strike set for Sept 18-19",
+      "url": "https://adept.travel/news/2025-08-31-france-air-traffic-control-strike-sept-18-19"
+     },
+     {
+      "title": "France Air Traffic Control Strike Update: Travel Impact",
+      "url": "https://adept.travel/news/2025-07-22-france-air-traffic-control-strike-update"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 607,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "French Aviation Authorities Dismiss False Reports of Four-Day Air Traffic Control Strike - Paris Times",
+      "url": "https://paristimes.com/french-aviation-authorities-dismiss-false-reports-of-four-day-air-traffic-control-strike"
+     },
+     {
+      "title": "French Air Traffic Controller Strike Avoided After Government Reaches Agreement - Paris Times",
+      "url": "https://paristimes.com/french-air-traffic-controller-strike-avoided-after-government-reaches-agreement"
+     },
+     {
+      "title": "French air traffic control strike averted but second strike by Air France pilots on notice",
+      "url": "https://www.travelextra.ie/french-air-traffic-control-strike-averted-but-pilots-and-cabin-crew-still-on-notice/"
+     },
+     {
+      "title": "France airport strike 2026: Paris and Marseille flight cancellations",
+      "url": "https://www.connexionfrance.com/news/disruption-at-french-airports-as-air-traffic-controllers-join-public-sector-strike/818024"
+     },
+     {
+      "title": "France ATC Strike October 2026: Fact-Checked, Your Rights",
+      "url": "https://pixidia.com/en/france-atc-strike-october-2026/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What's the current Heathrow drop-off charge?",
+   "keenable": {
+    "api_ms": 294,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "\u00a37 Fee & How to Pay",
+      "url": "https://londonairport-taxi.com/heathrow-drop-off-charge"
+     },
+     {
+      "title": "Heathrow Airport Drop Off Charges 2026: \u00a37 for up to 10 Minutes",
+      "url": "https://park4travels.co.uk/heathrow-airport-drop-off-charges-2026"
+     },
+     {
+      "title": "How to Pay the Heathrow Airport Drop-off Charge in 2026",
+      "url": "https://ayan.co.uk/blog-post/how-to-pay-the-heathrow-airport-drop-off-charge"
+     },
+     {
+      "title": "Heathrow Drop-Off Charges Explained: What You Pay and How to Avoid It",
+      "url": "https://minicabit.com/heathrow-drop-off-charges-explained"
+     },
+     {
+      "title": "Heathrow Airport Drop Off 2026: Charges, Terminals & Tips",
+      "url": "https://moveezo.com/blogs/heathrow-airport-drop-off-complete-guide"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 606,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Heathrow drop-off charge: 2026 guide | Otto Car",
+      "url": "https://ottocar.co.uk/blog/heathrow-drop-off-how-to-pay-the-charge"
+     },
+     {
+      "title": "Heathrow Drop Off Charge Explained: Fees and Payment Options",
+      "url": "https://comparemeetandgreet.co.uk/blogs/heathrow-drop-off-charge-explained"
+     },
+     {
+      "title": "Heathrow Drop-Off Charge | Caura",
+      "url": "https://www.caura.com/payments/roads-and-tolls/heathrow-drop-off"
+     },
+     {
+      "title": "Terminal Drop-Off Charge | Heathrow",
+      "url": "https://www.heathrow.com/transport-and-directions/terminal-drop-off-charge?searchInput=popular"
+     },
+     {
+      "title": "Terminal Drop-Off Charge | Heathrow",
+      "url": "http://www.heathrow.com/transport-and-directions/terminal-drop-off-charge"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 599,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Terminal Drop-Off Charge | Heathrow",
+      "url": "https://www.heathrow.com/transport-and-directions/terminal-drop-off-charge"
+     },
+     {
+      "title": "Travelling to and from Heathrow FAQs | Heathrow",
+      "url": "https://www.heathrow.com/customer-support/faq/travelling-to-and-from-heathrow-faqs"
+     },
+     {
+      "title": "Untitled",
+      "url": "https://heathrowairport-info.co.uk/drop-off-charges"
+     },
+     {
+      "title": "Heathrow Drop Off Payment \u2013 Charges, How to Pay & Exemptions - MarketUK",
+      "url": "https://marketuk.uk/tech/heathrow-drop-off-payment-guide/"
+     },
+     {
+      "title": "Terminal Drop Off Charge Terms and Conditions | Heathrow",
+      "url": "https://www.heathrow.com/terms-and-conditions/terminal-drop-off-charge-terms-and-conditions"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Can I take a power bank in hold luggage on easyJet?",
+   "keenable": {
+    "api_ms": 278,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Power Trip: The easyJet Power Bank Rule You Need to Know in 2026",
+      "url": "https://mrplaneguy.com/post/easyjet-power-bank-rules"
+     },
+     {
+      "title": "easyJet confirms 'maximum of 2 rule' for hand luggage item on flights",
+      "url": "https://britbrief.co.uk/weather/warnings/easyjet-confirms-maximum-of-2-rule-for-hand-luggage-item.html"
+     },
+     {
+      "title": "easyJet confirms 'maximum of 2 rule' for hand luggage item on flights",
+      "url": "https://express.co.uk/travel/articles/2239197/easyjet-confirms-maximum-2-rule"
+     },
+     {
+      "title": "Power banks are causing flight delays \u2014 latest rules for easyJet, Ryanair, Wizz Air and more",
+      "url": "https://metro.co.uk/2026/07/24/power-banks-causing-flight-delays-latest-rules-easyjet-ryanair-wizz-air-29212860"
+     },
+     {
+      "title": "Ryanair, TUI and easyJet electric item rules as item banned from luggage",
+      "url": "https://walesonline.co.uk/whats-on/travel/ryanair-tui-easyjet-electic-item-33839793"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 572,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Hold luggage | easyJet",
+      "url": "http://www.easyjet.com/en/help/baggage/hold-luggage"
+     },
+     {
+      "title": "EasyJet Flight Diversion: Power Bank in Luggage Sparks Rome Landing (2026)",
+      "url": "https://promosbbt.com/article/easyjet-flight-diversion-power-bank-in-luggage-sparks-rome-landing"
+     },
+     {
+      "title": "EasyJet Flight Diversion: Power Bank in Luggage Sparks Rome Landing (2026)",
+      "url": "https://kinnareegourmet.com/article/easyjet-flight-diversion-power-bank-in-luggage-sparks-rome-landing"
+     },
+     {
+      "title": "Hold luggage | easyJet",
+      "url": "https://www.easyjet.com/en/help/baggage/hold-luggage"
+     },
+     {
+      "title": "EasyJet Flight Diversion: Power Bank in Luggage Sparks Rome Landing (2026)",
+      "url": "https://flatlandfilm.org/article/easyjet-flight-diversion-power-bank-in-luggage-sparks-rome-landing"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 553,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Restricted and unusual items | easyJet",
+      "url": "https://www.easyjet.com/en/help/baggage/restricted-and-unusual-items"
+     },
+     {
+      "title": "Dangerous Goods & Prohibited Articles | easyJet",
+      "url": "https://www.easyjet.com/en/help-centre/baggage/dangerous-goods"
+     },
+     {
+      "title": "Power banks are causing flight delays \u2014 latest rules for easyJet, Ryanair, Wizz Air and more | Metro News",
+      "url": "https://metro.co.uk/2026/07/24/power-banks-causing-flight-delays-latest-rules-easyjet-ryanair-wizz-air-29212860/"
+     },
+     {
+      "title": "Power Bank Rules From Jet2, Ryanair, easyJet, TUI, And More | HuffPost UK Life",
+      "url": "https://www.huffingtonpost.co.uk/entry/power-bank-rules-flights_uk_6a16bb7ee4b062ca52d5ec89"
+     },
+     {
+      "title": "Latest power bank rules for easyJet, Ryanair, Wizz Air and more airlines | Metro UK",
+      "url": "https://metro.co.uk/galleries/latest-power-bank-rules-for-easyjet-ryanair-wizz-air-and-more-airlines-28524884/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is the Elizabeth line running normally right now?",
+   "keenable": {
+    "api_ms": 272,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "TfL Live Tube Line Status \u2014 All Lines",
+      "url": "https://mycommute.london/status"
+     },
+     {
+      "title": "live Tube, Elizabeth line and DLR status, measured",
+      "url": "https://delayometer.london"
+     },
+     {
+      "title": "Live London Tube & TfL Line Status Today",
+      "url": "https://minne.london/line-status"
+     },
+     {
+      "title": "Elizabeth line live status & route | mycommute.london",
+      "url": "https://mycommute.london/elizabeth"
+     },
+     {
+      "title": "Tube & rail status \u2014 is my line running?",
+      "url": "http://nexttrain.london/status"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 571,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Elizabeth Line | London Now",
+      "url": "https://www.london-now.co.uk/topics/elizabeth-line"
+     },
+     {
+      "title": "Elizabeth Line | London Now",
+      "url": "https://www.thisislocallondon.co.uk/topics/elizabeth-line"
+     },
+     {
+      "title": "Is the Elizabeth line running today - Heathrow disruptions | London Now",
+      "url": "https://www.london-now.co.uk/news/26452730.elizabeth-line-running-today---heathrow-disruptions"
+     },
+     {
+      "title": "Elizabeth Line | London Now",
+      "url": "https://thisislocallondon.co.uk/topics/elizabeth-line"
+     },
+     {
+      "title": "Is the Elizabeth line running today? Live status",
+      "url": "https://elizabethlineguide.com/status"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 566,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Tube, Overground, Elizabeth line, DLR & Tram status updates - Transport for London",
+      "url": "https://tfl.gov.uk/tube-dlr-overground/status/?dateTypeSelect=Now"
+     },
+     {
+      "title": "Are there any delays on the Elizabeth line line? Live status | Tube Alerter",
+      "url": "https://tubenotifications.co.uk/line/elizabeth"
+     },
+     {
+      "title": "Tube, Overground, Elizabeth line, DLR & Tram status updates - Transport for London",
+      "url": "https://tfl.gov.uk/status/tube"
+     },
+     {
+      "title": "Elizabeth line status: is it running today? | London Travel News",
+      "url": "https://londontravelnews.co.uk/line/elizabeth"
+     },
+     {
+      "title": "Elizabeth line live status and train times | Train Times Live",
+      "url": "https://www.traintimeslive.co.uk/operators/elizabeth-line"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Are there any UK rail strikes this week?",
+   "keenable": {
+    "api_ms": 279,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Train Strikes This Week: UK Dates, Status & Checks",
+      "url": "https://presstrail.uk/tech/train-strikes-this-week"
+     },
+     {
+      "title": "Rail Strikes to Cause Chaos Across the Country - London Daily",
+      "url": "https://londondaily.com/train-strikes-this-week-to-hit-fa-cup-final-and-epsom-derby"
+     },
+     {
+      "title": "Train Strike Dates This Week UK: London Tube Strikes",
+      "url": "https://ukcanvas.uk/tech/train-strike-dates-this-week"
+     },
+     {
+      "title": "Britain\u2019s rail strikes: which trains will be running where and when? - London Daily",
+      "url": "https://londondaily.com/britain-s-rail-strikes-which-trains-will-be-running-where-and-when"
+     },
+     {
+      "title": "UK rail strikes: How TfL and National Rail services will be affected today",
+      "url": "https://nation.lk/online/uk-rail-strikes-how-tfl-and-national-rail-services-will-be-affected-today-188593.html"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 612,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Week-Long Belgian Rail Strikes Threaten January City Breaks for UK Travellers",
+      "url": "https://www.thetraveler.org/week-long-belgian-rail-strikes-threaten-january-city-breaks-for-uk-travellers"
+     },
+     {
+      "title": "Week-Long Belgian Rail Strikes Threaten January City Breaks for UK Travellers",
+      "url": "https://thetraveler.org/week-long-belgian-rail-strikes-threaten-january-city-breaks-for-uk-travellers"
+     },
+     {
+      "title": "UK Rail Strikes Disrupt Christmas Travel 2024 | KnowInsiders",
+      "url": "https://knowinsiders.com/uk-rail-strikes-disrupt-christmas-travel-2024-41934.html"
+     },
+     {
+      "title": "Weekend rail strikes and overtime ban disrupt UK travel | Rail strikes | The Guardian",
+      "url": "https://www.theguardian.com/uk-news/2024/feb/02/weekend-rail-strikes-train-travel-uk-aslef-pay-dispute"
+     },
+     {
+      "title": "uk train strikes: UK train strikes in May 2024: These are the lines to be affected this week - The Economic Times",
+      "url": "https://m.economictimes.com/news/international/uk/uk-train-strikes-in-may-2024-these-are-the-lines-to-be-affected-this-week/articleshow/109890805.cms"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 493,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Rail & Train Strikes October 2026 | Strike Calendar",
+      "url": "https://www.strikecalendar.co.uk/sector/rail"
+     },
+     {
+      "title": "United Kingdom Transport Strikes (October 2026) \u2014 Trains, Buses, Flights & Ferries | Strike Tracker",
+      "url": "https://striketracker.app/strikes-in-united-kingdom"
+     },
+     {
+      "title": "UK & European & Asian rail strikes info",
+      "url": "https://www.mytrainpal.com/rail-strike"
+     },
+     {
+      "title": "Three Sunday Rail Strikes to Affect TransPennine Express in October 2026 - Travel And Tour News",
+      "url": "https://travelandtournews.com/transpennine-express-strike-impact-york-north-yorkshire-october-2026/"
+     },
+     {
+      "title": "Incident: London Paddington | National Rail",
+      "url": "https://www.nationalrail.co.uk/service-disruptions/london-paddington-20261008/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is there Eurostar disruption today?",
+   "keenable": {
+    "api_ms": 260,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://eurostar.com/uk-en/travel-info/travel-updates?embedded_webview=true"
+     },
+     {
+      "title": "Travel disruptions in Europe",
+      "url": "https://www.interrail.eu/en/support/travel-disruptions"
+     },
+     {
+      "title": "escenic",
+      "url": "https://telegraph.co.uk/travel/eurostar/6850889/Eurostar-cancels-services-amid-snow-chaos.html"
+     },
+     {
+      "title": "Eurostar services are set to restart following a French strike resolution, despite further disruptions from Storm Pia - London Daily",
+      "url": "https://londondaily.com/eurostar-services-are-set-to-restart-following-a-french-strike-resolution-despite-further-disruptions-from-storm-pia"
+     },
+     {
+      "title": "C93wkw37p0pt",
+      "url": "https://bbcbreakingnews.pages.dev/news/live/c93wkw37p0pt"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 565,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Eurostar Cancellations Continue Today as Passengers Face More Disruption",
+      "url": "https://www.rustourismnews.com/2026/09/20/eurostar-cancellations-continue-today-as-passengers-face-more-disruption"
+     },
+     {
+      "title": "'We advise you to cancel your trip': Eurostar disruption continues",
+      "url": "https://www.nationalworld.com/travel/travel-news/eurostar-cable-theft-cancellations-disruption-5193528"
+     },
+     {
+      "title": "Eurostar disruption after two people hit by trains in France",
+      "url": "https://www.nationalworld.com/travel/travel-news/eurostar-delays-and-cancellations-service-disruption-people-hit-by-train-lille-in-france-5193115"
+     },
+     {
+      "title": "Eurostar Disruption: Major Delays and Cancellations Explained (2026)",
+      "url": "https://custommapposter.com/article/eurostar-disruption-major-delays-and-cancellations-explained/12278"
+     },
+     {
+      "title": "Eurostar delays: Update after two days of disruption",
+      "url": "https://www.nationalworld.com/travel/travel-news/eurostar-delays-update-after-two-days-of-disruption-5195379"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 502,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/travel-info/travel-updates"
+     },
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/infos-trafic/perturbations"
+     },
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/us-en/travel-info/travel-updates"
+     },
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/uk-en/travel-info/travel-updates?esClientId=0d07fda1a1a0c082d77855bf4550766a8a0525a6a35bc0bc20e34cbcfc733d0c"
+     },
+     {
+      "title": "Eurostar and SNCF Prepare Contingency Schedules Ahead of Rail Disruption - Paris Times",
+      "url": "https://paristimes.com/eurostar-and-sncf-prepare-contingency-schedules-ahead-of-rail-disruption"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Has the ULEZ daily charge changed?",
+   "keenable": {
+    "api_ms": 269,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "ULEZ Compliance for UK Fleets in 2026 | What Operators Pay",
+      "url": "https://saphyroo.com/uk/blog/ulez-compliance-fleets"
+     },
+     {
+      "title": "London ULEZ: The Rules, the Real Cost, and What Actually Changes in 2026 \u2013 MotorBeast",
+      "url": "https://motorbeast.org/lemon/london-ulez"
+     },
+     {
+      "title": "ULEZ and Congestion Charge for EVs: 2026 London Guide",
+      "url": "https://electriccarscheme.com/blog/our-guide-to-the-ultra-low-emission-zone"
+     },
+     {
+      "title": "London ULEZ 2026: Cost, boundaries and new Congestion Charge rules",
+      "url": "https://honestjohn.co.uk/ulez-ultra-low-emissions-zone-london"
+     },
+     {
+      "title": "ULEZ Expansion: What It Actually Means for Drivers in 2026",
+      "url": "https://motifyme.co/blog/ulez-expansion-what-it-actually-means-for-drivers-in-2026"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 503,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "What is the ULEZ charge and who has to pay it? | Regit",
+      "url": "https://www.regit.cars/car-advice/electric/what-is-the-ulez-charge-and-who-has-to-pay-it"
+     },
+     {
+      "title": "Understanding London's ULEZ Charge: A Comprehensive Guide - Crisfix",
+      "url": "https://crisfix.com/ulez-charge-london"
+     },
+     {
+      "title": "ULEZ daily charge, expansion start date, how to pay, and are there any exemptions? | Surrey Live",
+      "url": "https://www.getsurrey.co.uk/news/surrey-news/ulez-daily-charge-expansion-start-26569962"
+     },
+     {
+      "title": "How to pay the ULEZ charge?",
+      "url": "https://ulez.co.uk/how-to-pay-ulez-charge"
+     },
+     {
+      "title": "ULEZ: What happens if you avoid paying the ULEZ charge? | News Shopper",
+      "url": "https://newsshopper.co.uk/news/23754957.ulez-happens-avoid-paying-ulez-charge"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 555,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "ULEZ: where and when - Transport for London",
+      "url": "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone/ulez-where-and-when"
+     },
+     {
+      "title": "ULEZ \u2014 check your vehicle and pay the \u00a312.50 charge \u00b7 government.london",
+      "url": "https://government.london/services/ulez/"
+     },
+     {
+      "title": "Untitled",
+      "url": "https://content.tfl.gov.uk/tfl-ulez-online-booklet.pdf"
+     },
+     {
+      "title": "Ultra Low Emission Zone (ULEZ) Key Fact Sheet",
+      "url": "https://content.tfl.gov.uk/ulez-online-factsheet-apr-jun2026.pdf"
+     },
+     {
+      "title": "What Is the ULEZ Charge? Finance Guide | Kandoo",
+      "url": "https://www.kandoo.co.uk/guides/what-is-the-ulez-charge"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is the Blackwall Tunnel closed this weekend?",
+   "keenable": {
+    "api_ms": 265,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Blackwall Tunnel Closed Southbound Weekend Of 31 March To 3 April For Installation Of New Walking And Cycling Footbridge In Greenwich",
+      "url": "https://designandbuilduk.net/blackwall-tunnel-closed-southbound-weekend-of-31-march-to-3-april-for-installation-of-new-walking-and-cycling-footbridge-in-greenwich"
+     },
+     {
+      "title": "Blackwall Tunnel closures",
+      "url": "https://tfl.gov.uk/status-updates/major-works-and-events/blackwall-tunnel-closures?intcmp=54302"
+     },
+     {
+      "title": "Current Status and Travel Information",
+      "url": "https://londoner.news/blackwall-tunnel-closure"
+     },
+     {
+      "title": "Is Blackwall Tunnel southbound open today?",
+      "url": "https://vidque.com/is-blackwall-tunnel-southbound-open-today"
+     },
+     {
+      "title": "Is the Blackwall Tunnel closed?",
+      "url": "https://eboots.co.uk/wiki/is-the-blackwall-tunnel-closed"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 520,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Blackwall Tunnel part-shut this weekend \u2013 Highways News",
+      "url": "https://highways-news.com/blackwall-tunnel-part-shut-this-weekend"
+     },
+     {
+      "title": "Blackwall Tunnel closed for weekend roadworks",
+      "url": "https://www.bbc.com/news/articles/c728edvp9elo"
+     },
+     {
+      "title": "Blackwall Tunnel closed for weekend roadworks - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/c728edvp9elo"
+     },
+     {
+      "title": "Blackwall Tunnel closed southbound weekend of 31 March to 3 April for installation of new walking and cycling footbridge in Greenwich - Transport for London",
+      "url": "https://tfl.gov.uk/info-for/media/press-releases/2023/march/blackwall-tunnel-closed-southbound-weekend-of-31-march-to-3-april-for-installation-of-new-walking-and-cycling-footbridge-in-greenwich"
+     },
+     {
+      "title": "Blackwall Tunnel southbound closure announced for this weekend | trans.info",
+      "url": "https://trans.info/en/blackwall-tunnel-southbound-closure-announced-for-this-weekend-396438"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 506,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Untitled",
+      "url": "https://tfl.gov.uk/StatusUpdates/RoadsStatusBoard?corridorIds=blackwall+tunnel"
+     },
+     {
+      "title": "Blackwall Tunnel traffic- Northbound tunnel closed | London Now",
+      "url": "https://www.london-now.co.uk/news/26619978.blackwall-tunnel-traffic-live---northbound-tunnel-closed/"
+     },
+     {
+      "title": "Blackwall Tunnel Closures Today \u2014 Live Traffic & Roadworks | Road\u2026",
+      "url": "https://roadclosures.co.uk/tunnel/blackwall"
+     },
+     {
+      "title": "Blackwall and Silvertown tunnels: where and when - Transport for London",
+      "url": "https://tfl.gov.uk/modes/driving/silvertown-blackwall-tunnels-charge/blackwall-and-silvertown-tunnels-where-and-when"
+     },
+     {
+      "title": "TfL Tunnel Routine Maintenance Closures - April 2025 to March 2026",
+      "url": "https://foi.tfl.gov.uk/FOI-1935-2526/Blackwall%20Tunnel%20Maintenance%20Closures%20Program%202025%20-%202026%20(Issue%20v5).pdf"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What time is the last Thameslink train from St Pancras to St Albans tonight?",
+   "keenable": {
+    "api_ms": 308,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "London to St Albans by train",
+      "url": "https://1map.com/en/routes/train/gb-london_to_gb-st-albans-32164"
+     },
+     {
+      "title": "Trains from London to St Albans from \u00a36.00",
+      "url": "https://uk.trip.com/trains/uk/route/london-to-st-albans"
+     },
+     {
+      "title": "Trains London St Pancras to St Albans City | Train Tickets & Times | Thameslink",
+      "url": "https://thameslinkrailway.com/journey/London-St-Pancras-to-St-Albans-City"
+     },
+     {
+      "title": "LONDON to ST ALBANS train from $6 (\u20ac5) with Thameslink - Omio",
+      "url": "https://omio.com/trains/london/st-albans?landing_referrer=&stitch=1da3b2030cde47cc9fb979ccce547bf5-v3"
+     },
+     {
+      "title": "West Hampstead Thameslink Train Departures | Live Station Board",
+      "url": "https://stationview.app/whp"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 628,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "St Albans to St Pancras | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/st-albans-city-to-london-st-pancras"
+     },
+     {
+      "title": "Trains London St Pancras to St Albans City | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/london-st-pancras-to-st-albans-city"
+     },
+     {
+      "title": "ST ALBANS CITY to LONDON ST PANCRAS INTERNATIONAL train from \u00a36 with Thameslink - Omio",
+      "url": "https://www.omio.co.uk/trains/st-albans-city/london-st-pancras-international-ospra"
+     },
+     {
+      "title": "St Albans City to London St. Pancras International Trains from \u00a35.80 | Trip.com",
+      "url": "https://uk.trip.com/trains/uk/route/st-albans-city-to-london-st-pancras-international"
+     },
+     {
+      "title": "Thameslink (London St Pancras International - St Albans City) Rail, route map and schedule, London",
+      "url": "https://busmaps.com/en/uk/public_transit-line-Thameslink-3667890703-2720278838"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 543,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Rail - Train Timetable - London St Pancras (Intl) to St Albans",
+      "url": "https://live-departures.info/rail/timetable/London-St-Pancras-Intl/St-Albans/"
+     },
+     {
+      "title": "Trains London St Pancras to St Albans City | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/london-st-pancras-to-st-albans-city"
+     },
+     {
+      "title": "10:03 St Pancras International - St Albans City (9V24) | Thameslink | Train Times | Traksy",
+      "url": "https://traksy.uk/train/gb/C10408"
+     },
+     {
+      "title": "Trains from St Albans City to London St Pancras International | Check Times & Cheap Tickets",
+      "url": "https://www.traintickets.com/train-times/st-albans-city-to-london-st-pancras-international/"
+     },
+     {
+      "title": "St Albans to St Pancras | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/st-albans-city-to-london-st-pancras"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What time does the Apple Store on Regent Street close today?",
+   "keenable": {
+    "api_ms": 263,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Regent Street - Apple Store - Apple",
+      "url": "https://apple.com/uk/retail/regentstreet?ved=2ahUKEwi5sPqH_daTAxXKUqQEHYRFLbsQgU96BAgdEAo"
+     },
+     {
+      "title": "APPLE REGENT STREET - Updated September 2026 - 92 Photos & 183 Reviews - 235 Regent Street, London - IT Services & Computer & Laptop Repair - Phone Number - Yelp",
+      "url": "https://yelp.co.uk/biz/apple-regent-street-london-2"
+     },
+     {
+      "title": "Apple Store in Regent Street, London - Localmint",
+      "url": "https://localmint.com/uk/apple-store-regent-street-77403"
+     },
+     {
+      "title": "Apple Store",
+      "url": "https://londinium.com/way/291263216"
+     },
+     {
+      "title": "Regent Street Shopping Guide | ShoppingCities.com",
+      "url": "https://shoppingcities.com/destinations/united-kingdom/london/areas/regent-street"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 611,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Apple to Temporarily Close Its Regent Street Store for Refurbishment",
+      "url": "https://www.macobserver.com/news/apple-to-temporarily-close-its-regent-street-store-for-refurbishment"
+     },
+     {
+      "title": "Apple Regent Street store to close for refurbishment",
+      "url": "https://appleinsider.com/articles/26/01/07/apple-to-temporarily-close-regent-street-store-in-london"
+     },
+     {
+      "title": "Apple to Temporarily Close Its Regent Street Store for Refurbishment",
+      "url": "https://www.macobserver.com?p=438369"
+     },
+     {
+      "title": "Today at Apple - Calendar - Regent Street - Apple (UK)",
+      "url": "https://www.apple.com/uk/today/calendar/regentstreet"
+     },
+     {
+      "title": "History of 235 Regent Street | Mosaics Above the Apple Store",
+      "url": "https://lookup.london/history-235-regent-street-apple-store-mosaics#comment-11491"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 604,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Regent Street - Apple Store - Apple (UK)",
+      "url": "https://www.apple.com/uk/retail/regentstreet/"
+     },
+     {
+      "title": "Apple Regent Street - Apple Maps",
+      "url": "https://maps.apple.com/place?place-id=I63F5C5B7E440EE4"
+     },
+     {
+      "title": "Explore hands-on sessions at Apple Regent Street.",
+      "url": "https://www.apple.com/uk/today/calendar/regentstreet/"
+     },
+     {
+      "title": "Apple's Regent Street Store Reopening Soon After One-Month Closure - MacRumors",
+      "url": "https://www.macrumors.com/2026/02/09/apples-regent-street-reopening-date/"
+     },
+     {
+      "title": "When will Apple Regent Street reopen?",
+      "url": "https://appleinsider.com/articles/26/02/10/londons-apple-regent-street-to-reopen-on-valentines-day"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Has Zara changed its returns policy recently?",
+   "keenable": {
+    "api_ms": 277,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Fast Fashion Return Policies in 2026: Shein, Temu, ASOS, Zara, H&M & 5 More Compared",
+      "url": "https://canireturn.com/blog/fast-fashion-return-policy-comparison"
+     },
+     {
+      "title": "Zara Officially Starts Charging for E-Commerce Returns - NewsBreak",
+      "url": "https://newsbreak.com/egoease-379109370/4568371042798-zara-officially-starts-charging-for-e-commerce-returns"
+     },
+     {
+      "title": "Zara Return Policy Tested: Window, Fee & Refund (2026)",
+      "url": "https://retailreturnspolicy.com/zara-return-policy"
+     },
+     {
+      "title": "Zara Return Policy 2026: 30-Day Returns Guide",
+      "url": "https://brandsreturnpolicy.com/zara-return-policy"
+     },
+     {
+      "title": "Zara starts charging shoppers for online returns - London Daily",
+      "url": "https://londondaily.com/zara-starts-charging-shoppers-for-online-returns"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 618,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Nordstrom says generous returns policy has not changed | The Seattle Times",
+      "url": "https://www.seattletimes.com/business/retail/nordstrom-says-returns-policy-has-not-changed"
+     },
+     {
+      "title": "Zara Return Policy: Starts Charging Shoppers For Online Returns",
+      "url": "https://retailboss.co/zara-starts-charging-shoppers-for-online-returns"
+     },
+     {
+      "title": "Zara Returns Policy - Zara Returns - Parcel Monkey",
+      "url": "https://www.parcelmonkey.com/retailer-returns/zara-returns"
+     },
+     {
+      "title": "Has Bangkok Bank changed its policy on accounts for DTV holders recently? - Ask Thailand",
+      "url": "https://ask.in.th/question/has-bangkok-bank-changed-its-policy-on-accounts-for-dtv-holders-recently"
+     },
+     {
+      "title": "Costco May Have Just Quietly Changed Its Returns Policy: Reports - Newsweek",
+      "url": "http://www.newsweek.com/costco-returns-policy-changed-reports-11528117"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 611,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "How To Return | Help | ZARA United Kingdom",
+      "url": "https://www.zara.com/uk/en/help-center/HowToReturn"
+     },
+     {
+      "title": "ZARA TERMS & CONDITIONS",
+      "url": "https://static.zara.net/static/pdfs/US/terms-and-conditions/terms-and-conditions-en_US-20250829.pdf"
+     },
+     {
+      "title": "PURCHASE CONDITIONS",
+      "url": "https://static.zara.net/static/pdfs/UK/terms-and-conditions/terms-and-conditions-en_UK-20240723.pdf"
+     },
+     {
+      "title": "Refunds | Help | ZARA International",
+      "url": "https://www.zara.com/ww/en/help-center/Refund"
+     },
+     {
+      "title": "Special Return Conditions | Help | ZARA United Kingdom",
+      "url": "https://www.zara.com/uk/en/help-center/ReturnSpecialConditions"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What's the Argos same-day delivery cutoff?",
+   "keenable": {
+    "api_ms": 279,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Argos Same Day Delivery | Fast, Flexible Essentials Delivered Today \u2013 House of Isabella",
+      "url": "https://houseofisabella.co.uk/pages/argos-same-day-delivery"
+     },
+     {
+      "title": "Argos Delivery Costs: Your Comprehensive UK Guide | Willand Service Centre",
+      "url": "https://willandservicecentre.co.uk/argos-carry-to-car-service"
+     },
+     {
+      "title": "Delivery & Collection Guide | Argos",
+      "url": "https://help.argos.co.uk/help/delivery-&-collection-guide"
+     },
+     {
+      "title": "Argos Plus | Argos",
+      "url": "https://argos.co.uk/features/argos-plus"
+     },
+     {
+      "title": "Argos discount codes for September 2026",
+      "url": "https://www-techradar-com.translate.goog/coupons/argos?_x_tr_hl=tr&_x_tr_pto=tc&_x_tr_sl=en&_x_tr_tl=tr"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 391,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Argos to start same-day delivery",
+      "url": "https://www.telegraph.co.uk/finance/newsbysector/retailandconsumer/10978462/Argos-to-start-same-day-delivery.html"
+     },
+     {
+      "title": "Argos Same Day Delivery | Fast, Flexible Essentials Delivered Today \u2013 House of Isabella | House of Isabella UK",
+      "url": "https://houseofisabella.co.uk/pages/argos-same-day-delivery"
+     },
+     {
+      "title": "How To Display Same-Day Delivery Before Cutoff And Next-Day Delivery After Cutoff In Shopify",
+      "url": "https://www.setubridge.com/shopify-same-day-delivery-cutoff-time"
+     },
+     {
+      "title": "Argos now offers same-day home delivery across the UK",
+      "url": "https://ecommercenews.eu/argos-now-offers-same-day-home-delivery-across-the-uk"
+     },
+     {
+      "title": "What time is same day delivery cutoff? \u2013 Titcoins.biz",
+      "url": "https://titcoins.biz/articles/what-time-is-same-day-delivery-cutoff"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 558,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Delivery & Collection Guide | Argos",
+      "url": "https://help.argos.co.uk/help/delivery-&-collection-guide"
+     },
+     {
+      "title": "Argos Support | Blog | Delivery Options We Offer",
+      "url": "https://argos-support.co.uk/blog/hints-tips-services/delivery-options-we-offer"
+     },
+     {
+      "title": "Argos Help Centre | Terms and Conditions",
+      "url": "https://help.argos.co.uk/help/terms-and-conditions"
+     },
+     {
+      "title": "Argos Mobile Customer Services",
+      "url": "https://www.argos.co.uk/m/static/StaticDisplay/includeName/fast-track.htm"
+     },
+     {
+      "title": "Can I see all your delivery options?",
+      "url": "https://help.argos.co.uk/help/delivery-and-collection/deliveryoptions"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Does John Lewis still price match?",
+   "keenable": {
+    "api_ms": 283,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "John Lewis price match: how it works",
+      "url": "https://becleverwithyourcash.com/john-lewis-price-drop-refunds-how-it-works"
+     },
+     {
+      "title": "\u2018Brilliant\u2019 say shoppers as major retailer set to bring back price match promise TOMORROW",
+      "url": "https://finance9843.rssing.com/chan-79961305/article2089.html"
+     },
+     {
+      "title": "John Lewis Discount Code: 15% Off in August 2026",
+      "url": "https://savvyvouchers.co.uk/vouchers/john-lewis"
+     },
+     {
+      "title": "UK Price Match Policies in 2026: Which Ones Are Real, and How to Actually Use Them",
+      "url": "https://wem3.ai/blog/price-match-policies-uk-2026"
+     },
+     {
+      "title": "Is John Lewis more expensive?",
+      "url": "https://eboots.co.uk/wiki/is-john-lewis-more-expensive"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 624,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Price Match Policies UK: Currys, Argos, AO & John Lewis | Herm.io",
+      "url": "https://www.herm.io/shopping-tips/price-match-policies-uk-currys-argos-ao-john-lewis"
+     },
+     {
+      "title": "John Lewis Warned Not To Withhold Stock After 'price Match' Watch Row",
+      "url": "https://www.watchpro.com/john-lewis-warned-not-to-withhold-stock-after-price-match-watch-row"
+     },
+     {
+      "title": "John Lewis price match: how it works - Be Clever With Your Cash",
+      "url": "https://becleverwithyourcash.com/easy-john-lewis-price-match"
+     },
+     {
+      "title": "Comments on: John Lewis price match: how it works",
+      "url": "https://becleverwithyourcash.com/easy-john-lewis-price-match/feed"
+     },
+     {
+      "title": "John Lewis to retire its \u2018Never Knowingly Undersold\u2019 price pledge this month - TheIndustry.beauty",
+      "url": "https://theindustry.beauty/john-lewis-to-retire-its-never-knowingly-undersold-price-pledge-this-month"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 549,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Price Promise",
+      "url": "https://www.johnlewis.com/customer-services/prices-and-payment/price-promise"
+     },
+     {
+      "title": "Prices At John Lewis | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/customer-services/prices-and-payment/prices-at-john-lewis"
+     },
+     {
+      "title": "Never Knowingly Undersold | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/content/never-knowingly-undersold"
+     },
+     {
+      "title": "Request a John Lewis price promise refund | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/customer-services/prices-and-payment/price-promise/request"
+     },
+     {
+      "title": "Price Match | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/special-offers/price-match/c6000070034"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is the Dyson Airwrap on sale anywhere right now?",
+   "keenable": {
+    "api_ms": 298,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Here\u2019s Where to Buy the Musician-Loved Dyson Airwrap on Sale Plus Airwrap Dupes",
+      "url": "https://billboard.com/culture/product-recommendations/dyson-airwrap-where-to-buy-1235104708?rand=15113"
+     },
+     {
+      "title": "Run, Don't Walk: There's a Massive Dyson Airwrap Sale for Prime Big Deal Days Happening Right Now",
+      "url": "https://aol.com/articles/run-dont-walk-theres-massive-200910000.html"
+     },
+     {
+      "title": "9 Best Dyson Airwrap Deals (March 2026) Save Up to $150 on Multi-Stylers",
+      "url": "https://ofzenandcomputing.com/best-black-friday-dyson-airwrap-deals"
+     },
+     {
+      "title": "Here\u2019s Where to Buy the Musician-Loved Dyson Airwrap on Sale Plus Airwrap Dupes",
+      "url": "https://yahoo.com/lifestyle/dyson-airwrap-back-stock-where-175137957.html"
+     },
+     {
+      "title": "Dyson's \"Magical\" Airwrap Is $210 Off for Prime Day",
+      "url": "https://goodhousekeeping.com/what-to-buy/sales-shopping-news/a74050680/dyson-airwrap-prime-day-sale-october-2026"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 504,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Dyson Airwrap sale: Get the Dyson Airwrap for 15% off right now",
+      "url": "https://prima.co.uk/fashion-and-beauty/beauty-news/a39810837/dyson-airwrap-sale"
+     },
+     {
+      "title": "Dyson Airwrap sale: Get the Dyson Airwrap for 15% off right now",
+      "url": "https://www.prima.co.uk/fashion-and-beauty/beauty-news/a39810837/dyson-airwrap-sale"
+     },
+     {
+      "title": "How to Get the Dyson Airwrap on Sale Right Now Because It's Worth It",
+      "url": "https://www.retailmenot.com/blog/dyson-airwrap-sale.html"
+     },
+     {
+      "title": "Where To Shop The Dyson Airwrap on Sale Right Now | Beauty Space",
+      "url": "https://www.beautyspace.com.au/dyson-airwrap-sale"
+     },
+     {
+      "title": "Amazon's Dyson Airwrap Sale Gets You 20% Off Right Now - Bargain Hunter",
+      "url": "https://www.bargainhunter.com/dyson-airwrap-origin-sale"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 534,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Dyson Airwrap Deals",
+      "url": "https://www.dyson.com/deals/airwrap-deals"
+     },
+     {
+      "title": "Dyson's \"Magical\" Airwrap Is $210 Off for Prime Day",
+      "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/a74050680/dyson-airwrap-prime-day-sale-october-2026/"
+     },
+     {
+      "title": "Dyson Airwrap Prime Day Deal: Save $150 and Get a Free Gift - Business Insider",
+      "url": "https://www.businessinsider.com/guides/deals/dyson-airwrap-prime-day-deal-2026-10"
+     },
+     {
+      "title": "Is the Dyson Airwrap worth it? Early Prime Day deal",
+      "url": "https://nypost.com/2026/09/29/shopping/is-the-dyson-airwrap-worth-it-early-prime-day-deal/"
+     },
+     {
+      "title": "You Can Grab the Cult Classic Dyson Airwrap at a $150 Discount - CNET",
+      "url": "https://www.cnet.com/deals/dyson-airwrap-multistyler-deal/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What time does IKEA Wembley open on Sundays?",
+   "keenable": {
+    "api_ms": 274,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "IKEA Wembley - Furniture, Home D\u00e9cor & Swedish Food",
+      "url": "https://ikea.com/gb/en/stores/wembley"
+     },
+     {
+      "title": "Ikea in Wembley Opening Hours",
+      "url": "https://localopeningtimes.co.uk/ikea/ikea-wembley-wembley-2-drury-way-north-circular-road-opening-hours.html"
+     },
+     {
+      "title": "IKEA in Wembley, London - Localmint",
+      "url": "https://localmint.com/uk/ikea-wembley-57164"
+     },
+     {
+      "title": "IKEA - Wembley | Home Improvement | Wembley",
+      "url": "https://uk.locale.online/ikea---wembley-1488477886.html"
+     },
+     {
+      "title": "IKEA Wembley Opening times, 2 Drury Way, North circular Road London",
+      "url": "https://ikea-uk.open-closed.net/wembley-opening-times-2-drury-way-north-circular-road-london"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 471,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "IKEA Wembley - Furniture, Home D\u00e9cor & Swedish Food - IKEA UK",
+      "url": "https://www.ikea.com/gb/en/stores/wembley"
+     },
+     {
+      "title": "Is IKEA Open on Sundays? Store Hours Explained",
+      "url": "https://smartbuy.alibaba.com/tips/is-ikea-open-on-sundays"
+     },
+     {
+      "title": "What time does fair oaks mall open on Sundays? - Answers",
+      "url": "https://www.answers.com/grocery-stores/What_time_does_fair_oaks_mall_open_on_Sundays"
+     },
+     {
+      "title": "Is IKEA open on Sundays? - IKEA",
+      "url": "https://www.ikea.com/no/en/customer-service/knowledge/articles/4844c06g-3d51-4948-8068-718752d7cd6g.html"
+     },
+     {
+      "title": "Are IKEA stores open on Sundays? - IKEA Belgium",
+      "url": "https://www.ikea.com/be/en/customer-service/knowledge/articles/5557d77g-0dd6-4e68-9b3g-f82b6c5d19d3.html"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 502,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "IKEA Wembley - Furniture, Home D\u00e9cor & Swedish Food - IKEA UK",
+      "url": "https://www.ikea.com/gb/en/stores/wembley/"
+     },
+     {
+      "title": "IKEA Wembley London (NW10) 2 N Circular Rd",
+      "url": "https://www.the-shops.co.uk/NW10-london/ikea-wembley-6261.html"
+     },
+     {
+      "title": "Ikea Wembley",
+      "url": "https://www.ikeanearme.co.uk/ikea/ikea-wembley/"
+     },
+     {
+      "title": "Welcome to IKEA Wembley: A Shopper\u2019s Guide",
+      "url": "https://houseforum.co.uk/welcome-to-ikea-wembley-a-shoppers-guide/"
+     },
+     {
+      "title": "IKEA Wembley Opening times, 2 Drury Way, North circular Road London",
+      "url": "https://ikea-uk.open-closed.net/wembley-opening-times-2-drury-way-north-circular-road-london"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What is the Bank of England base rate today?",
+   "keenable": {
+    "api_ms": 286,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Bank of England base rate history: 2020 to 2026",
+      "url": "https://advice.mortgageonefinance.co.uk/bank-of-england-base-rate-history"
+     },
+     {
+      "title": "Bank of England Base Rate History 2020-2026: A Complete Timeline",
+      "url": "https://southyorkshirepropertybuyers.com/blog/bank-of-england-base-rate-history-2020-2026"
+     },
+     {
+      "title": "Bank of England Base Rate Today and What It Does to Business Borrowing",
+      "url": "https://capexpand.com/research/bank-of-england-base-rate"
+     },
+     {
+      "title": "Base Rate Tracker | Today's Bank of England Rate",
+      "url": "https://tembomoney.com/bank-of-england-base-rate-tracker"
+     },
+     {
+      "title": "Bank of England Base Rate Tracker: Live UK Interest Rate",
+      "url": "https://kaeltripton.com/bank-of-england-base-rate-tracker"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 493,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "the bank of england base rate has changed today | UK Startup Blog",
+      "url": "https://www.ukstartupblog.co.uk/tag/the-bank-of-england-base-rate-has-changed-today"
+     },
+     {
+      "title": "Bank of England Base Rate | Mortgage Base Rate",
+      "url": "https://purplebricks.co.uk/property-calculators/bank-of-england-base-rate"
+     },
+     {
+      "title": "Bank of England Base Rate | Mortgage Base Rate",
+      "url": "https://www.purplebricks.co.uk/property-calculators/bank-of-england-base-rate"
+     },
+     {
+      "title": "Base Rate Tracker | Today's Bank of England Rate",
+      "url": "https://tembomoney.com/bank-of-england-base-rate-tracker"
+     },
+     {
+      "title": "Base Rate Tracker | Today's Bank of England Rate",
+      "url": "https://www.tembomoney.com/bank-of-england-base-rate-tracker"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 650,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Interest rates and Bank Rate: our latest decision | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate"
+     },
+     {
+      "title": "Home | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/"
+     },
+     {
+      "title": "Bank Rate history and data | Bank of England Database",
+      "url": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp?clid=00Q1I00000KJy0CUAT"
+     },
+     {
+      "title": "What is happening with interest rates in the UK? | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/explainers/current-interest-rate"
+     },
+     {
+      "title": "Monetary policy | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/monetary-policy"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What does Monzo charge for card spending abroad?",
+   "keenable": {
+    "api_ms": 293,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Does Monzo Charge Abroad? Fees & ATM Limits 2026",
+      "url": "https://ukfinanceblog.co.uk/does-monzo-charge-abroad"
+     },
+     {
+      "title": "Monzo Fees Explained 2026: What You Actually Pay | bankinggeek.com",
+      "url": "https://bankinggeek.com/en/monzo-fees"
+     },
+     {
+      "title": "Monzo Review 2026: FX Fees, Spending Abroad and International Transfers - Currency Expert",
+      "url": "https://www.currencyexpert.com/reviews/monzo/"
+     },
+     {
+      "title": "Can I Use Monzo Abroad? Fees, ATM Limits and US Tips",
+      "url": "https://outboundlynx.com/using-monzo-credit-card-abroad"
+     },
+     {
+      "title": "Monzo Explained: What This Travel Banking App Really Offers",
+      "url": "https://thetraveler.org/monzo-explained-what-this-travel-banking-app-really-offers"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 510,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Does Monzo Charge Abroad? Fees & ATM Limits 2026",
+      "url": "https://www.ukfinanceblog.co.uk/does-monzo-charge-abroad"
+     },
+     {
+      "title": "Monzo Review 2026: FX Fees, Spending Abroad and International Transfers - Currency Expert",
+      "url": "https://www.currencyexpert.com/reviews/monzo"
+     },
+     {
+      "title": "Monzo card foreign spending exchange rate",
+      "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1dsrtgx/monzo_card_foreign_spending_exchange_rate"
+     },
+     {
+      "title": "Monzo Abroad: Your Guide To Using Your Card Overseas",
+      "url": "https://exercisejobs.com/strategic-pulse/monzo-abroad-your-guide-to-using-your-card-overseas-1767648138"
+     },
+     {
+      "title": "Foreign charges whilst using the card abroad - Travelling with Monzo - Monzo Community",
+      "url": "https://community.monzo.com/t/foreign-charges-whilst-using-the-card-abroad/8776"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 506,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Monzo Help - Understanding fees for using your Monzo card abroad",
+      "url": "https://monzo.com/help/travelling/understanding-fees"
+     },
+     {
+      "title": "Fee-free Debit & Credit Cards Made for Travel | Monzo",
+      "url": "https://monzo.com/features/travel"
+     },
+     {
+      "title": "We'll now remind you to pay in local currency when you're abroad, to help you save money!",
+      "url": "https://monzo.com/blog/2019/07/19/should-i-pay-in-local-currency-or-pounds-gbp-when-i-use-monzo-abroad"
+     },
+     {
+      "title": "Your most-asked travel money questions, answered",
+      "url": "https://monzo.com/learn/money-abroad/most-asked-travel-questions"
+     },
+     {
+      "title": "Monzo Abroad 2026 \u2014 Fees, ATM Limits and How to Use Monzo When Travelling | PocketWise",
+      "url": "https://pocketwise.co.uk/banking/monzo/monzo-travel-spending/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What is the Ofgem energy price cap this quarter?",
+   "keenable": {
+    "api_ms": 269,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Ofgem Price Cap Q4 2026 Confirmed: \u00a31,723, Up 4%",
+      "url": "https://switch-pilot.com/switchinsights/ofgem-price-cap-q4-2026-confirmed.html"
+     },
+     {
+      "title": "Ofgem raises energy price cap 4 percent to 1723 pounds from October",
+      "url": "https://finance-explained.online/news/20260830-ofgem-energy-price-cap-rises-4-percent-october"
+     },
+     {
+      "title": "Energy Price Cap Rise 3.6% From October 2026 - Even After the Government's VAT Cut",
+      "url": "https://greentechrenewables.co.uk/blog/energy-price-cap-rise"
+     },
+     {
+      "title": "Ofgem Energy Price Cap July 2026: 13% Rise to \u00a31,663",
+      "url": "https://kaeltripton.com/ofgem-energy-price-cap-update"
+     },
+     {
+      "title": "Summary of changes to energy price cap 1 July to 30 September 2026",
+      "url": "https://ofgem.gov.uk/sites/default/files/2026-06/Summary-of-changes-to-energy-price-cap-1-July-to-30-September-2026-revised-TDCV.pdf"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 461,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Ofgem cuts energy price cap by 7% for April to June quarter |",
+      "url": "https://www.deeside.com/ofgem-cuts-energy-price-cap-by-7-for-april-to-june-quarter"
+     },
+     {
+      "title": "Ofgem Energy Price Cap: April 2026 Rates & Forecasts Update",
+      "url": "https://www.infinity-energy.co.uk/guides/ofgem-energy-price-cap"
+     },
+     {
+      "title": "Ofgem Energy Price Cap History \u2014 Every Quarter Since 2019 | UK Energy Prices",
+      "url": "https://ukelectricityprices.co.uk/price-cap-history"
+     },
+     {
+      "title": "What is the Ofgem energy price cap? | MoneyWeek",
+      "url": "https://moneyweek.com/energy-price-cap-announcement"
+     },
+     {
+      "title": "Ofgem announces energy price cap increase for Quarter 1 of 2025 | News | LexisNexis",
+      "url": "https://www.lexisnexis.co.uk/legal/news/ofgem-announces-energy-price-cap-increase-for-quarter-1-of-2025"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 796,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Energy price cap (default tariff) levels | Ofgem",
+      "url": "https://www.ofgem.gov.uk/energy-regulation/domestic-and-non-domestic/energy-pricing-rules/energy-price-cap/energy-price-cap-default-tariff-levels"
+     },
+     {
+      "title": "Changes to energy price cap between 1 October and 31 December 2026 | Ofgem",
+      "url": "https://www.ofgem.gov.uk/news/changes-energy-price-cap-between-1-october-and-31-december-2026"
+     },
+     {
+      "title": "Energy price cap will rise by 4% from October 2026 | Ofgem",
+      "url": "https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026"
+     },
+     {
+      "title": "Energy price cap | Ofgem",
+      "url": "https://www.ofgem.gov.uk/energy-regulation/domestic-and-non-domestic/energy-pricing-rules/energy-price-cap"
+     },
+     {
+      "title": "Summary of changes to energy price cap 1 October to 31 December 2026",
+      "url": "https://www.ofgem.gov.uk/sites/default/files/2026-08/Summary-of-changes-to-energy-price-cap-1-October-to-31-December-2026.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is there a Thames Water hosepipe ban at the moment?",
+   "keenable": {
+    "api_ms": 275,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Thames Water Hosepipe Ban Status 2026",
+      "url": "https://lawnbyseason.com/uk/water-restrictions/thames-water"
+     },
+     {
+      "title": "Thames Water announces Temporary Use Ban following record hot weather and exceptionally high demand",
+      "url": "https://thameswater.co.uk/news/2026/jul/thames-water-announces-temporary-use-ban-following-record-hot-weather-and-exceptionally-high-demand"
+     },
+     {
+      "title": "Thames Water Hosepipe Ban: What Oxfordshire Residents Need To Know | Oxfordshire Guardian",
+      "url": "https://oxfordshireguardian.co.uk/thames-water-hosepipe-ban-what-oxfordshire-residents-need-to-know"
+     },
+     {
+      "title": "Hosepipe Ban South East London: Garden Rules Explained (2026)",
+      "url": "https://urbangardeners.co.uk/hosepipe-ban-south-east-london-garden-guide"
+     },
+     {
+      "title": "Thames Water Bans Hosepipes for 10.1 Million Customers Starting Thursday",
+      "url": "https://unbiasedheadlines.com/article/thames-water-bans-hosepipes-for-101-million-customers-starting-thursday"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 462,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Thames Water - Temporary Hosepipe Ban - Berkshire Cricket",
+      "url": "https://berkshirecricket.org/2026/07/21/thames-water-temporary-hosepipe-ban"
+     },
+     {
+      "title": "What is a Thames Water Hosepipe Ban? - Manchester Herald",
+      "url": "https://manchesterherald.co.uk/thames-water-hosepipe-ban"
+     },
+     {
+      "title": "Thames Water Hosepipe Ban \u2013 Lifted After Sustained Rainfall - TradeWire",
+      "url": "https://tradewireuk.uk/tech/thames-water-hosepipe-ban"
+     },
+     {
+      "title": "What is the penalty for violating a hosepipe ban from Thames Water? | ERGSY",
+      "url": "https://ergsy.com/information/what-penalty-violating-hosepipe-ban-thames-water/orphans/22869/15968"
+     },
+     {
+      "title": "Thames Water hosepipe ban 2026: Who's affected & Why",
+      "url": "https://todaywhy.com/thames-water-hosepipe-ban-2026-explained"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 526,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Thames Water Temporary Hosepipe Ban | Restrictions, Exemptions & FAQs",
+      "url": "https://www.thameswater.co.uk/help/temporary-hosepipe-ban"
+     },
+     {
+      "title": "Thames Water announces Temporary Use Ban following record hot weather and exceptionally high demand",
+      "url": "https://www.thameswater.co.uk/news/2026/jul/thames-water-announces-temporary-use-ban-following-record-hot-weather-and-exceptionally-high-demand"
+     },
+     {
+      "title": "Legal notice | Water supply | Thames Water",
+      "url": "https://www.thameswater.co.uk/help/temporary-hosepipe-ban/legal-notice"
+     },
+     {
+      "title": "Thames Water hosepipe ban comes into force for millions - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/cwylp1r946yo"
+     },
+     {
+      "title": "Thames Water announces hosepipe ban for 10 million customers - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/crmrnvl2xw8o"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What's the current Premium Bonds prize fund rate?",
+   "keenable": {
+    "api_ms": 278,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "NS&I reduces prize fund rate and lengthens odds for Premium Bonds",
+      "url": "https://qa-ifa.nsandi.com/nsi-reduces-prize-fund-rate-and-lengthens-odds-premium-bonds"
+     },
+     {
+      "title": "PR260204 - NS&I reduces prize fund rate and lengthens odds for Premium Bonds",
+      "url": "https://nsandi.com/about-us/press-releases/2026/nsi-reduces-prize-fund-rate-lengthens-odds-premium-bonds"
+     },
+     {
+      "title": "Premium Bonds holders given double blow as NS&I releases update on accounts",
+      "url": "https://assetmarketnews.com/investment/premium-bonds-holders-given-double-blow-as-nsi-releases-update-on-accounts"
+     },
+     {
+      "title": "NS&I Premium Bonds Rate Increase: New 3.8% Odds & Prize Draw Boost",
+      "url": "https://londonbusinessmag.co.uk/nsi-premium-bonds-rate-increase"
+     },
+     {
+      "title": "NS&I Prize Fund Rate Increase: Premium Bonds' Rate Hits 3.8%",
+      "url": "https://ukbusinesstimes.co.uk/nsi-prize-fund-rate-increase"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 614,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Premium Bonds prize rate to rise to 3.8%",
+      "url": "https://www.moneysavingexpert.com/news/2026/05/premium-bonds-prize-rate-rise-july"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to be slashed: Are they still worth holding?",
+      "url": "https://www.yourmoney.com/saving-banking/premium-bonds-prize-fund-rate-set-to-be-slashed-are-they-still-worth-holding"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to be cut to 3.60% from August",
+      "url": "https://moneycomms.co.uk/premium-bonds-prize-fund-rate-to-be-cut-to-3-60-from-august"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to increase",
+      "url": "https://uk.finance.yahoo.com/news/premium-bonds-prize-fund-rate-095511459.html"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to be cut to 4.15% from December - Money Comms",
+      "url": "https://moneycomms.co.uk/premium-bonds-prize-fund-rate-to-be-cut-to-4-15-from-december"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 608,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "PR260901 - ERNIE draws two September jackpot millionaires as Premium Bonds approach 70th anniversary | NS&I",
+      "url": "https://www.nsandi.com/about-us/press-releases/2026/september-premium-bonds-two-millionaires-norwich-and-london"
+     },
+     {
+      "title": "PR261001 - Two Premium Bonds holders in Somerset and East Sussex celebrate as ERNIE draws the October jackpot millionaires | NS&I",
+      "url": "https://www.nsandi.com/about-us/press-releases/2026/october-premium-bonds-two-millionaires-somerset-and-east-sussex"
+     },
+     {
+      "title": "PR260818 - Boost for Premium Bonds including around 308,000 extra tax-free prizes \u2013 plus improved rates for four other NS&I savings products | NS&I",
+      "url": "https://www.nsandi.com/about-us/press-releases/2026/boost-for-premium-bonds-including-around-308k-extra-tax-free-prizes-plus-improved-rates-four-other-nsi-savings-products"
+     },
+     {
+      "title": "Premium Bonds September 2026: 4.35% and 21,000:1",
+      "url": "https://financelives.com/blog/uk-premium-bonds-prize-rate-2026"
+     },
+     {
+      "title": "Premium Bonds rate rises to 4.35% (September 2026)",
+      "url": "https://www.kaeltripton.com/latest/premium-bonds-prize-fund-rate/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is the Revolut app down right now?",
+   "keenable": {
+    "api_ms": 271,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Is Revolut Down? Live Status & Outage Map",
+      "url": "https://status.buzz/revolut"
+     },
+     {
+      "title": "Is Revolut Down?",
+      "url": "https://outage.gg/services/revolut"
+     },
+     {
+      "title": "Revolut down? Outage map, service status, incidents history",
+      "url": "https://outage.report/revolut"
+     },
+     {
+      "title": "Revolut Status. Is Revolut down?",
+      "url": "https://isdown.app/status/revolut"
+     },
+     {
+      "title": "Is Revolut (US) Down?",
+      "url": "https://outage.gg/services/revolut-us"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 685,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Is Revolut Down Right Now? Live Status, Outages & Service Issues",
+      "url": "https://www.entireweb.com/status/revolut"
+     },
+     {
+      "title": "Is Revolut Down? Live Status, Outage Map & Reports",
+      "url": "https://outage.report/revolut"
+     },
+     {
+      "title": "Revolut Users Report Issues As App Down For Many",
+      "url": "https://extra.ie/2024/05/31/news/irish-news/revolut-outage"
+     },
+     {
+      "title": "Revolut Business Mobile App Status. Check if Revolut Business Mobile App is down or having an outage. | StatusGator",
+      "url": "https://statusgator.com/services/revolut/business-mobile-app"
+     },
+     {
+      "title": "Revolut Business Web App Status. Check if Revolut Business Web App is down or having an outage. | StatusGator",
+      "url": "https://statusgator.com/services/revolut/business-web-app"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 608,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "System status | Revolut United Kingdom",
+      "url": "https://www.revolut.com/system-status/"
+     },
+     {
+      "title": "System status | Revolut United States",
+      "url": "https://www.revolut.com/en-US/system-status/"
+     },
+     {
+      "title": "Revolut down? Current problems and outages | Downdetector US",
+      "url": "https://downdetector.com/status/revolut/"
+     },
+     {
+      "title": "Is Revolut Down? Live Status & Outage Tracker",
+      "url": "https://www.pulsapi.com/services/revolut"
+     },
+     {
+      "title": "Is Revolut Down Right Now? Revolut Server Status & Outage Reports Live | IsItDownRightNow.app",
+      "url": "https://isitdownrightnow.app/services/revolut/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Are there any tickets left for Oasis at Wembley?",
+   "keenable": {
+    "api_ms": 269,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://inkl.com/news/will-oasis-add-any-more-2027-tour-dates-as-42-dates-sell-out"
+     },
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://aol.co.uk/articles/oasis-add-more-2027-tour-142443000.html"
+     },
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://standard.co.uk/culture/music/oasis-2027-tour-tickets-extra-sale-b1298644.html"
+     },
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://malaysia.news.yahoo.com/oasis-add-more-2027-tour-142443683.html"
+     },
+     {
+      "title": "Oasis 2027 tickets LIVE: Liam Gallagher delivers message to fans as 42-show tour sells out",
+      "url": "https://standard.co.uk/culture/music/oasis-2027-tickets-sale-tour-latest-liam-gallagher-b1298266.html"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 510,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "It's not too late to buy Oasis Wembley tickets as 42-day countdown begins",
+      "url": "https://www.ladbible.com/entertainment/music/oasis-wembley-stadium-uk-reunion-tour-official-tickets-764401-20250523"
+     },
+     {
+      "title": "Oasis at Wembley | VIP Tickets & Hospitality",
+      "url": "https://booking.aokevents.com/event/oasis"
+     },
+     {
+      "title": "How to buy Oasis tickets before new Wembley Stadium tickets are released | Kent Live",
+      "url": "https://www.kentlive.news/whats-on/music-nightlife/oasis-tickets-vip-seat-unique-9535379"
+     },
+     {
+      "title": "Oasis Fans Not Allowed To Listen To Gig Outside Wembley",
+      "url": "https://secretldn.com/ticketless-oasis-fans-banned-wembley"
+     },
+     {
+      "title": "Oasis: new Wembley dates, how to get tickets and enter ballot | Oasis | The Guardian",
+      "url": "https://www.theguardian.com/music/article/2024/sep/05/oasis-new-wembley-dates-how-to-get-tickets-and-enter-ballot"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 554,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Oasis at Wembley: Tickets, start time, seating plan and everything you need to know for London shows | The Independent",
+      "url": "https://www.the-independent.com/arts-entertainment/music/news/oasis-wembley-tickets-start-time-seating-plan-setlist-b2800333.html"
+     },
+     {
+      "title": "Oasis London Wembley Stadium 2025: Where to Buy Last-Minute Tickets For The Final Two Oasis Live 2025 Tour Shows",
+      "url": "https://www.timeout.com/london/news/where-to-buy-last-minute-oasis-tickets-for-the-two-london-wembley-stadium-shows-this-weekend-092425"
+     },
+     {
+      "title": "OASIS LIVE '25",
+      "url": "https://www.wembleystadium.com/events/2025/OASIS"
+     },
+     {
+      "title": "Oasis London: Wembley Setlist, Support and Travel Tips",
+      "url": "https://ticketsatlas.com/oasis-london/"
+     },
+     {
+      "title": "Oasis Live 25 all you need to know - Wembley Stadium",
+      "url": "https://www.wembleystadium.com/news/2025/05/14/13/10/Oasis-Live-25-all-you-need-to-know"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is the Natural History Museum open on Mondays?",
+   "keenable": {
+    "api_ms": 295,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Natural History Museum with the Copenhagen Card (2026)",
+      "url": "https://thecopenhagencard.com/natural-history-museum"
+     },
+     {
+      "title": "Museums Open On Monday In Los Angeles: What Actually Opens",
+      "url": "https://losangelesmuseums.guide/guides/los-angeles-museums-open-monday"
+     },
+     {
+      "title": "Natural History Museum Vienna Tickets, Prices & Opening Hours 2026: Visitor Guide",
+      "url": "https://eurolandmarks.com/attractions/austria/vienna/natural-history-museum-vienna"
+     },
+     {
+      "title": "San Diego Natural History Museum 2026: Tickets, Hours, Prices & What to Expect",
+      "url": "https://thebettervacation.com/natural-history-museum-san-diego"
+     },
+     {
+      "title": "LA Natural History Museum Hours: Your Essential Guide to Planning the Perfect Visit - Wonderful Museums",
+      "url": "https://wonderfulmuseums.com/museum/la-natural-history-museum-hours"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 310,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Museum Mondays with Las Vegas Natural History Museum",
+      "url": "https://www.yahoo.com/news/museum-mondays-las-vegas-natural-180718182.html"
+     },
+     {
+      "title": "ULM Museum of Natural History hosts Mystery Mondays on June 22 & 29",
+      "url": "https://www.ulm.edu/news/2026/mnh_mystery_mondays_061626.html"
+     },
+     {
+      "title": "Natural History Museum Vienna FAQ | Your Questions Answered",
+      "url": "https://www.musemap.art/en/vienna/museum/natural-history-museum-vienna/faq"
+     },
+     {
+      "title": "Milwaukee Public Museum Open on Mondays, Starting October 11 \u00bb Urban Milwaukee",
+      "url": "https://urbanmilwaukee.com/pressrelease/milwaukee-public-museum-open-on-mondays-starting-october-11"
+     },
+     {
+      "title": "Mineral Mondays | New Mexico Museum of Natural History & Science",
+      "url": "https://www.nmnaturalhistory.org/events/mineral-mondays-1"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 497,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Visit | Natural History Museum",
+      "url": "https://www.nhm.ac.uk/visit.html"
+     },
+     {
+      "title": "Home | Natural History Museum",
+      "url": "https://www.nhm.ac.uk/"
+     },
+     {
+      "title": "Natural History Museum visual guide | Natural History Museum",
+      "url": "https://www.nhm.ac.uk/visit/visual-guide.html"
+     },
+     {
+      "title": "Natural History Museum London tickets and visitor information",
+      "url": "https://www.visitlondon.com/things-to-do/place/427179-natural-history-museum"
+     },
+     {
+      "title": "Natural History Museum Opening Hours | Timings & Best Time to Visit",
+      "url": "https://www.london-tickets.co.uk/natural-history-museum/timings-opening-hours/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What time does Borough Market close on Saturdays?",
+   "keenable": {
+    "api_ms": 304,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Visit Borough Market | Borough Market",
+      "url": "https://boroughmarket.org.uk/visit-us/"
+     },
+     {
+      "title": "Where to Eat in London (4.6\u2605) \u00b7 Wander Atlas",
+      "url": "https://wanderatlasguides.com/posts/london-borough-market"
+     },
+     {
+      "title": "Borough Market - Review & Guide (2026) | Borough",
+      "url": "https://mesprestiges.com/en/london/places/borough-market-southwark"
+     },
+     {
+      "title": "Borough Market explained: history, hours, and what to expect",
+      "url": "https://londonvacationguide.com/blog/what-is-borough-market"
+     },
+     {
+      "title": "Does Borough Market actually close at 5?",
+      "url": "https://eboots.co.uk/wiki/does-borough-market-actually-close-at-5"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 502,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "What time does sunridge mall close at on saturdays? - Answers",
+      "url": "https://qa.answers.com/other-qa/What_time_does_sunridge_mall_close_at_on_saturdays"
+     },
+     {
+      "title": "What Time Does Sonic Close\u00a0 -",
+      "url": "https://www.sonichappyhour.org/what-time-does-sonic-close"
+     },
+     {
+      "title": "Borough Market | Sour Flour Jamaica",
+      "url": "https://sourflourjamaica.wordpress.com/2015/04/03/borough-market"
+     },
+     {
+      "title": "does stock market close on saturday? Quick guide",
+      "url": "https://www.bitget.com/wiki/does-stock-market-close-on-saturday"
+     },
+     {
+      "title": "What Time Does the Stock Market Open and Close? 2026 Guide",
+      "url": "https://www.investise.com/what-time-does-the-stock-market-open-and-close"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 575,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Visit Borough Market | Borough Market",
+      "url": "https://boroughmarket.org.uk/visit-us/"
+     },
+     {
+      "title": "Borough Market \u2014 London farmers market | UK Farmers Markets",
+      "url": "https://farmers-market.org.uk/markets/borough-market"
+     },
+     {
+      "title": "Bank Holiday opening times 2026 | Borough Market",
+      "url": "https://boroughmarket.org.uk/events/bank-holiday-opening-times/"
+     },
+     {
+      "title": "FAQs | Borough Market",
+      "url": "https://boroughmarket.org.uk/frequently-asked-questions/"
+     },
+     {
+      "title": "Borough Market London opening times and nearest Tube station | London Now",
+      "url": "https://www.london-now.co.uk/news/26464557.borough-market-london-opening-times-nearest-tube-station/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What's the dress code at Sketch in Mayfair?",
+   "keenable": {
+    "api_ms": 273,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Sketch London: The Most Instagrammed Restaurant in the City (Is It Actually Worth Booking?)",
+      "url": "https://destinedforlondon.com/blog/sketch-london-the-most-instagrammed"
+     },
+     {
+      "title": "Sketch Lecture Room And Library Review 2026: Brilliant 3-Michelin-Star Mayfair Honest Verdict | London Reviews",
+      "url": "https://londonreviews.co.uk/sketch-lecture-room-library-review"
+     },
+     {
+      "title": "What to Wear to London Restaurants: Dress Codes by Area",
+      "url": "https://londonlife.org/what-to-wear-to-london-restaurants-dress-codes-by-area"
+     },
+     {
+      "title": "Sketch, England \u2014 Restaurant Guide 2026",
+      "url": "https://opentravelguide.com/united-kingdom/england/restaurants/sketch"
+     },
+     {
+      "title": "Sketch (The Bar), United Kingdom [2026]",
+      "url": "https://opentravelguide.com/united-kingdom/nightlife/sketch-the-bar"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 490,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "The Mayfair Dress Code - Mayfair London",
+      "url": "https://www.mayfair-london.co.uk/the-mayfair-dress-code"
+     },
+     {
+      "title": "Sketch Mayfair \u2013 Mayfair London",
+      "url": "https://www.mayfair-london.co.uk/lkey/sketch-mayfair/feed"
+     },
+     {
+      "title": "Mayfair Club Dress Code \u2014 What to Wear to Every Venue in 2026 | Mayfair Tonight",
+      "url": "https://mayfairtonight.com/mayfair-club-dress-code"
+     },
+     {
+      "title": "Dear Darling Mayfair Dress Code, Dear Darling Guestlist, Table Prices, and FAQ | Mayfair Nights",
+      "url": "https://www.mfnights.com/post/dear-darling-mayfair-dress-code-faq"
+     },
+     {
+      "title": "Sketch Mayfair - Mayfair London",
+      "url": "https://www.mayfair-london.co.uk/lkey/sketch-mayfair"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 622,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Sketch, The Gallery \u2014 Restaurant in London | Pearl",
+      "url": "https://joinpearl.co/restaurants/london-united-kingdom/sketch-the-gallery"
+     },
+     {
+      "title": "Sketch London: What It\u2019s Really Like - The London Eats List",
+      "url": "https://thelondoneatslist.com/sketch-mayfair-london/"
+     },
+     {
+      "title": "Sketch Gallery",
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g186338-d2033622-Reviews-Sketch_Gallery-London_England.html"
+     },
+     {
+      "title": "Sketch, The Gallery Restaurant, London | En Primeur Club",
+      "url": "https://www.enprimeurclub.com/restaurants/sketch-the-gallery-london-restaurant"
+     },
+     {
+      "title": "Sketch Lecture Room And Library Review 2026: Brilliant 3-Michelin-Star Mayfair Honest Verdict | London Reviews",
+      "url": "https://londonreviews.co.uk/sketch-lecture-room-library-review/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "Is Wimbledon ground admission sold out?",
+   "keenable": {
+    "api_ms": 296,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Wimbledon Ground Tickets: Price, Access, How to Get One",
+      "url": "https://sportsmonkie.com/wimbledon-ground-tickets"
+     },
+     {
+      "title": "Wimbledon Tickets 2027: Ballot Dates, The Queue, Prices",
+      "url": "https://londontravelgeek.co.uk/articles/wimbledon-tickets-guide"
+     },
+     {
+      "title": "Queueing for Tickets",
+      "url": "https://wimbledon.com/en_GB/tickets/the_queue?:~:text=The%20Queue%20begins%20the%20evening_the%20Grounds%20for%20the%20day."
+     },
+     {
+      "title": "Wimbledon Championship Tickets 2026 \u2014 Prices & Queue Guide",
+      "url": "https://tennischampionshipwimbledon.com/tickets"
+     },
+     {
+      "title": "Wimbledon Tennis Tickets: How Much They Cost and How to Get Them",
+      "url": "https://sportsmonkie.com/wimbledon-tennis-tickets"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 474,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Ipswich Town FC | SOLD OUT | AFC WIMBLEDON (A)",
+      "url": "https://www.itfc.co.uk/news/2022/january/sold-out-afc-wimbledon"
+     },
+     {
+      "title": "Sold Out | AFC Wimbledon (A) | Bolton Wanderers FC",
+      "url": "https://www.bwfc.co.uk/news/sold-out-afc-wimbledon"
+     },
+     {
+      "title": "Taking your own beers into Wimbledon... - Talk Tennis",
+      "url": "http://tt.tennis-warehouse.com/index.php?threads%2Ftaking-your-own-beers-into-wimbledon.139148%2F="
+     },
+     {
+      "title": "News Story - AFC Wimbledon - admission & travel | FC United of Manchester",
+      "url": "https://fc-utd.co.uk/news-story/afc-wimbledon-admission-travel"
+     },
+     {
+      "title": "Office Space at Common Ground Wimbledon, Wimbledon",
+      "url": "https://www.tallyworkspace.com/office-space/london/wimbledon/common-ground-wimbledon"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 541,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "How can I purchase tickets on the day? \u2013 Wimbledon",
+      "url": "https://help.wimbledon.com/hc/en-gb/articles/16150226635676-How-can-I-purchase-tickets-on-the-day"
+     },
+     {
+      "title": "A GUIDE TO QUEUEING 2026",
+      "url": "https://content.wimbledon.com/is/content/AELTC/aeltc/wimbledon/live-site/guest/pdfs/The%20Queue%20Guide%202026.pdf"
+     },
+     {
+      "title": "Wimbledon Queue Guide 2026: How It Works, & Ticket Prices",
+      "url": "https://tennischampionshipwimbledon.com/queue/"
+     },
+     {
+      "title": "Wimbledon Tickets 2027: Ballot Dates, The Queue, Prices | London Travel Geek",
+      "url": "https://www.londontravelgeek.co.uk/articles/wimbledon-tickets-guide/"
+     },
+     {
+      "title": "Wimbledon 2026: Expert guide to budget tickets and beating the queues  | The Standard",
+      "url": "https://www.standard.co.uk/lifestyle/wimbledon-2026-tickets-queues-show-courts-b1010083.html"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 1,
+   "q": "What time does the Tate Modern close on Fridays?",
+   "keenable": {
+    "api_ms": 281,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Tate Modern Tickets, Prices & Opening Hours 2026: Visitor Guide",
+      "url": "https://eurolandmarks.com/attractions/united-kingdom/london/tate-modern"
+     },
+     {
+      "title": "Tate Modern | Tate",
+      "url": "https://www.tate.org.uk/visit/tate-modern"
+     },
+     {
+      "title": "Tate Modern Opening Hours | Best Times to Visit and Other Tips",
+      "url": "https://www.london-tickets.co.uk/tate-modern/timings-opening-hours/"
+     },
+     {
+      "title": "Tate Modern, London: Must-know tips, with transport, prices & hours",
+      "url": "https://planetwhitley.com/how-to-plan-a-visit-to-the-tate-modern-in-london"
+     },
+     {
+      "title": "Do You Need to Book Tate Modern Tickets in Advance? | What2Book",
+      "url": "https://what2book.com/london/tate-modern"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 514,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Frida Fridays | Tate Modern",
+      "url": "https://www.tate.org.uk/whats-on/tate-modern/frida-kahlo-the-making-of-an-icon/frida-fridays"
+     },
+     {
+      "title": "London\u2019s Tate Modern Art Gallery Will Soon Stay Open Much Later on Fridays and Saturdays",
+      "url": "https://www.timeout.com/london/news/londons-tate-modern-will-stay-open-later-on-fridays-and-saturdays-072525"
+     },
+     {
+      "title": "What Time Does TGI Fridays Close? Hours, Late-Night Dining, and Tips - Hours to Eat",
+      "url": "https://www.hourstoeat.com/what-time-does-tgi-fridays-close"
+     },
+     {
+      "title": "What Time Does TGI Fridays Close? Hours, Late-Night Dining, and Tips - Hours to Eat",
+      "url": "https://hourstoeat.com/what-time-does-tgi-fridays-close"
+     },
+     {
+      "title": "Tate Modern to open until 9pm on Fridays and Saturdays in bid to reclaim lost visitors - Yahoo",
+      "url": "https://nz.news.yahoo.com/tate-modern-open-until-9pm-125124654.html"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 522,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Tate Modern | Tate",
+      "url": "https://www.tate.org.uk/visit/tate-modern"
+     },
+     {
+      "title": "Frequently asked questions | Tate",
+      "url": "https://www.tate.org.uk/about-us/frequently-asked-questions"
+     },
+     {
+      "title": "Tate Modern announces regular late openings following record number of young visitors \u2013 Press Release | Tate",
+      "url": "https://www.tate.org.uk/press/press-releases/tate-modern-announces-regular-late-openings-following-record-number-of-young-visitors"
+     },
+     {
+      "title": "Tate Modern weekend opening hours to be extended - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/cr797p3y45zo"
+     },
+     {
+      "title": "Tate Modern to stay open until 9pm on weekends - Museums Association",
+      "url": "https://www.museumsassociation.org/museums-journal/news/2025/07/tate-modern-to-stay-open-until-9pm-on-weekends/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Are there any changes to today's flights out of Heathrow?",
+   "keenable": {
+    "api_ms": 294,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "18-Hour Flights: Heathrow's 11 New Ultra-Long Nonstop Routes Revealed",
+      "url": "https://simpleflying.com/18-hour-flights-heathrows-11-new-ultra-long-nonstop-routes"
+     },
+     {
+      "title": "live flights and how early to arrive",
+      "url": "https://heathrowairport-info.co.uk/departures"
+     },
+     {
+      "title": "Signature Aviation | Private Aviation Terminals & FBO Services",
+      "url": "https://www.signatureaviation.com/locations/LHR"
+     },
+     {
+      "title": "Airlines 'to announce new wave of cancellations next week' as holidaymakers face more disruption - London Daily",
+      "url": "https://londondaily.com/hkzevt-airlines-to-announce-new-wave-of-cancellations-next-week-as-holidaymakers-face-more-disruption"
+     },
+     {
+      "title": "British Airways Adds Five Heathrow Routes in Three Months: Full List of New and Returning Flights",
+      "url": "https://boltflight.com/british-airways-adds-five-heathrow-routes-in-three-months-full-list-of-new-and-returning-flights"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 315,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Dozens of flights cancelled at Heathrow Airport - find out if yours is affected",
+      "url": "https://www.thescottishsun.co.uk/travel/10104610/cancelled-flights-heathrow-airport-british-airways-fog"
+     },
+     {
+      "title": "Flights London Heathrow Iraq | find and compare cheap flights",
+      "url": "https://www.flights-idealo.co.uk/route/London-Heathrow-LHR/Iraq-IQ"
+     },
+     {
+      "title": "NEWS & OFFERS: Heathrow BA Terminal changes, Sydney flights, BA crew and catering changes and London City improvements - Turning Left For Less",
+      "url": "https://www.turningleftforless.com/news-offers-heathrow-ba-terminal-changes-sydney-flights-ba-crew-and-catering-changes-and-london-city-improvements"
+     },
+     {
+      "title": "Flights London Heathrow Morocco | find and compare cheap flights",
+      "url": "https://www.flights-idealo.co.uk/route/London-Heathrow-LHR/Morocco-MA"
+     },
+     {
+      "title": "Flights London Heathrow Pakistan | find and compare cheap flights",
+      "url": "https://www.flights-idealo.co.uk/route/London-Heathrow-LHR/Pakistan-PK"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 463,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "London Heathrow (LHR) (EGLL) live departures | Flightradar24",
+      "url": "https://www.flightradar24.com/data/airports/lhr/departures"
+     },
+     {
+      "title": "LHR \u2022 London Heathrow - Live Departures",
+      "url": "https://www.avionio.com/en/airport/lhr/departures"
+     },
+     {
+      "title": "Heathrow Airport (LHR) Departures Today: Live Flight Status",
+      "url": "https://proflightsearch.com/airport-departures/london-LHR"
+     },
+     {
+      "title": "London Heathrow Airport Flight Cancellations Today | Live Cancelled Flights",
+      "url": "https://whichterminal.co.uk/london-heathrow-airport/cancelled-flights"
+     },
+     {
+      "title": "Major flight delays at Heathrow Airport (Thu 8 Oct) \u2014 Heathrow Airport Guide",
+      "url": "https://heathrowairportguide.org/news/major-flight-delays-at-heathrow-airport-thu-8-oct-487300"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is BA117 to New York delayed this morning?",
+   "keenable": {
+    "api_ms": 272,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Check BA117 Flight Status \u2013 Live British Airways Tracker | Trip.com",
+      "url": "https://ca.trip.com/flights/status-ba117"
+     },
+     {
+      "title": "British Airways BA117 Flight Status Today, Real Time Tracker | Trip.com",
+      "url": "https://ph.trip.com/flights/status-ba117"
+     },
+     {
+      "title": "BA117 Flight Status - British Airways London to New York Today | Trip.com",
+      "url": "https://ae.trip.com/flights/status-ba117"
+     },
+     {
+      "title": "British Airways BA117 Flight Status Today: Live Tracker, Arrivals & Departures | Trip.com",
+      "url": "https://trip.com/flights/status-ba117"
+     },
+     {
+      "title": "BA117 British LHR\u2192JFK \u00b7 Live Status, Delay Risk & Forecast",
+      "url": "https://proflightsearch.com/flight/BA117"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 488,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "BA117 Flight Status British Airways: London to New York (BAW117)",
+      "url": "https://www.airportia.com/flights/ba117/london/new-york"
+     },
+     {
+      "title": "BA117 Flight Status & Live Tracker \u2013 London to New York",
+      "url": "https://flightera.net/en/flight/British+Airways-London-New+York/BA117"
+     },
+     {
+      "title": "BA117 (BAW117) Flight Status \u2013 21. Apr 2026 \u2013 London to New York",
+      "url": "https://www.flightera.net/en/flight_details/British+Airways-London-New+York/BA117/EGLL/2026-04-21"
+     },
+     {
+      "title": "BA117 (BAW117) Flight Status \u2013 21. Apr 2026 \u2013 London to New York",
+      "url": "https://flightera.net/en/flight_details/British+Airways-London-New+York/BA117/EGLL/2026-04-21"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 228,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "British Airways BA 117 Flight Details, Notes, History - FlightStats",
+      "url": "https://www.flightstats.com/v2/flight-details/BA/117"
+     },
+     {
+      "title": "BA117 - British Airways BA 117 Flight Tracker",
+      "url": "https://www.flightstats.com/v2/flight-tracker/BA/117"
+     },
+     {
+      "title": "BA117 British Airways Flight Status & Tracker | LHR - JFK",
+      "url": "https://www.flightinformation.com/BA117-LHR-JFK"
+     },
+     {
+      "title": "BA117 Flight Status | British Airways | BAW17R | London to New York",
+      "url": "https://www.flightera.net/en/flight/British+Airways-London-New+York/BA117"
+     },
+     {
+      "title": "BA117 Live Flight Status: London (LHR) to New York (JFK)",
+      "url": "https://flight-tracker.net/flight/BAW117"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What's the Ryanair cabin bag size limit at the moment?",
+   "keenable": {
+    "api_ms": 287,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "How Strict Is Ryanair With Carry-On Size? 2026 Rules",
+      "url": "https://travelmarketnews.com/how-strict-is-ryanair-carry-on-size"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size 2026: 55 x 40 x 20 cm (21.6 x 15.7 x 7.9\")",
+      "url": "https://travelvient.com/tools/carry-on-size/ryanair"
+     },
+     {
+      "title": "Ryanair Baggage Policy 2026 \u2013 Sizes, Fees & Tips to Avoid Charges",
+      "url": "https://baggagepolicies.com/ryanair-baggage-policy/"
+     },
+     {
+      "title": "Ryanair Cabin Bag + Carry-On Sizes 2026: 40\u00d730\u00d720 and 55\u00d740\u00d720 Rules",
+      "url": "https://packfitter.com/ryanair-carry-on-rules.html"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size and Baggage Allowance 2026",
+      "url": "https://travellon.com/ryanair-cabin-bag-size-baggage-allowance"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 508,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Ryanair ups size limit for free cabin bag",
+      "url": "https://www.yourmoney.com/household-bills/ryanair-ups-size-limit-for-free-cabin-bag"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size and Baggage Allowance 2026",
+      "url": "https://travellon.com/ryanair-cabin-bag-size-baggage-allowance"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size 2025 \u2013 Dimensions, Rules and Costs - newsfrontuk.uk",
+      "url": "https://newsfrontuk.uk/politics/ryanair-cabin-bag-size-2025"
+     },
+     {
+      "title": "Ryanair Cabin Bag Size & Hand Luggage Allowance",
+      "url": "https://luggageguide.co.uk/ryanair-hand-luggage"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 566,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Bag Policies \u2013 Ryanair Help Centre",
+      "url": "https://help.ryanair.com/hc/en-gb/sections/12489178346129-Bag-Policies"
+     },
+     {
+      "title": "Guide to cabin bag size for Ryanair, easyJet, Wizz and BA, 2026 - Which?",
+      "url": "https://www.which.co.uk/reviews/airlines/article/most-generous-airline-hand-luggage-aF9jK9M1uoMk"
+     },
+     {
+      "title": "Ryanair baggage rules 2026: cabin bag size, fees and what catches travellers out | The Travel Daily",
+      "url": "https://www.thetraveldaily.co.uk/article/2026/04/21/ryanair-baggage-rules-2026-cabin-bag-size-fees-and-what-catches-travellers-out"
+     },
+     {
+      "title": "Ryanair underseat bag size set to increase - Which?",
+      "url": "https://www.which.co.uk/news/article/ryanair-hand-luggage-size-set-to-increase-a1CGn5z4rcvN"
+     },
+     {
+      "title": "Ryanair 40x30x20: Which Bag Fits? (Avoid 80 EUR Fee) - Kofferly",
+      "url": "https://kofferly.com/en/posts/ryanair-hand-luggage-40x30x20"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is there an air traffic control strike in France this week?",
+   "keenable": {
+    "api_ms": 258,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "French air traffic control strike averted but second strike by Air France pilots on notice",
+      "url": "https://travelextra.ie/french-air-traffic-control-strike-averted-but-pilots-and-cabin-crew-still-on-notice"
+     },
+     {
+      "title": "French air traffic control strike cancels about 40% of flights in Paris",
+      "url": "https://kgw.com/article/news/nation-world/air-traffic-controllers-france-strike/507-940c568e-1b93-410d-bf31-111a4e6696c6"
+     },
+     {
+      "title": "French air traffic strike prompts hundreds of cancellations",
+      "url": "https://bbcbreakingnews.pages.dev/news/business-32203876"
+     },
+     {
+      "title": "French Air Traffic Control Strike Grounds Hundreds of Flights Across France and Europe - United Kingdom",
+      "url": "https://europesays.com/uk/857134"
+     },
+     {
+      "title": "European airport strikes tracker",
+      "url": "https://airadvisor.com/en/airport-strikes-tracker"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 383,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "France Air Traffic Control Strike to Disrupt July Travel",
+      "url": "https://adept.travel/news/2025-06-27-france-air-traffic-control-strike"
+     },
+     {
+      "title": "A Thousand Flights To Be Cancelled As Week-Long Air Traffic Control Strike Starts In France",
+      "url": "https://www.forbes.com/sites/ceciliarodriguez/2017/03/06/a-thousand-flights-to-be-cancelled-as-week-long-air-traffic-control-strike-starts-in-france"
+     },
+     {
+      "title": "Air traffic control strike to hit many French flights next week",
+      "url": "https://www.connexionfrance.com/news/air-traffic-control-strike-to-hit-many-french-flights-next-week/136343"
+     },
+     {
+      "title": "France air traffic control strike set for Sept 18-19",
+      "url": "https://adept.travel/news/2025-08-31-france-air-traffic-control-strike-sept-18-19"
+     },
+     {
+      "title": "France Air Traffic Control Strike Update: Travel Impact",
+      "url": "https://adept.travel/news/2025-07-22-france-air-traffic-control-strike-update"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 209,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "French Aviation Authorities Dismiss False Reports of Four-Day Air Traffic Control Strike - Paris Times",
+      "url": "https://paristimes.com/french-aviation-authorities-dismiss-false-reports-of-four-day-air-traffic-control-strike"
+     },
+     {
+      "title": "French Air Traffic Controller Strike Avoided After Government Reaches Agreement - Paris Times",
+      "url": "https://paristimes.com/french-air-traffic-controller-strike-avoided-after-government-reaches-agreement"
+     },
+     {
+      "title": "French air traffic control strike averted but second strike by Air France pilots on notice",
+      "url": "https://www.travelextra.ie/french-air-traffic-control-strike-averted-but-pilots-and-cabin-crew-still-on-notice/"
+     },
+     {
+      "title": "France airport strike 2026: Paris and Marseille flight cancellations",
+      "url": "https://www.connexionfrance.com/news/disruption-at-french-airports-as-air-traffic-controllers-join-public-sector-strike/818024"
+     },
+     {
+      "title": "France ATC Strike October 2026: Fact-Checked, Your Rights",
+      "url": "https://pixidia.com/en/france-atc-strike-october-2026/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What's the current Heathrow drop-off charge?",
+   "keenable": {
+    "api_ms": 260,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "\u00a37 Fee & How to Pay",
+      "url": "https://londonairport-taxi.com/heathrow-drop-off-charge"
+     },
+     {
+      "title": "Heathrow Airport Drop Off Charges 2026: \u00a37 for up to 10 Minutes",
+      "url": "https://park4travels.co.uk/heathrow-airport-drop-off-charges-2026"
+     },
+     {
+      "title": "How to Pay the Heathrow Airport Drop-off Charge in 2026",
+      "url": "https://ayan.co.uk/blog-post/how-to-pay-the-heathrow-airport-drop-off-charge"
+     },
+     {
+      "title": "Heathrow Drop-Off Charges Explained: What You Pay and How to Avoid It",
+      "url": "https://minicabit.com/heathrow-drop-off-charges-explained"
+     },
+     {
+      "title": "Heathrow Airport Drop Off 2026: Charges, Terminals & Tips",
+      "url": "https://moveezo.com/blogs/heathrow-airport-drop-off-complete-guide"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 391,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Heathrow drop-off charge: 2026 guide | Otto Car",
+      "url": "https://ottocar.co.uk/blog/heathrow-drop-off-how-to-pay-the-charge"
+     },
+     {
+      "title": "Heathrow Drop Off Charge Explained: Fees and Payment Options",
+      "url": "https://comparemeetandgreet.co.uk/blogs/heathrow-drop-off-charge-explained"
+     },
+     {
+      "title": "Heathrow Drop-Off Charge | Caura",
+      "url": "https://www.caura.com/payments/roads-and-tolls/heathrow-drop-off"
+     },
+     {
+      "title": "Terminal Drop-Off Charge | Heathrow",
+      "url": "https://www.heathrow.com/transport-and-directions/terminal-drop-off-charge?searchInput=popular"
+     },
+     {
+      "title": "Terminal Drop-Off Charge | Heathrow",
+      "url": "http://www.heathrow.com/transport-and-directions/terminal-drop-off-charge"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 209,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Terminal Drop-Off Charge | Heathrow",
+      "url": "https://www.heathrow.com/transport-and-directions/terminal-drop-off-charge"
+     },
+     {
+      "title": "Travelling to and from Heathrow FAQs | Heathrow",
+      "url": "https://www.heathrow.com/customer-support/faq/travelling-to-and-from-heathrow-faqs"
+     },
+     {
+      "title": "Untitled",
+      "url": "https://heathrowairport-info.co.uk/drop-off-charges"
+     },
+     {
+      "title": "Heathrow Drop Off Payment \u2013 Charges, How to Pay & Exemptions - MarketUK",
+      "url": "https://marketuk.uk/tech/heathrow-drop-off-payment-guide/"
+     },
+     {
+      "title": "Terminal Drop Off Charge Terms and Conditions | Heathrow",
+      "url": "https://www.heathrow.com/terms-and-conditions/terminal-drop-off-charge-terms-and-conditions"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Can I take a power bank in hold luggage on easyJet?",
+   "keenable": {
+    "api_ms": 260,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Power Trip: The easyJet Power Bank Rule You Need to Know in 2026",
+      "url": "https://mrplaneguy.com/post/easyjet-power-bank-rules"
+     },
+     {
+      "title": "easyJet confirms 'maximum of 2 rule' for hand luggage item on flights",
+      "url": "https://britbrief.co.uk/weather/warnings/easyjet-confirms-maximum-of-2-rule-for-hand-luggage-item.html"
+     },
+     {
+      "title": "easyJet confirms 'maximum of 2 rule' for hand luggage item on flights",
+      "url": "https://express.co.uk/travel/articles/2239197/easyjet-confirms-maximum-2-rule"
+     },
+     {
+      "title": "Power banks are causing flight delays \u2014 latest rules for easyJet, Ryanair, Wizz Air and more",
+      "url": "https://metro.co.uk/2026/07/24/power-banks-causing-flight-delays-latest-rules-easyjet-ryanair-wizz-air-29212860"
+     },
+     {
+      "title": "Ryanair, TUI and easyJet electric item rules as item banned from luggage",
+      "url": "https://walesonline.co.uk/whats-on/travel/ryanair-tui-easyjet-electic-item-33839793"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 378,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Hold luggage | easyJet",
+      "url": "http://www.easyjet.com/en/help/baggage/hold-luggage"
+     },
+     {
+      "title": "EasyJet Flight Diversion: Power Bank in Luggage Sparks Rome Landing (2026)",
+      "url": "https://promosbbt.com/article/easyjet-flight-diversion-power-bank-in-luggage-sparks-rome-landing"
+     },
+     {
+      "title": "EasyJet Flight Diversion: Power Bank in Luggage Sparks Rome Landing (2026)",
+      "url": "https://kinnareegourmet.com/article/easyjet-flight-diversion-power-bank-in-luggage-sparks-rome-landing"
+     },
+     {
+      "title": "Hold luggage | easyJet",
+      "url": "https://www.easyjet.com/en/help/baggage/hold-luggage"
+     },
+     {
+      "title": "EasyJet Flight Diversion: Power Bank in Luggage Sparks Rome Landing (2026)",
+      "url": "https://flatlandfilm.org/article/easyjet-flight-diversion-power-bank-in-luggage-sparks-rome-landing"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 482,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Restricted and unusual items | easyJet",
+      "url": "https://www.easyjet.com/en/help/baggage/restricted-and-unusual-items"
+     },
+     {
+      "title": "Dangerous Goods & Prohibited Articles | easyJet",
+      "url": "https://www.easyjet.com/en/help-centre/baggage/dangerous-goods"
+     },
+     {
+      "title": "Power banks are causing flight delays \u2014 latest rules for easyJet, Ryanair, Wizz Air and more | Metro News",
+      "url": "https://metro.co.uk/2026/07/24/power-banks-causing-flight-delays-latest-rules-easyjet-ryanair-wizz-air-29212860/"
+     },
+     {
+      "title": "Power Bank Rules From Jet2, Ryanair, easyJet, TUI, And More | HuffPost UK Life",
+      "url": "https://www.huffingtonpost.co.uk/entry/power-bank-rules-flights_uk_6a16bb7ee4b062ca52d5ec89"
+     },
+     {
+      "title": "Latest power bank rules for easyJet, Ryanair, Wizz Air and more airlines | Metro UK",
+      "url": "https://metro.co.uk/galleries/latest-power-bank-rules-for-easyjet-ryanair-wizz-air-and-more-airlines-28524884/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is the Elizabeth line running normally right now?",
+   "keenable": {
+    "api_ms": 271,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "TfL Live Tube Line Status \u2014 All Lines",
+      "url": "https://mycommute.london/status"
+     },
+     {
+      "title": "live Tube, Elizabeth line and DLR status, measured",
+      "url": "https://delayometer.london"
+     },
+     {
+      "title": "Live London Tube & TfL Line Status Today",
+      "url": "https://minne.london/line-status"
+     },
+     {
+      "title": "Elizabeth line live status & route | mycommute.london",
+      "url": "https://mycommute.london/elizabeth"
+     },
+     {
+      "title": "Tube & rail status \u2014 is my line running?",
+      "url": "http://nexttrain.london/status"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 383,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Elizabeth Line | London Now",
+      "url": "https://www.london-now.co.uk/topics/elizabeth-line"
+     },
+     {
+      "title": "Elizabeth Line | London Now",
+      "url": "https://www.thisislocallondon.co.uk/topics/elizabeth-line"
+     },
+     {
+      "title": "Is the Elizabeth line running today - Heathrow disruptions | London Now",
+      "url": "https://www.london-now.co.uk/news/26452730.elizabeth-line-running-today---heathrow-disruptions"
+     },
+     {
+      "title": "Elizabeth Line | London Now",
+      "url": "https://thisislocallondon.co.uk/topics/elizabeth-line"
+     },
+     {
+      "title": "Is the Elizabeth line running today? Live status",
+      "url": "https://elizabethlineguide.com/status"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 208,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Tube, Overground, Elizabeth line, DLR & Tram status updates - Transport for London",
+      "url": "https://tfl.gov.uk/tube-dlr-overground/status/?dateTypeSelect=Now"
+     },
+     {
+      "title": "Are there any delays on the Elizabeth line line? Live status | Tube Alerter",
+      "url": "https://tubenotifications.co.uk/line/elizabeth"
+     },
+     {
+      "title": "Tube, Overground, Elizabeth line, DLR & Tram status updates - Transport for London",
+      "url": "https://tfl.gov.uk/status/tube"
+     },
+     {
+      "title": "Elizabeth line status: is it running today? | London Travel News",
+      "url": "https://londontravelnews.co.uk/line/elizabeth"
+     },
+     {
+      "title": "Elizabeth line live status and train times | Train Times Live",
+      "url": "https://www.traintimeslive.co.uk/operators/elizabeth-line"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Are there any UK rail strikes this week?",
+   "keenable": {
+    "api_ms": 296,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Train Strikes This Week: UK Dates, Status & Checks",
+      "url": "https://presstrail.uk/tech/train-strikes-this-week"
+     },
+     {
+      "title": "Rail Strikes to Cause Chaos Across the Country - London Daily",
+      "url": "https://londondaily.com/train-strikes-this-week-to-hit-fa-cup-final-and-epsom-derby"
+     },
+     {
+      "title": "Train Strike Dates This Week UK: London Tube Strikes",
+      "url": "https://ukcanvas.uk/tech/train-strike-dates-this-week"
+     },
+     {
+      "title": "Britain\u2019s rail strikes: which trains will be running where and when? - London Daily",
+      "url": "https://londondaily.com/britain-s-rail-strikes-which-trains-will-be-running-where-and-when"
+     },
+     {
+      "title": "UK rail strikes: How TfL and National Rail services will be affected today",
+      "url": "https://nation.lk/online/uk-rail-strikes-how-tfl-and-national-rail-services-will-be-affected-today-188593.html"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 385,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Week-Long Belgian Rail Strikes Threaten January City Breaks for UK Travellers",
+      "url": "https://www.thetraveler.org/week-long-belgian-rail-strikes-threaten-january-city-breaks-for-uk-travellers"
+     },
+     {
+      "title": "Week-Long Belgian Rail Strikes Threaten January City Breaks for UK Travellers",
+      "url": "https://thetraveler.org/week-long-belgian-rail-strikes-threaten-january-city-breaks-for-uk-travellers"
+     },
+     {
+      "title": "UK Rail Strikes Disrupt Christmas Travel 2024 | KnowInsiders",
+      "url": "https://knowinsiders.com/uk-rail-strikes-disrupt-christmas-travel-2024-41934.html"
+     },
+     {
+      "title": "Weekend rail strikes and overtime ban disrupt UK travel | Rail strikes | The Guardian",
+      "url": "https://www.theguardian.com/uk-news/2024/feb/02/weekend-rail-strikes-train-travel-uk-aslef-pay-dispute"
+     },
+     {
+      "title": "uk train strikes: UK train strikes in May 2024: These are the lines to be affected this week - The Economic Times",
+      "url": "https://m.economictimes.com/news/international/uk/uk-train-strikes-in-may-2024-these-are-the-lines-to-be-affected-this-week/articleshow/109890805.cms"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 213,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Rail & Train Strikes October 2026 | Strike Calendar",
+      "url": "https://www.strikecalendar.co.uk/sector/rail"
+     },
+     {
+      "title": "United Kingdom Transport Strikes (October 2026) \u2014 Trains, Buses, Flights & Ferries | Strike Tracker",
+      "url": "https://striketracker.app/strikes-in-united-kingdom"
+     },
+     {
+      "title": "UK & European & Asian rail strikes info",
+      "url": "https://www.mytrainpal.com/rail-strike"
+     },
+     {
+      "title": "Three Sunday Rail Strikes to Affect TransPennine Express in October 2026 - Travel And Tour News",
+      "url": "https://travelandtournews.com/transpennine-express-strike-impact-york-north-yorkshire-october-2026/"
+     },
+     {
+      "title": "Incident: London Paddington | National Rail",
+      "url": "https://www.nationalrail.co.uk/service-disruptions/london-paddington-20261008/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is there Eurostar disruption today?",
+   "keenable": {
+    "api_ms": 248,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://eurostar.com/uk-en/travel-info/travel-updates?embedded_webview=true"
+     },
+     {
+      "title": "Travel disruptions in Europe",
+      "url": "https://www.interrail.eu/en/support/travel-disruptions"
+     },
+     {
+      "title": "escenic",
+      "url": "https://telegraph.co.uk/travel/eurostar/6850889/Eurostar-cancels-services-amid-snow-chaos.html"
+     },
+     {
+      "title": "Eurostar services are set to restart following a French strike resolution, despite further disruptions from Storm Pia - London Daily",
+      "url": "https://londondaily.com/eurostar-services-are-set-to-restart-following-a-french-strike-resolution-despite-further-disruptions-from-storm-pia"
+     },
+     {
+      "title": "C93wkw37p0pt",
+      "url": "https://bbcbreakingnews.pages.dev/news/live/c93wkw37p0pt"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 381,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Eurostar Cancellations Continue Today as Passengers Face More Disruption",
+      "url": "https://www.rustourismnews.com/2026/09/20/eurostar-cancellations-continue-today-as-passengers-face-more-disruption"
+     },
+     {
+      "title": "'We advise you to cancel your trip': Eurostar disruption continues",
+      "url": "https://www.nationalworld.com/travel/travel-news/eurostar-cable-theft-cancellations-disruption-5193528"
+     },
+     {
+      "title": "Eurostar disruption after two people hit by trains in France",
+      "url": "https://www.nationalworld.com/travel/travel-news/eurostar-delays-and-cancellations-service-disruption-people-hit-by-train-lille-in-france-5193115"
+     },
+     {
+      "title": "Eurostar Disruption: Major Delays and Cancellations Explained (2026)",
+      "url": "https://custommapposter.com/article/eurostar-disruption-major-delays-and-cancellations-explained/12278"
+     },
+     {
+      "title": "Eurostar delays: Update after two days of disruption",
+      "url": "https://www.nationalworld.com/travel/travel-news/eurostar-delays-update-after-two-days-of-disruption-5195379"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 494,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/travel-info/travel-updates"
+     },
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/infos-trafic/perturbations"
+     },
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/us-en/travel-info/travel-updates"
+     },
+     {
+      "title": "Disruptions | Travel News | Eurostar",
+      "url": "https://www.eurostar.com/uk-en/travel-info/travel-updates?esClientId=0d07fda1a1a0c082d77855bf4550766a8a0525a6a35bc0bc20e34cbcfc733d0c"
+     },
+     {
+      "title": "Eurostar and SNCF Prepare Contingency Schedules Ahead of Rail Disruption - Paris Times",
+      "url": "https://paristimes.com/eurostar-and-sncf-prepare-contingency-schedules-ahead-of-rail-disruption"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Has the ULEZ daily charge changed?",
+   "keenable": {
+    "api_ms": 383,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "ULEZ Compliance for UK Fleets in 2026 | What Operators Pay",
+      "url": "https://saphyroo.com/uk/blog/ulez-compliance-fleets"
+     },
+     {
+      "title": "London ULEZ: The Rules, the Real Cost, and What Actually Changes in 2026 \u2013 MotorBeast",
+      "url": "https://motorbeast.org/lemon/london-ulez"
+     },
+     {
+      "title": "ULEZ and Congestion Charge for EVs: 2026 London Guide",
+      "url": "https://electriccarscheme.com/blog/our-guide-to-the-ultra-low-emission-zone"
+     },
+     {
+      "title": "London ULEZ 2026: Cost, boundaries and new Congestion Charge rules",
+      "url": "https://honestjohn.co.uk/ulez-ultra-low-emissions-zone-london"
+     },
+     {
+      "title": "ULEZ Expansion: What It Actually Means for Drivers in 2026",
+      "url": "https://motifyme.co/blog/ulez-expansion-what-it-actually-means-for-drivers-in-2026"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 375,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "What is the ULEZ charge and who has to pay it? | Regit",
+      "url": "https://www.regit.cars/car-advice/electric/what-is-the-ulez-charge-and-who-has-to-pay-it"
+     },
+     {
+      "title": "Understanding London's ULEZ Charge: A Comprehensive Guide - Crisfix",
+      "url": "https://crisfix.com/ulez-charge-london"
+     },
+     {
+      "title": "ULEZ daily charge, expansion start date, how to pay, and are there any exemptions? | Surrey Live",
+      "url": "https://www.getsurrey.co.uk/news/surrey-news/ulez-daily-charge-expansion-start-26569962"
+     },
+     {
+      "title": "How to pay the ULEZ charge?",
+      "url": "https://ulez.co.uk/how-to-pay-ulez-charge"
+     },
+     {
+      "title": "ULEZ: What happens if you avoid paying the ULEZ charge? | News Shopper",
+      "url": "https://newsshopper.co.uk/news/23754957.ulez-happens-avoid-paying-ulez-charge"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 482,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "ULEZ: where and when - Transport for London",
+      "url": "https://tfl.gov.uk/modes/driving/ultra-low-emission-zone/ulez-where-and-when"
+     },
+     {
+      "title": "ULEZ \u2014 check your vehicle and pay the \u00a312.50 charge \u00b7 government.london",
+      "url": "https://government.london/services/ulez/"
+     },
+     {
+      "title": "Untitled",
+      "url": "https://content.tfl.gov.uk/tfl-ulez-online-booklet.pdf"
+     },
+     {
+      "title": "Ultra Low Emission Zone (ULEZ) Key Fact Sheet",
+      "url": "https://content.tfl.gov.uk/ulez-online-factsheet-apr-jun2026.pdf"
+     },
+     {
+      "title": "What Is the ULEZ Charge? Finance Guide | Kandoo",
+      "url": "https://www.kandoo.co.uk/guides/what-is-the-ulez-charge"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is the Blackwall Tunnel closed this weekend?",
+   "keenable": {
+    "api_ms": 281,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Blackwall Tunnel Closed Southbound Weekend Of 31 March To 3 April For Installation Of New Walking And Cycling Footbridge In Greenwich",
+      "url": "https://designandbuilduk.net/blackwall-tunnel-closed-southbound-weekend-of-31-march-to-3-april-for-installation-of-new-walking-and-cycling-footbridge-in-greenwich"
+     },
+     {
+      "title": "Blackwall Tunnel closures",
+      "url": "https://tfl.gov.uk/status-updates/major-works-and-events/blackwall-tunnel-closures?intcmp=54302"
+     },
+     {
+      "title": "Current Status and Travel Information",
+      "url": "https://londoner.news/blackwall-tunnel-closure"
+     },
+     {
+      "title": "Is Blackwall Tunnel southbound open today?",
+      "url": "https://vidque.com/is-blackwall-tunnel-southbound-open-today"
+     },
+     {
+      "title": "Is the Blackwall Tunnel closed?",
+      "url": "https://eboots.co.uk/wiki/is-the-blackwall-tunnel-closed"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 390,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Blackwall Tunnel part-shut this weekend \u2013 Highways News",
+      "url": "https://highways-news.com/blackwall-tunnel-part-shut-this-weekend"
+     },
+     {
+      "title": "Blackwall Tunnel closed for weekend roadworks",
+      "url": "https://www.bbc.com/news/articles/c728edvp9elo"
+     },
+     {
+      "title": "Blackwall Tunnel closed for weekend roadworks - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/c728edvp9elo"
+     },
+     {
+      "title": "Blackwall Tunnel closed southbound weekend of 31 March to 3 April for installation of new walking and cycling footbridge in Greenwich - Transport for London",
+      "url": "https://tfl.gov.uk/info-for/media/press-releases/2023/march/blackwall-tunnel-closed-southbound-weekend-of-31-march-to-3-april-for-installation-of-new-walking-and-cycling-footbridge-in-greenwich"
+     },
+     {
+      "title": "Blackwall Tunnel southbound closure announced for this weekend | trans.info",
+      "url": "https://trans.info/en/blackwall-tunnel-southbound-closure-announced-for-this-weekend-396438"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 253,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Untitled",
+      "url": "https://tfl.gov.uk/StatusUpdates/RoadsStatusBoard?corridorIds=blackwall+tunnel"
+     },
+     {
+      "title": "Blackwall Tunnel traffic- Northbound tunnel closed | London Now",
+      "url": "https://www.london-now.co.uk/news/26619978.blackwall-tunnel-traffic-live---northbound-tunnel-closed/"
+     },
+     {
+      "title": "Blackwall Tunnel Closures Today \u2014 Live Traffic & Roadworks | Road\u2026",
+      "url": "https://roadclosures.co.uk/tunnel/blackwall"
+     },
+     {
+      "title": "Blackwall and Silvertown tunnels: where and when - Transport for London",
+      "url": "https://tfl.gov.uk/modes/driving/silvertown-blackwall-tunnels-charge/blackwall-and-silvertown-tunnels-where-and-when"
+     },
+     {
+      "title": "TfL Tunnel Routine Maintenance Closures - April 2025 to March 2026",
+      "url": "https://foi.tfl.gov.uk/FOI-1935-2526/Blackwall%20Tunnel%20Maintenance%20Closures%20Program%202025%20-%202026%20(Issue%20v5).pdf"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What time is the last Thameslink train from St Pancras to St Albans tonight?",
+   "keenable": {
+    "api_ms": 368,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "London to St Albans by train",
+      "url": "https://1map.com/en/routes/train/gb-london_to_gb-st-albans-32164"
+     },
+     {
+      "title": "Trains from London to St Albans from \u00a36.00",
+      "url": "https://uk.trip.com/trains/uk/route/london-to-st-albans"
+     },
+     {
+      "title": "Trains London St Pancras to St Albans City | Train Tickets & Times | Thameslink",
+      "url": "https://thameslinkrailway.com/journey/London-St-Pancras-to-St-Albans-City"
+     },
+     {
+      "title": "LONDON to ST ALBANS train from $6 (\u20ac5) with Thameslink - Omio",
+      "url": "https://omio.com/trains/london/st-albans?landing_referrer=&stitch=1da3b2030cde47cc9fb979ccce547bf5-v3"
+     },
+     {
+      "title": "West Hampstead Thameslink Train Departures | Live Station Board",
+      "url": "https://stationview.app/whp"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 378,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "St Albans to St Pancras | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/st-albans-city-to-london-st-pancras"
+     },
+     {
+      "title": "Trains London St Pancras to St Albans City | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/london-st-pancras-to-st-albans-city"
+     },
+     {
+      "title": "ST ALBANS CITY to LONDON ST PANCRAS INTERNATIONAL train from \u00a36 with Thameslink - Omio",
+      "url": "https://www.omio.co.uk/trains/st-albans-city/london-st-pancras-international-ospra"
+     },
+     {
+      "title": "St Albans City to London St. Pancras International Trains from \u00a35.80 | Trip.com",
+      "url": "https://uk.trip.com/trains/uk/route/st-albans-city-to-london-st-pancras-international"
+     },
+     {
+      "title": "Thameslink (London St Pancras International - St Albans City) Rail, route map and schedule, London",
+      "url": "https://busmaps.com/en/uk/public_transit-line-Thameslink-3667890703-2720278838"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 227,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Rail - Train Timetable - London St Pancras (Intl) to St Albans",
+      "url": "https://live-departures.info/rail/timetable/London-St-Pancras-Intl/St-Albans/"
+     },
+     {
+      "title": "Trains London St Pancras to St Albans City | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/london-st-pancras-to-st-albans-city"
+     },
+     {
+      "title": "10:03 St Pancras International - St Albans City (9V24) | Thameslink | Train Times | Traksy",
+      "url": "https://traksy.uk/train/gb/C10408"
+     },
+     {
+      "title": "Trains from St Albans City to London St Pancras International | Check Times & Cheap Tickets",
+      "url": "https://www.traintickets.com/train-times/st-albans-city-to-london-st-pancras-international/"
+     },
+     {
+      "title": "St Albans to St Pancras | Train Tickets & Times | Thameslink",
+      "url": "https://www.thameslinkrailway.com/journey/st-albans-city-to-london-st-pancras"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What time does the Apple Store on Regent Street close today?",
+   "keenable": {
+    "api_ms": 278,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Regent Street - Apple Store - Apple",
+      "url": "https://apple.com/uk/retail/regentstreet?ved=2ahUKEwi5sPqH_daTAxXKUqQEHYRFLbsQgU96BAgdEAo"
+     },
+     {
+      "title": "APPLE REGENT STREET - Updated September 2026 - 92 Photos & 183 Reviews - 235 Regent Street, London - IT Services & Computer & Laptop Repair - Phone Number - Yelp",
+      "url": "https://yelp.co.uk/biz/apple-regent-street-london-2"
+     },
+     {
+      "title": "Apple Store in Regent Street, London - Localmint",
+      "url": "https://localmint.com/uk/apple-store-regent-street-77403"
+     },
+     {
+      "title": "Apple Store",
+      "url": "https://londinium.com/way/291263216"
+     },
+     {
+      "title": "Regent Street Shopping Guide | ShoppingCities.com",
+      "url": "https://shoppingcities.com/destinations/united-kingdom/london/areas/regent-street"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 304,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Apple to Temporarily Close Its Regent Street Store for Refurbishment",
+      "url": "https://www.macobserver.com/news/apple-to-temporarily-close-its-regent-street-store-for-refurbishment"
+     },
+     {
+      "title": "Apple Regent Street store to close for refurbishment",
+      "url": "https://appleinsider.com/articles/26/01/07/apple-to-temporarily-close-regent-street-store-in-london"
+     },
+     {
+      "title": "Apple to Temporarily Close Its Regent Street Store for Refurbishment",
+      "url": "https://www.macobserver.com?p=438369"
+     },
+     {
+      "title": "Today at Apple - Calendar - Regent Street - Apple (UK)",
+      "url": "https://www.apple.com/uk/today/calendar/regentstreet"
+     },
+     {
+      "title": "History of 235 Regent Street | Mosaics Above the Apple Store",
+      "url": "https://lookup.london/history-235-regent-street-apple-store-mosaics#comment-11491"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 514,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Regent Street - Apple Store - Apple (UK)",
+      "url": "https://www.apple.com/uk/retail/regentstreet/"
+     },
+     {
+      "title": "Apple Regent Street - Apple Maps",
+      "url": "https://maps.apple.com/place?place-id=I63F5C5B7E440EE4"
+     },
+     {
+      "title": "Explore hands-on sessions at Apple Regent Street.",
+      "url": "https://www.apple.com/uk/today/calendar/regentstreet/"
+     },
+     {
+      "title": "Apple's Regent Street Store Reopening Soon After One-Month Closure - MacRumors",
+      "url": "https://www.macrumors.com/2026/02/09/apples-regent-street-reopening-date/"
+     },
+     {
+      "title": "When will Apple Regent Street reopen?",
+      "url": "https://appleinsider.com/articles/26/02/10/londons-apple-regent-street-to-reopen-on-valentines-day"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Has Zara changed its returns policy recently?",
+   "keenable": {
+    "api_ms": 277,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Fast Fashion Return Policies in 2026: Shein, Temu, ASOS, Zara, H&M & 5 More Compared",
+      "url": "https://canireturn.com/blog/fast-fashion-return-policy-comparison"
+     },
+     {
+      "title": "Zara Officially Starts Charging for E-Commerce Returns - NewsBreak",
+      "url": "https://newsbreak.com/egoease-379109370/4568371042798-zara-officially-starts-charging-for-e-commerce-returns"
+     },
+     {
+      "title": "Zara Return Policy Tested: Window, Fee & Refund (2026)",
+      "url": "https://retailreturnspolicy.com/zara-return-policy"
+     },
+     {
+      "title": "Zara Return Policy 2026: 30-Day Returns Guide",
+      "url": "https://brandsreturnpolicy.com/zara-return-policy"
+     },
+     {
+      "title": "Zara starts charging shoppers for online returns - London Daily",
+      "url": "https://londondaily.com/zara-starts-charging-shoppers-for-online-returns"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 380,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Nordstrom says generous returns policy has not changed | The Seattle Times",
+      "url": "https://www.seattletimes.com/business/retail/nordstrom-says-returns-policy-has-not-changed"
+     },
+     {
+      "title": "Zara Return Policy: Starts Charging Shoppers For Online Returns",
+      "url": "https://retailboss.co/zara-starts-charging-shoppers-for-online-returns"
+     },
+     {
+      "title": "Zara Returns Policy - Zara Returns - Parcel Monkey",
+      "url": "https://www.parcelmonkey.com/retailer-returns/zara-returns"
+     },
+     {
+      "title": "Has Bangkok Bank changed its policy on accounts for DTV holders recently? - Ask Thailand",
+      "url": "https://ask.in.th/question/has-bangkok-bank-changed-its-policy-on-accounts-for-dtv-holders-recently"
+     },
+     {
+      "title": "Costco May Have Just Quietly Changed Its Returns Policy: Reports - Newsweek",
+      "url": "http://www.newsweek.com/costco-returns-policy-changed-reports-11528117"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 203,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "How To Return | Help | ZARA United Kingdom",
+      "url": "https://www.zara.com/uk/en/help-center/HowToReturn"
+     },
+     {
+      "title": "ZARA TERMS & CONDITIONS",
+      "url": "https://static.zara.net/static/pdfs/US/terms-and-conditions/terms-and-conditions-en_US-20250829.pdf"
+     },
+     {
+      "title": "PURCHASE CONDITIONS",
+      "url": "https://static.zara.net/static/pdfs/UK/terms-and-conditions/terms-and-conditions-en_UK-20240723.pdf"
+     },
+     {
+      "title": "Refunds | Help | ZARA International",
+      "url": "https://www.zara.com/ww/en/help-center/Refund"
+     },
+     {
+      "title": "Special Return Conditions | Help | ZARA United Kingdom",
+      "url": "https://www.zara.com/uk/en/help-center/ReturnSpecialConditions"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What's the Argos same-day delivery cutoff?",
+   "keenable": {
+    "api_ms": 277,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Argos Same Day Delivery | Fast, Flexible Essentials Delivered Today \u2013 House of Isabella",
+      "url": "https://houseofisabella.co.uk/pages/argos-same-day-delivery"
+     },
+     {
+      "title": "Argos Delivery Costs: Your Comprehensive UK Guide | Willand Service Centre",
+      "url": "https://willandservicecentre.co.uk/argos-carry-to-car-service"
+     },
+     {
+      "title": "Delivery & Collection Guide | Argos",
+      "url": "https://help.argos.co.uk/help/delivery-&-collection-guide"
+     },
+     {
+      "title": "Argos Plus | Argos",
+      "url": "https://argos.co.uk/features/argos-plus"
+     },
+     {
+      "title": "Argos discount codes for September 2026",
+      "url": "https://www-techradar-com.translate.goog/coupons/argos?_x_tr_hl=tr&_x_tr_pto=tc&_x_tr_sl=en&_x_tr_tl=tr"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 375,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Argos to start same-day delivery",
+      "url": "https://www.telegraph.co.uk/finance/newsbysector/retailandconsumer/10978462/Argos-to-start-same-day-delivery.html"
+     },
+     {
+      "title": "Argos Same Day Delivery | Fast, Flexible Essentials Delivered Today \u2013 House of Isabella | House of Isabella UK",
+      "url": "https://houseofisabella.co.uk/pages/argos-same-day-delivery"
+     },
+     {
+      "title": "How To Display Same-Day Delivery Before Cutoff And Next-Day Delivery After Cutoff In Shopify",
+      "url": "https://www.setubridge.com/shopify-same-day-delivery-cutoff-time"
+     },
+     {
+      "title": "Argos now offers same-day home delivery across the UK",
+      "url": "https://ecommercenews.eu/argos-now-offers-same-day-home-delivery-across-the-uk"
+     },
+     {
+      "title": "What time is same day delivery cutoff? \u2013 Titcoins.biz",
+      "url": "https://titcoins.biz/articles/what-time-is-same-day-delivery-cutoff"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 248,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Delivery & Collection Guide | Argos",
+      "url": "https://help.argos.co.uk/help/delivery-&-collection-guide"
+     },
+     {
+      "title": "Argos Support | Blog | Delivery Options We Offer",
+      "url": "https://argos-support.co.uk/blog/hints-tips-services/delivery-options-we-offer"
+     },
+     {
+      "title": "Argos Help Centre | Terms and Conditions",
+      "url": "https://help.argos.co.uk/help/terms-and-conditions"
+     },
+     {
+      "title": "Argos Mobile Customer Services",
+      "url": "https://www.argos.co.uk/m/static/StaticDisplay/includeName/fast-track.htm"
+     },
+     {
+      "title": "Can I see all your delivery options?",
+      "url": "https://help.argos.co.uk/help/delivery-and-collection/deliveryoptions"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Does John Lewis still price match?",
+   "keenable": {
+    "api_ms": 281,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "John Lewis price match: how it works",
+      "url": "https://becleverwithyourcash.com/john-lewis-price-drop-refunds-how-it-works"
+     },
+     {
+      "title": "\u2018Brilliant\u2019 say shoppers as major retailer set to bring back price match promise TOMORROW",
+      "url": "https://finance9843.rssing.com/chan-79961305/article2089.html"
+     },
+     {
+      "title": "John Lewis Discount Code: 15% Off in August 2026",
+      "url": "https://savvyvouchers.co.uk/vouchers/john-lewis"
+     },
+     {
+      "title": "UK Price Match Policies in 2026: Which Ones Are Real, and How to Actually Use Them",
+      "url": "https://wem3.ai/blog/price-match-policies-uk-2026"
+     },
+     {
+      "title": "Is John Lewis more expensive?",
+      "url": "https://eboots.co.uk/wiki/is-john-lewis-more-expensive"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 384,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Price Match Policies UK: Currys, Argos, AO & John Lewis | Herm.io",
+      "url": "https://www.herm.io/shopping-tips/price-match-policies-uk-currys-argos-ao-john-lewis"
+     },
+     {
+      "title": "John Lewis Warned Not To Withhold Stock After 'price Match' Watch Row",
+      "url": "https://www.watchpro.com/john-lewis-warned-not-to-withhold-stock-after-price-match-watch-row"
+     },
+     {
+      "title": "John Lewis price match: how it works - Be Clever With Your Cash",
+      "url": "https://becleverwithyourcash.com/easy-john-lewis-price-match"
+     },
+     {
+      "title": "Comments on: John Lewis price match: how it works",
+      "url": "https://becleverwithyourcash.com/easy-john-lewis-price-match/feed"
+     },
+     {
+      "title": "John Lewis to retire its \u2018Never Knowingly Undersold\u2019 price pledge this month - TheIndustry.beauty",
+      "url": "https://theindustry.beauty/john-lewis-to-retire-its-never-knowingly-undersold-price-pledge-this-month"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 213,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Price Promise",
+      "url": "https://www.johnlewis.com/customer-services/prices-and-payment/price-promise"
+     },
+     {
+      "title": "Prices At John Lewis | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/customer-services/prices-and-payment/prices-at-john-lewis"
+     },
+     {
+      "title": "Never Knowingly Undersold | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/content/never-knowingly-undersold"
+     },
+     {
+      "title": "Request a John Lewis price promise refund | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/customer-services/prices-and-payment/price-promise/request"
+     },
+     {
+      "title": "Price Match | John Lewis & Partners",
+      "url": "https://www.johnlewis.com/special-offers/price-match/c6000070034"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is the Dyson Airwrap on sale anywhere right now?",
+   "keenable": {
+    "api_ms": 304,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Here\u2019s Where to Buy the Musician-Loved Dyson Airwrap on Sale Plus Airwrap Dupes",
+      "url": "https://billboard.com/culture/product-recommendations/dyson-airwrap-where-to-buy-1235104708?rand=15113"
+     },
+     {
+      "title": "Run, Don't Walk: There's a Massive Dyson Airwrap Sale for Prime Big Deal Days Happening Right Now",
+      "url": "https://aol.com/articles/run-dont-walk-theres-massive-200910000.html"
+     },
+     {
+      "title": "9 Best Dyson Airwrap Deals (March 2026) Save Up to $150 on Multi-Stylers",
+      "url": "https://ofzenandcomputing.com/best-black-friday-dyson-airwrap-deals"
+     },
+     {
+      "title": "Here\u2019s Where to Buy the Musician-Loved Dyson Airwrap on Sale Plus Airwrap Dupes",
+      "url": "https://yahoo.com/lifestyle/dyson-airwrap-back-stock-where-175137957.html"
+     },
+     {
+      "title": "Dyson's \"Magical\" Airwrap Is $210 Off for Prime Day",
+      "url": "https://goodhousekeeping.com/what-to-buy/sales-shopping-news/a74050680/dyson-airwrap-prime-day-sale-october-2026"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 382,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Dyson Airwrap sale: Get the Dyson Airwrap for 15% off right now",
+      "url": "https://prima.co.uk/fashion-and-beauty/beauty-news/a39810837/dyson-airwrap-sale"
+     },
+     {
+      "title": "Dyson Airwrap sale: Get the Dyson Airwrap for 15% off right now",
+      "url": "https://www.prima.co.uk/fashion-and-beauty/beauty-news/a39810837/dyson-airwrap-sale"
+     },
+     {
+      "title": "How to Get the Dyson Airwrap on Sale Right Now Because It's Worth It",
+      "url": "https://www.retailmenot.com/blog/dyson-airwrap-sale.html"
+     },
+     {
+      "title": "Where To Shop The Dyson Airwrap on Sale Right Now | Beauty Space",
+      "url": "https://www.beautyspace.com.au/dyson-airwrap-sale"
+     },
+     {
+      "title": "Amazon's Dyson Airwrap Sale Gets You 20% Off Right Now - Bargain Hunter",
+      "url": "https://www.bargainhunter.com/dyson-airwrap-origin-sale"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 211,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Dyson Airwrap Deals",
+      "url": "https://www.dyson.com/deals/airwrap-deals"
+     },
+     {
+      "title": "Dyson's \"Magical\" Airwrap Is $210 Off for Prime Day",
+      "url": "https://www.goodhousekeeping.com/what-to-buy/sales-shopping-news/a74050680/dyson-airwrap-prime-day-sale-october-2026/"
+     },
+     {
+      "title": "Dyson Airwrap Prime Day Deal: Save $150 and Get a Free Gift - Business Insider",
+      "url": "https://www.businessinsider.com/guides/deals/dyson-airwrap-prime-day-deal-2026-10"
+     },
+     {
+      "title": "Is the Dyson Airwrap worth it? Early Prime Day deal",
+      "url": "https://nypost.com/2026/09/29/shopping/is-the-dyson-airwrap-worth-it-early-prime-day-deal/"
+     },
+     {
+      "title": "You Can Grab the Cult Classic Dyson Airwrap at a $150 Discount - CNET",
+      "url": "https://www.cnet.com/deals/dyson-airwrap-multistyler-deal/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What time does IKEA Wembley open on Sundays?",
+   "keenable": {
+    "api_ms": 262,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "IKEA Wembley - Furniture, Home D\u00e9cor & Swedish Food",
+      "url": "https://ikea.com/gb/en/stores/wembley"
+     },
+     {
+      "title": "Ikea in Wembley Opening Hours",
+      "url": "https://localopeningtimes.co.uk/ikea/ikea-wembley-wembley-2-drury-way-north-circular-road-opening-hours.html"
+     },
+     {
+      "title": "IKEA in Wembley, London - Localmint",
+      "url": "https://localmint.com/uk/ikea-wembley-57164"
+     },
+     {
+      "title": "IKEA - Wembley | Home Improvement | Wembley",
+      "url": "https://uk.locale.online/ikea---wembley-1488477886.html"
+     },
+     {
+      "title": "IKEA Wembley Opening times, 2 Drury Way, North circular Road London",
+      "url": "https://ikea-uk.open-closed.net/wembley-opening-times-2-drury-way-north-circular-road-london"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 310,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "IKEA Wembley - Furniture, Home D\u00e9cor & Swedish Food - IKEA UK",
+      "url": "https://www.ikea.com/gb/en/stores/wembley"
+     },
+     {
+      "title": "Is IKEA Open on Sundays? Store Hours Explained",
+      "url": "https://smartbuy.alibaba.com/tips/is-ikea-open-on-sundays"
+     },
+     {
+      "title": "What time does fair oaks mall open on Sundays? - Answers",
+      "url": "https://www.answers.com/grocery-stores/What_time_does_fair_oaks_mall_open_on_Sundays"
+     },
+     {
+      "title": "Is IKEA open on Sundays? - IKEA",
+      "url": "https://www.ikea.com/no/en/customer-service/knowledge/articles/4844c06g-3d51-4948-8068-718752d7cd6g.html"
+     },
+     {
+      "title": "Are IKEA stores open on Sundays? - IKEA Belgium",
+      "url": "https://www.ikea.com/be/en/customer-service/knowledge/articles/5557d77g-0dd6-4e68-9b3g-f82b6c5d19d3.html"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 246,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "IKEA Wembley - Furniture, Home D\u00e9cor & Swedish Food - IKEA UK",
+      "url": "https://www.ikea.com/gb/en/stores/wembley/"
+     },
+     {
+      "title": "IKEA Wembley London (NW10) 2 N Circular Rd",
+      "url": "https://www.the-shops.co.uk/NW10-london/ikea-wembley-6261.html"
+     },
+     {
+      "title": "Ikea Wembley",
+      "url": "https://www.ikeanearme.co.uk/ikea/ikea-wembley/"
+     },
+     {
+      "title": "Welcome to IKEA Wembley: A Shopper\u2019s Guide",
+      "url": "https://houseforum.co.uk/welcome-to-ikea-wembley-a-shoppers-guide/"
+     },
+     {
+      "title": "IKEA Wembley Opening times, 2 Drury Way, North circular Road London",
+      "url": "https://ikea-uk.open-closed.net/wembley-opening-times-2-drury-way-north-circular-road-london"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What is the Bank of England base rate today?",
+   "keenable": {
+    "api_ms": 285,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Bank of England base rate history: 2020 to 2026",
+      "url": "https://advice.mortgageonefinance.co.uk/bank-of-england-base-rate-history"
+     },
+     {
+      "title": "Bank of England Base Rate History 2020-2026: A Complete Timeline",
+      "url": "https://southyorkshirepropertybuyers.com/blog/bank-of-england-base-rate-history-2020-2026"
+     },
+     {
+      "title": "Bank of England Base Rate Today and What It Does to Business Borrowing",
+      "url": "https://capexpand.com/research/bank-of-england-base-rate"
+     },
+     {
+      "title": "Base Rate Tracker | Today's Bank of England Rate",
+      "url": "https://tembomoney.com/bank-of-england-base-rate-tracker"
+     },
+     {
+      "title": "Bank of England Base Rate Tracker: Live UK Interest Rate",
+      "url": "https://kaeltripton.com/bank-of-england-base-rate-tracker"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 306,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "the bank of england base rate has changed today | UK Startup Blog",
+      "url": "https://www.ukstartupblog.co.uk/tag/the-bank-of-england-base-rate-has-changed-today"
+     },
+     {
+      "title": "Bank of England Base Rate | Mortgage Base Rate",
+      "url": "https://purplebricks.co.uk/property-calculators/bank-of-england-base-rate"
+     },
+     {
+      "title": "Bank of England Base Rate | Mortgage Base Rate",
+      "url": "https://www.purplebricks.co.uk/property-calculators/bank-of-england-base-rate"
+     },
+     {
+      "title": "Base Rate Tracker | Today's Bank of England Rate",
+      "url": "https://tembomoney.com/bank-of-england-base-rate-tracker"
+     },
+     {
+      "title": "Base Rate Tracker | Today's Bank of England Rate",
+      "url": "https://www.tembomoney.com/bank-of-england-base-rate-tracker"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 221,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Interest rates and Bank Rate: our latest decision | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/monetary-policy/the-interest-rate-bank-rate"
+     },
+     {
+      "title": "Home | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/"
+     },
+     {
+      "title": "Bank Rate history and data | Bank of England Database",
+      "url": "https://www.bankofengland.co.uk/boeapps/database/Bank-Rate.asp?clid=00Q1I00000KJy0CUAT"
+     },
+     {
+      "title": "What is happening with interest rates in the UK? | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/explainers/current-interest-rate"
+     },
+     {
+      "title": "Monetary policy | Bank of England \u2013 the UK's central bank",
+      "url": "https://www.bankofengland.co.uk/monetary-policy"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What does Monzo charge for card spending abroad?",
+   "keenable": {
+    "api_ms": 311,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Does Monzo Charge Abroad? Fees & ATM Limits 2026",
+      "url": "https://ukfinanceblog.co.uk/does-monzo-charge-abroad"
+     },
+     {
+      "title": "Monzo Fees Explained 2026: What You Actually Pay | bankinggeek.com",
+      "url": "https://bankinggeek.com/en/monzo-fees"
+     },
+     {
+      "title": "Monzo Review 2026: FX Fees, Spending Abroad and International Transfers - Currency Expert",
+      "url": "https://www.currencyexpert.com/reviews/monzo/"
+     },
+     {
+      "title": "Can I Use Monzo Abroad? Fees, ATM Limits and US Tips",
+      "url": "https://outboundlynx.com/using-monzo-credit-card-abroad"
+     },
+     {
+      "title": "Monzo Explained: What This Travel Banking App Really Offers",
+      "url": "https://thetraveler.org/monzo-explained-what-this-travel-banking-app-really-offers"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 386,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Does Monzo Charge Abroad? Fees & ATM Limits 2026",
+      "url": "https://www.ukfinanceblog.co.uk/does-monzo-charge-abroad"
+     },
+     {
+      "title": "Monzo Review 2026: FX Fees, Spending Abroad and International Transfers - Currency Expert",
+      "url": "https://www.currencyexpert.com/reviews/monzo"
+     },
+     {
+      "title": "Monzo card foreign spending exchange rate",
+      "url": "https://www.reddit.com/r/UKPersonalFinance/comments/1dsrtgx/monzo_card_foreign_spending_exchange_rate"
+     },
+     {
+      "title": "Monzo Abroad: Your Guide To Using Your Card Overseas",
+      "url": "https://exercisejobs.com/strategic-pulse/monzo-abroad-your-guide-to-using-your-card-overseas-1767648138"
+     },
+     {
+      "title": "Foreign charges whilst using the card abroad - Travelling with Monzo - Monzo Community",
+      "url": "https://community.monzo.com/t/foreign-charges-whilst-using-the-card-abroad/8776"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 223,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Monzo Help - Understanding fees for using your Monzo card abroad",
+      "url": "https://monzo.com/help/travelling/understanding-fees"
+     },
+     {
+      "title": "Fee-free Debit & Credit Cards Made for Travel | Monzo",
+      "url": "https://monzo.com/features/travel"
+     },
+     {
+      "title": "We'll now remind you to pay in local currency when you're abroad, to help you save money!",
+      "url": "https://monzo.com/blog/2019/07/19/should-i-pay-in-local-currency-or-pounds-gbp-when-i-use-monzo-abroad"
+     },
+     {
+      "title": "Your most-asked travel money questions, answered",
+      "url": "https://monzo.com/learn/money-abroad/most-asked-travel-questions"
+     },
+     {
+      "title": "Monzo Abroad 2026 \u2014 Fees, ATM Limits and How to Use Monzo When Travelling | PocketWise",
+      "url": "https://pocketwise.co.uk/banking/monzo/monzo-travel-spending/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What is the Ofgem energy price cap this quarter?",
+   "keenable": {
+    "api_ms": 271,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Ofgem Price Cap Q4 2026 Confirmed: \u00a31,723, Up 4%",
+      "url": "https://switch-pilot.com/switchinsights/ofgem-price-cap-q4-2026-confirmed.html"
+     },
+     {
+      "title": "Ofgem raises energy price cap 4 percent to 1723 pounds from October",
+      "url": "https://finance-explained.online/news/20260830-ofgem-energy-price-cap-rises-4-percent-october"
+     },
+     {
+      "title": "Energy Price Cap Rise 3.6% From October 2026 - Even After the Government's VAT Cut",
+      "url": "https://greentechrenewables.co.uk/blog/energy-price-cap-rise"
+     },
+     {
+      "title": "Ofgem Energy Price Cap July 2026: 13% Rise to \u00a31,663",
+      "url": "https://kaeltripton.com/ofgem-energy-price-cap-update"
+     },
+     {
+      "title": "Summary of changes to energy price cap 1 July to 30 September 2026",
+      "url": "https://ofgem.gov.uk/sites/default/files/2026-06/Summary-of-changes-to-energy-price-cap-1-July-to-30-September-2026-revised-TDCV.pdf"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 382,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Ofgem cuts energy price cap by 7% for April to June quarter |",
+      "url": "https://www.deeside.com/ofgem-cuts-energy-price-cap-by-7-for-april-to-june-quarter"
+     },
+     {
+      "title": "Ofgem Energy Price Cap: April 2026 Rates & Forecasts Update",
+      "url": "https://www.infinity-energy.co.uk/guides/ofgem-energy-price-cap"
+     },
+     {
+      "title": "Ofgem Energy Price Cap History \u2014 Every Quarter Since 2019 | UK Energy Prices",
+      "url": "https://ukelectricityprices.co.uk/price-cap-history"
+     },
+     {
+      "title": "What is the Ofgem energy price cap? | MoneyWeek",
+      "url": "https://moneyweek.com/energy-price-cap-announcement"
+     },
+     {
+      "title": "Ofgem announces energy price cap increase for Quarter 1 of 2025 | News | LexisNexis",
+      "url": "https://www.lexisnexis.co.uk/legal/news/ofgem-announces-energy-price-cap-increase-for-quarter-1-of-2025"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 487,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Energy price cap (default tariff) levels | Ofgem",
+      "url": "https://www.ofgem.gov.uk/energy-regulation/domestic-and-non-domestic/energy-pricing-rules/energy-price-cap/energy-price-cap-default-tariff-levels"
+     },
+     {
+      "title": "Changes to energy price cap between 1 October and 31 December 2026 | Ofgem",
+      "url": "https://www.ofgem.gov.uk/news/changes-energy-price-cap-between-1-october-and-31-december-2026"
+     },
+     {
+      "title": "Energy price cap will rise by 4% from October 2026 | Ofgem",
+      "url": "https://www.ofgem.gov.uk/press-release/energy-price-cap-will-rise-4-october-2026"
+     },
+     {
+      "title": "Energy price cap | Ofgem",
+      "url": "https://www.ofgem.gov.uk/energy-regulation/domestic-and-non-domestic/energy-pricing-rules/energy-price-cap"
+     },
+     {
+      "title": "Summary of changes to energy price cap 1 October to 31 December 2026",
+      "url": "https://www.ofgem.gov.uk/sites/default/files/2026-08/Summary-of-changes-to-energy-price-cap-1-October-to-31-December-2026.pdf"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is there a Thames Water hosepipe ban at the moment?",
+   "keenable": {
+    "api_ms": 273,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Thames Water Hosepipe Ban Status 2026",
+      "url": "https://lawnbyseason.com/uk/water-restrictions/thames-water"
+     },
+     {
+      "title": "Thames Water announces Temporary Use Ban following record hot weather and exceptionally high demand",
+      "url": "https://thameswater.co.uk/news/2026/jul/thames-water-announces-temporary-use-ban-following-record-hot-weather-and-exceptionally-high-demand"
+     },
+     {
+      "title": "Thames Water Hosepipe Ban: What Oxfordshire Residents Need To Know | Oxfordshire Guardian",
+      "url": "https://oxfordshireguardian.co.uk/thames-water-hosepipe-ban-what-oxfordshire-residents-need-to-know"
+     },
+     {
+      "title": "Hosepipe Ban South East London: Garden Rules Explained (2026)",
+      "url": "https://urbangardeners.co.uk/hosepipe-ban-south-east-london-garden-guide"
+     },
+     {
+      "title": "Thames Water Bans Hosepipes for 10.1 Million Customers Starting Thursday",
+      "url": "https://unbiasedheadlines.com/article/thames-water-bans-hosepipes-for-101-million-customers-starting-thursday"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 444,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Thames Water - Temporary Hosepipe Ban - Berkshire Cricket",
+      "url": "https://berkshirecricket.org/2026/07/21/thames-water-temporary-hosepipe-ban"
+     },
+     {
+      "title": "What is a Thames Water Hosepipe Ban? - Manchester Herald",
+      "url": "https://manchesterherald.co.uk/thames-water-hosepipe-ban"
+     },
+     {
+      "title": "Thames Water Hosepipe Ban \u2013 Lifted After Sustained Rainfall - TradeWire",
+      "url": "https://tradewireuk.uk/tech/thames-water-hosepipe-ban"
+     },
+     {
+      "title": "What is the penalty for violating a hosepipe ban from Thames Water? | ERGSY",
+      "url": "https://ergsy.com/information/what-penalty-violating-hosepipe-ban-thames-water/orphans/22869/15968"
+     },
+     {
+      "title": "Thames Water hosepipe ban 2026: Who's affected & Why",
+      "url": "https://todaywhy.com/thames-water-hosepipe-ban-2026-explained"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 495,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Thames Water Temporary Hosepipe Ban | Restrictions, Exemptions & FAQs",
+      "url": "https://www.thameswater.co.uk/help/temporary-hosepipe-ban"
+     },
+     {
+      "title": "Thames Water announces Temporary Use Ban following record hot weather and exceptionally high demand",
+      "url": "https://www.thameswater.co.uk/news/2026/jul/thames-water-announces-temporary-use-ban-following-record-hot-weather-and-exceptionally-high-demand"
+     },
+     {
+      "title": "Legal notice | Water supply | Thames Water",
+      "url": "https://www.thameswater.co.uk/help/temporary-hosepipe-ban/legal-notice"
+     },
+     {
+      "title": "Thames Water hosepipe ban comes into force for millions - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/cwylp1r946yo"
+     },
+     {
+      "title": "Thames Water announces hosepipe ban for 10 million customers - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/crmrnvl2xw8o"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What's the current Premium Bonds prize fund rate?",
+   "keenable": {
+    "api_ms": 261,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "NS&I reduces prize fund rate and lengthens odds for Premium Bonds",
+      "url": "https://qa-ifa.nsandi.com/nsi-reduces-prize-fund-rate-and-lengthens-odds-premium-bonds"
+     },
+     {
+      "title": "PR260204 - NS&I reduces prize fund rate and lengthens odds for Premium Bonds",
+      "url": "https://nsandi.com/about-us/press-releases/2026/nsi-reduces-prize-fund-rate-lengthens-odds-premium-bonds"
+     },
+     {
+      "title": "Premium Bonds holders given double blow as NS&I releases update on accounts",
+      "url": "https://assetmarketnews.com/investment/premium-bonds-holders-given-double-blow-as-nsi-releases-update-on-accounts"
+     },
+     {
+      "title": "NS&I Premium Bonds Rate Increase: New 3.8% Odds & Prize Draw Boost",
+      "url": "https://londonbusinessmag.co.uk/nsi-premium-bonds-rate-increase"
+     },
+     {
+      "title": "NS&I Prize Fund Rate Increase: Premium Bonds' Rate Hits 3.8%",
+      "url": "https://ukbusinesstimes.co.uk/nsi-prize-fund-rate-increase"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 379,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Premium Bonds prize rate to rise to 3.8%",
+      "url": "https://www.moneysavingexpert.com/news/2026/05/premium-bonds-prize-rate-rise-july"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to be slashed: Are they still worth holding?",
+      "url": "https://www.yourmoney.com/saving-banking/premium-bonds-prize-fund-rate-set-to-be-slashed-are-they-still-worth-holding"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to be cut to 3.60% from August",
+      "url": "https://moneycomms.co.uk/premium-bonds-prize-fund-rate-to-be-cut-to-3-60-from-august"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to increase",
+      "url": "https://uk.finance.yahoo.com/news/premium-bonds-prize-fund-rate-095511459.html"
+     },
+     {
+      "title": "Premium Bonds prize fund rate to be cut to 4.15% from December - Money Comms",
+      "url": "https://moneycomms.co.uk/premium-bonds-prize-fund-rate-to-be-cut-to-4-15-from-december"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 484,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "PR260901 - ERNIE draws two September jackpot millionaires as Premium Bonds approach 70th anniversary | NS&I",
+      "url": "https://www.nsandi.com/about-us/press-releases/2026/september-premium-bonds-two-millionaires-norwich-and-london"
+     },
+     {
+      "title": "PR261001 - Two Premium Bonds holders in Somerset and East Sussex celebrate as ERNIE draws the October jackpot millionaires | NS&I",
+      "url": "https://www.nsandi.com/about-us/press-releases/2026/october-premium-bonds-two-millionaires-somerset-and-east-sussex"
+     },
+     {
+      "title": "PR260818 - Boost for Premium Bonds including around 308,000 extra tax-free prizes \u2013 plus improved rates for four other NS&I savings products | NS&I",
+      "url": "https://www.nsandi.com/about-us/press-releases/2026/boost-for-premium-bonds-including-around-308k-extra-tax-free-prizes-plus-improved-rates-four-other-nsi-savings-products"
+     },
+     {
+      "title": "Premium Bonds September 2026: 4.35% and 21,000:1",
+      "url": "https://financelives.com/blog/uk-premium-bonds-prize-rate-2026"
+     },
+     {
+      "title": "Premium Bonds rate rises to 4.35% (September 2026)",
+      "url": "https://www.kaeltripton.com/latest/premium-bonds-prize-fund-rate/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is the Revolut app down right now?",
+   "keenable": {
+    "api_ms": 279,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Is Revolut Down? Live Status & Outage Map",
+      "url": "https://status.buzz/revolut"
+     },
+     {
+      "title": "Is Revolut Down?",
+      "url": "https://outage.gg/services/revolut"
+     },
+     {
+      "title": "Revolut down? Outage map, service status, incidents history",
+      "url": "https://outage.report/revolut"
+     },
+     {
+      "title": "Revolut Status. Is Revolut down?",
+      "url": "https://isdown.app/status/revolut"
+     },
+     {
+      "title": "Is Revolut (US) Down?",
+      "url": "https://outage.gg/services/revolut-us"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 382,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Is Revolut Down Right Now? Live Status, Outages & Service Issues",
+      "url": "https://www.entireweb.com/status/revolut"
+     },
+     {
+      "title": "Is Revolut Down? Live Status, Outage Map & Reports",
+      "url": "https://outage.report/revolut"
+     },
+     {
+      "title": "Revolut Users Report Issues As App Down For Many",
+      "url": "https://extra.ie/2024/05/31/news/irish-news/revolut-outage"
+     },
+     {
+      "title": "Revolut Business Mobile App Status. Check if Revolut Business Mobile App is down or having an outage. | StatusGator",
+      "url": "https://statusgator.com/services/revolut/business-mobile-app"
+     },
+     {
+      "title": "Revolut Business Web App Status. Check if Revolut Business Web App is down or having an outage. | StatusGator",
+      "url": "https://statusgator.com/services/revolut/business-web-app"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 224,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "System status | Revolut United Kingdom",
+      "url": "https://www.revolut.com/system-status/"
+     },
+     {
+      "title": "System status | Revolut United States",
+      "url": "https://www.revolut.com/en-US/system-status/"
+     },
+     {
+      "title": "Revolut down? Current problems and outages | Downdetector US",
+      "url": "https://downdetector.com/status/revolut/"
+     },
+     {
+      "title": "Is Revolut Down? Live Status & Outage Tracker",
+      "url": "https://www.pulsapi.com/services/revolut"
+     },
+     {
+      "title": "Is Revolut Down Right Now? Revolut Server Status & Outage Reports Live | IsItDownRightNow.app",
+      "url": "https://isitdownrightnow.app/services/revolut/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Are there any tickets left for Oasis at Wembley?",
+   "keenable": {
+    "api_ms": 261,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://inkl.com/news/will-oasis-add-any-more-2027-tour-dates-as-42-dates-sell-out"
+     },
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://aol.co.uk/articles/oasis-add-more-2027-tour-142443000.html"
+     },
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://standard.co.uk/culture/music/oasis-2027-tour-tickets-extra-sale-b1298644.html"
+     },
+     {
+      "title": "Will Oasis add any more 2027 tour dates as 42 dates sell out?",
+      "url": "https://malaysia.news.yahoo.com/oasis-add-more-2027-tour-142443683.html"
+     },
+     {
+      "title": "Oasis 2027 tickets LIVE: Liam Gallagher delivers message to fans as 42-show tour sells out",
+      "url": "https://standard.co.uk/culture/music/oasis-2027-tickets-sale-tour-latest-liam-gallagher-b1298266.html"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 374,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "It's not too late to buy Oasis Wembley tickets as 42-day countdown begins",
+      "url": "https://www.ladbible.com/entertainment/music/oasis-wembley-stadium-uk-reunion-tour-official-tickets-764401-20250523"
+     },
+     {
+      "title": "Oasis at Wembley | VIP Tickets & Hospitality",
+      "url": "https://booking.aokevents.com/event/oasis"
+     },
+     {
+      "title": "How to buy Oasis tickets before new Wembley Stadium tickets are released | Kent Live",
+      "url": "https://www.kentlive.news/whats-on/music-nightlife/oasis-tickets-vip-seat-unique-9535379"
+     },
+     {
+      "title": "Oasis Fans Not Allowed To Listen To Gig Outside Wembley",
+      "url": "https://secretldn.com/ticketless-oasis-fans-banned-wembley"
+     },
+     {
+      "title": "Oasis: new Wembley dates, how to get tickets and enter ballot | Oasis | The Guardian",
+      "url": "https://www.theguardian.com/music/article/2024/sep/05/oasis-new-wembley-dates-how-to-get-tickets-and-enter-ballot"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 208,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Oasis at Wembley: Tickets, start time, seating plan and everything you need to know for London shows | The Independent",
+      "url": "https://www.the-independent.com/arts-entertainment/music/news/oasis-wembley-tickets-start-time-seating-plan-setlist-b2800333.html"
+     },
+     {
+      "title": "Oasis London Wembley Stadium 2025: Where to Buy Last-Minute Tickets For The Final Two Oasis Live 2025 Tour Shows",
+      "url": "https://www.timeout.com/london/news/where-to-buy-last-minute-oasis-tickets-for-the-two-london-wembley-stadium-shows-this-weekend-092425"
+     },
+     {
+      "title": "OASIS LIVE '25",
+      "url": "https://www.wembleystadium.com/events/2025/OASIS"
+     },
+     {
+      "title": "Oasis London: Wembley Setlist, Support and Travel Tips",
+      "url": "https://ticketsatlas.com/oasis-london/"
+     },
+     {
+      "title": "Oasis Live 25 all you need to know - Wembley Stadium",
+      "url": "https://www.wembleystadium.com/news/2025/05/14/13/10/Oasis-Live-25-all-you-need-to-know"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is the Natural History Museum open on Mondays?",
+   "keenable": {
+    "api_ms": 286,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Natural History Museum with the Copenhagen Card (2026)",
+      "url": "https://thecopenhagencard.com/natural-history-museum"
+     },
+     {
+      "title": "Museums Open On Monday In Los Angeles: What Actually Opens",
+      "url": "https://losangelesmuseums.guide/guides/los-angeles-museums-open-monday"
+     },
+     {
+      "title": "Natural History Museum Vienna Tickets, Prices & Opening Hours 2026: Visitor Guide",
+      "url": "https://eurolandmarks.com/attractions/austria/vienna/natural-history-museum-vienna"
+     },
+     {
+      "title": "San Diego Natural History Museum 2026: Tickets, Hours, Prices & What to Expect",
+      "url": "https://thebettervacation.com/natural-history-museum-san-diego"
+     },
+     {
+      "title": "LA Natural History Museum Hours: Your Essential Guide to Planning the Perfect Visit - Wonderful Museums",
+      "url": "https://wonderfulmuseums.com/museum/la-natural-history-museum-hours"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 314,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Museum Mondays with Las Vegas Natural History Museum",
+      "url": "https://www.yahoo.com/news/museum-mondays-las-vegas-natural-180718182.html"
+     },
+     {
+      "title": "ULM Museum of Natural History hosts Mystery Mondays on June 22 & 29",
+      "url": "https://www.ulm.edu/news/2026/mnh_mystery_mondays_061626.html"
+     },
+     {
+      "title": "Natural History Museum Vienna FAQ | Your Questions Answered",
+      "url": "https://www.musemap.art/en/vienna/museum/natural-history-museum-vienna/faq"
+     },
+     {
+      "title": "Milwaukee Public Museum Open on Mondays, Starting October 11 \u00bb Urban Milwaukee",
+      "url": "https://urbanmilwaukee.com/pressrelease/milwaukee-public-museum-open-on-mondays-starting-october-11"
+     },
+     {
+      "title": "Mineral Mondays | New Mexico Museum of Natural History & Science",
+      "url": "https://www.nmnaturalhistory.org/events/mineral-mondays-1"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 207,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Visit | Natural History Museum",
+      "url": "https://www.nhm.ac.uk/visit.html"
+     },
+     {
+      "title": "Home | Natural History Museum",
+      "url": "https://www.nhm.ac.uk/"
+     },
+     {
+      "title": "Natural History Museum visual guide | Natural History Museum",
+      "url": "https://www.nhm.ac.uk/visit/visual-guide.html"
+     },
+     {
+      "title": "Natural History Museum London tickets and visitor information",
+      "url": "https://www.visitlondon.com/things-to-do/place/427179-natural-history-museum"
+     },
+     {
+      "title": "Natural History Museum Opening Hours | Timings & Best Time to Visit",
+      "url": "https://www.london-tickets.co.uk/natural-history-museum/timings-opening-hours/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What time does Borough Market close on Saturdays?",
+   "keenable": {
+    "api_ms": 292,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Visit Borough Market | Borough Market",
+      "url": "https://boroughmarket.org.uk/visit-us/"
+     },
+     {
+      "title": "Where to Eat in London (4.6\u2605) \u00b7 Wander Atlas",
+      "url": "https://wanderatlasguides.com/posts/london-borough-market"
+     },
+     {
+      "title": "Borough Market - Review & Guide (2026) | Borough",
+      "url": "https://mesprestiges.com/en/london/places/borough-market-southwark"
+     },
+     {
+      "title": "Borough Market explained: history, hours, and what to expect",
+      "url": "https://londonvacationguide.com/blog/what-is-borough-market"
+     },
+     {
+      "title": "Does Borough Market actually close at 5?",
+      "url": "https://eboots.co.uk/wiki/does-borough-market-actually-close-at-5"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 388,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "What time does sunridge mall close at on saturdays? - Answers",
+      "url": "https://qa.answers.com/other-qa/What_time_does_sunridge_mall_close_at_on_saturdays"
+     },
+     {
+      "title": "What Time Does Sonic Close\u00a0 -",
+      "url": "https://www.sonichappyhour.org/what-time-does-sonic-close"
+     },
+     {
+      "title": "Borough Market | Sour Flour Jamaica",
+      "url": "https://sourflourjamaica.wordpress.com/2015/04/03/borough-market"
+     },
+     {
+      "title": "does stock market close on saturday? Quick guide",
+      "url": "https://www.bitget.com/wiki/does-stock-market-close-on-saturday"
+     },
+     {
+      "title": "What Time Does the Stock Market Open and Close? 2026 Guide",
+      "url": "https://www.investise.com/what-time-does-the-stock-market-open-and-close"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 476,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Visit Borough Market | Borough Market",
+      "url": "https://boroughmarket.org.uk/visit-us/"
+     },
+     {
+      "title": "Borough Market \u2014 London farmers market | UK Farmers Markets",
+      "url": "https://farmers-market.org.uk/markets/borough-market"
+     },
+     {
+      "title": "Bank Holiday opening times 2026 | Borough Market",
+      "url": "https://boroughmarket.org.uk/events/bank-holiday-opening-times/"
+     },
+     {
+      "title": "FAQs | Borough Market",
+      "url": "https://boroughmarket.org.uk/frequently-asked-questions/"
+     },
+     {
+      "title": "Borough Market London opening times and nearest Tube station | London Now",
+      "url": "https://www.london-now.co.uk/news/26464557.borough-market-london-opening-times-nearest-tube-station/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What's the dress code at Sketch in Mayfair?",
+   "keenable": {
+    "api_ms": 271,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Sketch London: The Most Instagrammed Restaurant in the City (Is It Actually Worth Booking?)",
+      "url": "https://destinedforlondon.com/blog/sketch-london-the-most-instagrammed"
+     },
+     {
+      "title": "Sketch Lecture Room And Library Review 2026: Brilliant 3-Michelin-Star Mayfair Honest Verdict | London Reviews",
+      "url": "https://londonreviews.co.uk/sketch-lecture-room-library-review"
+     },
+     {
+      "title": "What to Wear to London Restaurants: Dress Codes by Area",
+      "url": "https://londonlife.org/what-to-wear-to-london-restaurants-dress-codes-by-area"
+     },
+     {
+      "title": "Sketch, England \u2014 Restaurant Guide 2026",
+      "url": "https://opentravelguide.com/united-kingdom/england/restaurants/sketch"
+     },
+     {
+      "title": "Sketch (The Bar), United Kingdom [2026]",
+      "url": "https://opentravelguide.com/united-kingdom/nightlife/sketch-the-bar"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 309,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "The Mayfair Dress Code - Mayfair London",
+      "url": "https://www.mayfair-london.co.uk/the-mayfair-dress-code"
+     },
+     {
+      "title": "Sketch Mayfair \u2013 Mayfair London",
+      "url": "https://www.mayfair-london.co.uk/lkey/sketch-mayfair/feed"
+     },
+     {
+      "title": "Mayfair Club Dress Code \u2014 What to Wear to Every Venue in 2026 | Mayfair Tonight",
+      "url": "https://mayfairtonight.com/mayfair-club-dress-code"
+     },
+     {
+      "title": "Dear Darling Mayfair Dress Code, Dear Darling Guestlist, Table Prices, and FAQ | Mayfair Nights",
+      "url": "https://www.mfnights.com/post/dear-darling-mayfair-dress-code-faq"
+     },
+     {
+      "title": "Sketch Mayfair - Mayfair London",
+      "url": "https://www.mayfair-london.co.uk/lkey/sketch-mayfair"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 483,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Sketch, The Gallery \u2014 Restaurant in London | Pearl",
+      "url": "https://joinpearl.co/restaurants/london-united-kingdom/sketch-the-gallery"
+     },
+     {
+      "title": "Sketch London: What It\u2019s Really Like - The London Eats List",
+      "url": "https://thelondoneatslist.com/sketch-mayfair-london/"
+     },
+     {
+      "title": "Sketch Gallery",
+      "url": "https://www.tripadvisor.com/Restaurant_Review-g186338-d2033622-Reviews-Sketch_Gallery-London_England.html"
+     },
+     {
+      "title": "Sketch, The Gallery Restaurant, London | En Primeur Club",
+      "url": "https://www.enprimeurclub.com/restaurants/sketch-the-gallery-london-restaurant"
+     },
+     {
+      "title": "Sketch Lecture Room And Library Review 2026: Brilliant 3-Michelin-Star Mayfair Honest Verdict | London Reviews",
+      "url": "https://londonreviews.co.uk/sketch-lecture-room-library-review/"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "Is Wimbledon ground admission sold out?",
+   "keenable": {
+    "api_ms": 296,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Wimbledon Ground Tickets: Price, Access, How to Get One",
+      "url": "https://sportsmonkie.com/wimbledon-ground-tickets"
+     },
+     {
+      "title": "Wimbledon Tickets 2027: Ballot Dates, The Queue, Prices",
+      "url": "https://londontravelgeek.co.uk/articles/wimbledon-tickets-guide"
+     },
+     {
+      "title": "Queueing for Tickets",
+      "url": "https://wimbledon.com/en_GB/tickets/the_queue?:~:text=The%20Queue%20begins%20the%20evening_the%20Grounds%20for%20the%20day."
+     },
+     {
+      "title": "Wimbledon Championship Tickets 2026 \u2014 Prices & Queue Guide",
+      "url": "https://tennischampionshipwimbledon.com/tickets"
+     },
+     {
+      "title": "Wimbledon Tennis Tickets: How Much They Cost and How to Get Them",
+      "url": "https://sportsmonkie.com/wimbledon-tennis-tickets"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 318,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Ipswich Town FC | SOLD OUT | AFC WIMBLEDON (A)",
+      "url": "https://www.itfc.co.uk/news/2022/january/sold-out-afc-wimbledon"
+     },
+     {
+      "title": "Sold Out | AFC Wimbledon (A) | Bolton Wanderers FC",
+      "url": "https://www.bwfc.co.uk/news/sold-out-afc-wimbledon"
+     },
+     {
+      "title": "Taking your own beers into Wimbledon... - Talk Tennis",
+      "url": "http://tt.tennis-warehouse.com/index.php?threads%2Ftaking-your-own-beers-into-wimbledon.139148%2F="
+     },
+     {
+      "title": "News Story - AFC Wimbledon - admission & travel | FC United of Manchester",
+      "url": "https://fc-utd.co.uk/news-story/afc-wimbledon-admission-travel"
+     },
+     {
+      "title": "Office Space at Common Ground Wimbledon, Wimbledon",
+      "url": "https://www.tallyworkspace.com/office-space/london/wimbledon/common-ground-wimbledon"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 214,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "How can I purchase tickets on the day? \u2013 Wimbledon",
+      "url": "https://help.wimbledon.com/hc/en-gb/articles/16150226635676-How-can-I-purchase-tickets-on-the-day"
+     },
+     {
+      "title": "A GUIDE TO QUEUEING 2026",
+      "url": "https://content.wimbledon.com/is/content/AELTC/aeltc/wimbledon/live-site/guest/pdfs/The%20Queue%20Guide%202026.pdf"
+     },
+     {
+      "title": "Wimbledon Queue Guide 2026: How It Works, & Ticket Prices",
+      "url": "https://tennischampionshipwimbledon.com/queue/"
+     },
+     {
+      "title": "Wimbledon Tickets 2027: Ballot Dates, The Queue, Prices | London Travel Geek",
+      "url": "https://www.londontravelgeek.co.uk/articles/wimbledon-tickets-guide/"
+     },
+     {
+      "title": "Wimbledon 2026: Expert guide to budget tickets and beating the queues  | The Standard",
+      "url": "https://www.standard.co.uk/lifestyle/wimbledon-2026-tickets-queues-show-courts-b1010083.html"
+     }
+    ]
+   }
+  },
+  {
+   "pass": 2,
+   "q": "What time does the Tate Modern close on Fridays?",
+   "keenable": {
+    "api_ms": 266,
+    "cost_usd": 0.001,
+    "error": null,
+    "top": [
+     {
+      "title": "Tate Modern Tickets, Prices & Opening Hours 2026: Visitor Guide",
+      "url": "https://eurolandmarks.com/attractions/united-kingdom/london/tate-modern"
+     },
+     {
+      "title": "Tate Modern | Tate",
+      "url": "https://www.tate.org.uk/visit/tate-modern"
+     },
+     {
+      "title": "Tate Modern Opening Hours | Best Times to Visit and Other Tips",
+      "url": "https://www.london-tickets.co.uk/tate-modern/timings-opening-hours/"
+     },
+     {
+      "title": "Tate Modern, London: Must-know tips, with transport, prices & hours",
+      "url": "https://planetwhitley.com/how-to-plan-a-visit-to-the-tate-modern-in-london"
+     },
+     {
+      "title": "Do You Need to Book Tate Modern Tickets in Advance? | What2Book",
+      "url": "https://what2book.com/london/tate-modern"
+     }
+    ]
+   },
+   "tavily": {
+    "api_ms": 381,
+    "cost_usd": 0.008,
+    "error": null,
+    "top": [
+     {
+      "title": "Frida Fridays | Tate Modern",
+      "url": "https://www.tate.org.uk/whats-on/tate-modern/frida-kahlo-the-making-of-an-icon/frida-fridays"
+     },
+     {
+      "title": "London\u2019s Tate Modern Art Gallery Will Soon Stay Open Much Later on Fridays and Saturdays",
+      "url": "https://www.timeout.com/london/news/londons-tate-modern-will-stay-open-later-on-fridays-and-saturdays-072525"
+     },
+     {
+      "title": "What Time Does TGI Fridays Close? Hours, Late-Night Dining, and Tips - Hours to Eat",
+      "url": "https://www.hourstoeat.com/what-time-does-tgi-fridays-close"
+     },
+     {
+      "title": "What Time Does TGI Fridays Close? Hours, Late-Night Dining, and Tips - Hours to Eat",
+      "url": "https://hourstoeat.com/what-time-does-tgi-fridays-close"
+     },
+     {
+      "title": "Tate Modern to open until 9pm on Fridays and Saturdays in bid to reclaim lost visitors - Yahoo",
+      "url": "https://nz.news.yahoo.com/tate-modern-open-until-9pm-125124654.html"
+     }
+    ]
+   },
+   "exa": {
+    "api_ms": 228,
+    "cost_usd": 0.004,
+    "error": null,
+    "top": [
+     {
+      "title": "Tate Modern | Tate",
+      "url": "https://www.tate.org.uk/visit/tate-modern"
+     },
+     {
+      "title": "Frequently asked questions | Tate",
+      "url": "https://www.tate.org.uk/about-us/frequently-asked-questions"
+     },
+     {
+      "title": "Tate Modern announces regular late openings following record number of young visitors \u2013 Press Release | Tate",
+      "url": "https://www.tate.org.uk/press/press-releases/tate-modern-announces-regular-late-openings-following-record-number-of-young-visitors"
+     },
+     {
+      "title": "Tate Modern weekend opening hours to be extended - BBC News",
+      "url": "https://www.bbc.co.uk/news/articles/cr797p3y45zo"
+     },
+     {
+      "title": "Tate Modern to stay open until 9pm on weekends - Museums Association",
+      "url": "https://www.museumsassociation.org/museums-journal/news/2025/07/tate-modern-to-stay-open-until-9pm-on-weekends/"
+     }
+    ]
+   }
+  }
+ ]
+}
