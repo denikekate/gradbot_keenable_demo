@@ -17,8 +17,10 @@ import httpx
 SYSTEM = (
     "You are the voice of a customer-service phone agent. Answer the caller's question in ONE short "
     "spoken sentence (max 30 words), using only the search results provided. Name the source site in "
-    "passing (\"according to Reuters\") but never read a URL. If the results do not contain the answer, "
-    "say exactly: \"I couldn't find that just now.\" No preamble, no markdown."
+    "passing (\"according to Reuters\") but never read a URL. This will be read aloud: plain words only, "
+    "no lists, dashes, symbols, codes or long strings of numbers; say times and figures the way a person "
+    "would on the phone. If the results do not contain the answer, say exactly: "
+    "\"I couldn't find that just now.\" No preamble, no markdown."
 )
 
 
@@ -51,7 +53,11 @@ async def spoken_answer(query: str, results: list[dict[str, Any]]) -> dict[str, 
                 },
             )
         j = r.json()
-        text = (j.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
-        return {"answer": text or None, "llm_ms": round((time.perf_counter() - t0) * 1000), "model": model}
+        ms = round((time.perf_counter() - t0) * 1000)
+        if r.status_code >= 400 or "choices" not in j:
+            err = (j.get("error") or {}).get("message") if isinstance(j.get("error"), dict) else j.get("error")
+            return {"answer": None, "llm_ms": ms, "model": model, "error": f"LLM {r.status_code}: {err or r.text[:160]}"}
+        text = (j["choices"][0].get("message") or {}).get("content", "").strip()
+        return {"answer": text or None, "llm_ms": ms, "model": model}
     except Exception as e:
         return {"answer": None, "llm_ms": round((time.perf_counter() - t0) * 1000), "error": str(e)[:200]}
