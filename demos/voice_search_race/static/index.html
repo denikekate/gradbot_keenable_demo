@@ -61,6 +61,10 @@
   .score td.v.bad{color:var(--red)}
   .score tfoot td{font-size:13px;color:var(--ink-3);background:var(--bg-2);border-bottom:0}
   .progress{display:inline-flex;align-items:center;gap:8px}
+  .seg{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:3px;gap:2px}
+  .seg button{padding:.3rem .8rem;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-2)}
+  .seg button.on{background:var(--ink);color:#fff}
+  .sec-head .right{display:flex;align-items:center;gap:14px}
   .progress b{font-family:var(--mono);font-weight:500}
 
   /* ask */
@@ -148,7 +152,7 @@
   <div class="banner" id="banner"></div>
 
   <section>
-    <div class="sec-head"><h2>Scorecard</h2><span class="meta progress" id="progress"><span>No races yet</span></span></div>
+    <div class="sec-head"><h2>Scorecard</h2><div class="right"><span class="meta progress" id="progress"><span>No races yet</span></span><span class="seg" id="viewSeg"><button data-view="session" class="on">This session</button><button data-view="set">Full set</button></span></div></div>
     <div class="card">
       <table class="score">
         <thead><tr><th></th>
@@ -158,9 +162,9 @@
         </tr></thead>
         <tbody>
           <tr><td class="m">Answer quality<small>NDCG, estimated from NEEDLE. Placeholder.</small></td><td class="v keen" data-q="keenable">0.74</td><td class="v" data-q="tavily">0.62</td><td class="v" data-q="exa">0.70</td></tr>
-          <tr><td class="m">Median search latency<small>Measured live, this session</small></td><td class="v keen" data-lat="keenable">–</td><td class="v" data-lat="tavily">–</td><td class="v" data-lat="exa">–</td></tr>
+          <tr><td class="m">Median search latency<small id="latNote">Measured live, this session</small></td><td class="v keen" data-lat="keenable">–</td><td class="v" data-lat="tavily">–</td><td class="v" data-lat="exa">–</td></tr>
           <tr><td class="m">Cost per 1,000 queries<small>Vendor-reported where the API returns it</small></td><td class="v keen" data-cost="keenable">–</td><td class="v" data-cost="tavily">–</td><td class="v" data-cost="exa">–</td></tr>
-          <tr><td class="m">Dead-air moments<small>Searches over 800 ms, cumulative</small></td><td class="v keen" data-dead="keenable">0</td><td class="v" data-dead="tavily">0</td><td class="v" data-dead="exa">0</td></tr>
+          <tr><td class="m">Dead-air moments<small id="deadNote">Searches over 800 ms, this session</small></td><td class="v keen" data-dead="keenable">0</td><td class="v" data-dead="tavily">0</td><td class="v" data-dead="exa">0</td></tr>
         </tbody>
         <tfoot><tr><td colspan="4">Latency is each vendor's own API time, measured server-side around the call. A voice turn has roughly 800 ms before the caller notices silence.</td></tr></tfoot>
       </table>
@@ -270,11 +274,12 @@ const SIM_COST = {keenable:.001,tavily:.008,exa:.005};
 const $=s=>document.querySelector(s);
 const lanesEl=$("#lanes"), qText=$("#qText"), banner=$("#banner"), transcriptEl=$("#transcript");
 let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="";
-let stats = load();
+let store = load(); let view = store.view || "session"; let runningSet = false;
+function cur(){ return store[view]; }
 
-function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v2")); if(s&&s.races!=null) return s; }catch{} return fresh(); }
-function fresh(){ return {races:0, p:{keenable:{ms:[],cost:[],dead:0},tavily:{ms:[],cost:[],dead:0},exa:{ms:[],cost:[],dead:0}}}; }
-function save(){ try{ localStorage.setItem("vsr_stats_v2",JSON.stringify(stats)); }catch{} }
+function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v3")); if(s&&s.session&&s.set) return s; }catch{} return {session:fresh(),set:fresh(),view:"session"}; }
+function fresh(){ return {races:0, ranAt:null, p:{keenable:{ms:[],cost:[],dead:0},tavily:{ms:[],cost:[],dead:0},exa:{ms:[],cost:[],dead:0}}}; }
+function save(){ store.view=view; try{ localStorage.setItem("vsr_stats_v3",JSON.stringify(store)); }catch{} }
 
 // ---------- build ----------
 for (const [grp,qs] of Object.entries(BANK)){
@@ -305,6 +310,10 @@ function setMode(){
 
 // ---------- scorecard ----------
 function renderScore(){
+  const stats=cur();
+  document.querySelectorAll("#viewSeg button").forEach(b=>b.classList.toggle("on",b.dataset.view===view));
+  $("#latNote").textContent = view==="session" ? "Measured live, this session" : "Measured live across the 20-question set";
+  $("#deadNote").textContent = view==="session" ? "Searches over 800 ms, this session" : "Searches over 800 ms across the set";
   for (const p of PROVIDERS){
     const s=stats.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
     const lat=document.querySelector(`[data-lat="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`);
@@ -312,10 +321,12 @@ function renderScore(){
     cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
     dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
   }
-  $("#progress").innerHTML=stats.races?`<b>${stats.races}</b><span>race${stats.races===1?"":"s"} this session</span>`:"<span>No races yet</span>";
+  if (view==="session") $("#progress").innerHTML=stats.races?`<b>${stats.races}</b><span>race${stats.races===1?"":"s"} this session</span>`:"<span>No races yet</span>";
+  else $("#progress").innerHTML=stats.ranAt?`<b>${stats.races} / ${ALL_Q.length}</b><span>set run ${new Date(stats.ranAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</span>`:"<span>Set not run yet</span>";
   save();
 }
-$("#reset").onclick=()=>{ stats=fresh(); renderScore(); };
+$("#reset").onclick=()=>{ store[view]=fresh(); renderScore(); };
+document.querySelectorAll("#viewSeg button").forEach(b=>b.onclick=()=>{ view=b.dataset.view; renderScore(); });
 
 // ---------- lanes ----------
 function startRace(q){
@@ -352,8 +363,9 @@ async function laneDone(id,res,q){
   if (typeof res.cost_usd==="number") el.querySelector("[data-cost]").textContent=`$${res.cost_usd.toFixed(4)} per query`;
   el.querySelector("[data-srcs]").innerHTML=(res.results||[]).slice(0,3).map(r=>`<a class="src" href="${esc(r.url)}" target="_blank" rel="noopener"><div class="t">${esc(r.title||r.url)}</div><div class="d">${esc(r.source||"")}${r.published?" · "+esc(String(r.published).slice(0,10)):""}</div></a>`).join("");
 
-  const s=stats.p[pid];
-  if (!res.error){ s.ms.push(ms); if(typeof res.cost_usd==="number") s.cost.push(res.cost_usd); if(dead) s.dead++; }
+  for (const b of (runningSet ? [store.session, store.set] : [store.session])){
+    const s=b.p[pid]; if (!res.error){ s.ms.push(ms); if(typeof res.cost_usd==="number") s.cost.push(res.cost_usd); if(dead) s.dead++; }
+  }
 
   const aEl=el.querySelector("[data-answer]"), who=`<span class="who ${pid===activeProvider&&res._voice?"keen":""}">${pid===activeProvider&&res._voice?"The agent said":"Caller would hear"}</span>`;
   if (res.error){ aEl.className="answer err"; aEl.textContent=res.error; res.answer="I couldn't find that just now."; }
@@ -372,7 +384,7 @@ function finishRace(id){
   if (id!==raceId) return;
   const done=PROVIDERS.map(p=>laneEls[p.id]._data).filter(d=>d&&!d.error&&d.results.length);
   if (done.length){ const w=done.reduce((a,b)=>a.api_ms<=b.api_ms?a:b); laneEls[w.provider].classList.add("winner"); $("#raceMeta").textContent=`Fastest: ${PROVIDERS.find(p=>p.id===w.provider).name}, ${w.api_ms} ms`; }
-  stats.races++; renderScore(); $("#go").disabled=false; $("#again").disabled=false; $("#runAll").disabled=false;
+  store.session.races++; if(runningSet) store.set.races++; renderScore(); $("#go").disabled=false; $("#again").disabled=false; $("#runAll").disabled=false;
 }
 
 // ---------- REST race ----------
@@ -396,9 +408,9 @@ async function simulate(pid,q){ const [p50,p95]=SIM[pid]; const u=Math.random();
 
 // run the whole set, one after another
 $("#runAll").onclick=async()=>{
-  $("#runAll").disabled=true;
-  for (let i=0;i<ALL_Q.length;i++){ $("#progress").innerHTML=`<b>${i+1} / ${ALL_Q.length}</b><span>running the set</span>`; setQuestion(ALL_Q[i]); await restRace(); await new Promise(r=>setTimeout(r,400)); }
-  $("#runAll").disabled=false; renderScore();
+  $("#runAll").disabled=true; store.set=fresh(); store.set.ranAt=Date.now(); view="set"; runningSet=true; renderScore();
+  for (let i=0;i<ALL_Q.length;i++){ setQuestion(ALL_Q[i]); await restRace(); $("#progress").innerHTML=`<b>${i+1} / ${ALL_Q.length}</b><span>running the set</span>`; await new Promise(r=>setTimeout(r,400)); }
+  runningSet=false; $("#runAll").disabled=false; renderScore();
 };
 
 // ---------- hear ----------

@@ -35,7 +35,7 @@ LIST_PRICE = {
     "keenable": {"fast": 0.001, "standard": 0.001},  # $1 / 1K
     "perplexity": {"fast": 0.001, "standard": 0.005},  # fast $1 / 1K, web $5 / 1K
     "tavily": {"fast": 0.008, "standard": 0.008},  # 1 credit at ~$0.008 pay-as-you-go
-    "exa": {"fast": 0.005, "standard": 0.005},  # verify on exa.ai/pricing
+    "exa": {"fast": 0.004, "standard": 0.005},  # instant $4 / 1K (dashboard, Oct 2026); auto $5 / 1K
 }
 LABEL = {
     "keenable": {"fast": "realtime", "standard": "pro"},
