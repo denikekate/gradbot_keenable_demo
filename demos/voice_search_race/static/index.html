@@ -3,173 +3,224 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Voice Search Race · Gradium + Keenable</title>
+<title>Keenable × Decagon · Voice search demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#15171a; --ink-soft:#4a4f57; --ink-faint:#828891; --surface:#f7f8fa; --raised:#fff;
-    --accent:#2f6df6; --accent-soft:#eaf1ff; --border:#e6e8ec; --danger:#d4493f; --active:#2d8a4e;
-    --green:#2d8a4e; --amber:#b86e00; --red:#d4493f; --green-bg:#e3f4e8; --amber-bg:#fff1dc; --red-bg:#fde4e2;
-    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --ink:#0a0a0a; --ink-2:#55575c; --ink-3:#8b8e95; --bg:#ffffff; --bg-2:#f6f6f7; --line:#e6e7ea; --line-2:#d5d7dc;
+    --blue:#1d4ed8; --blue-soft:#e8efff; --grey:#9a9ca3; --grey-soft:#eceef1; --red:#d92d20; --red-soft:#fee4e2;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace; --r:12px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{font-family:'DM Sans',system-ui,sans-serif;background:var(--surface);
-    background-image:radial-gradient(ellipse 70% 50% at 50% -5%,rgba(47,109,246,.10) 0%,transparent 65%);
-    color:var(--ink);min-height:100dvh;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1240px;margin:0 auto;padding:1.6rem 1.25rem 3rem}
-  .header{text-align:center;margin-bottom:1.1rem}
-  .header h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:2.5rem;letter-spacing:-.01em;line-height:1.05}
-  .header p{color:var(--ink-faint);margin-top:.35rem;font-size:.97rem}
-  .badges{display:flex;gap:.4rem;justify-content:center;margin-top:.6rem;flex-wrap:wrap}
-  .badge{font-size:.72rem;font-weight:600;letter-spacing:.02em;color:var(--ink-soft);background:var(--raised);border:1px solid var(--border);border-radius:999px;padding:.28rem .7rem}
-  .badge.sim{color:var(--amber);border-color:var(--amber);background:var(--amber-bg)}
-  .badge.live{color:var(--green);border-color:var(--green);background:var(--green-bg)}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px 80px}
+  a{color:inherit}
+  button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border-radius:999px;border:1px solid var(--line-2);background:#fff;font-weight:500;font-size:14px;transition:background .15s,border-color .15s}
+  .btn:hover{background:var(--bg-2)} .btn:disabled{opacity:.45;cursor:default}
+  .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)} .btn.dark:hover{background:#222}
+  .btn.blue{background:var(--blue);color:#fff;border-color:var(--blue)} .btn.blue:hover{background:#1a43bd}
+  .btn.sm{padding:.4rem .8rem;font-size:13px}
+  .mono{font-family:var(--mono)}
 
-  /* ask row: orb + phrase picker */
-  .ask{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:center;background:var(--raised);border:1px solid var(--border);border-radius:18px;padding:1rem 1.15rem;margin-bottom:1rem}
-  @media (max-width:720px){.ask{grid-template-columns:1fr;justify-items:center}}
-  .control{display:flex;flex-direction:column;align-items:center;gap:.5rem;min-width:130px}
-  .orb{width:84px;height:84px;border-radius:50%;border:none;cursor:pointer;position:relative;background:var(--accent);color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px rgba(47,109,246,.35);transition:transform .15s,box-shadow .2s,background .2s}
-  .orb:hover{transform:translateY(-2px)}
-  .orb.recording{background:var(--danger);box-shadow:0 10px 30px rgba(212,73,63,.35)}
-  .orb svg{width:30px;height:30px}
-  .orb.recording::after{content:'';position:absolute;inset:-10px;border-radius:50%;border:2px solid rgba(212,73,63,.4);animation:pulse 1.6s ease-out infinite}
-  @keyframes pulse{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.25);opacity:0}}
-  .status{font-size:.82rem;color:var(--ink-faint);min-height:1.2em;text-align:center}
-  .status.active{color:var(--active);font-weight:600}.status.error{color:var(--danger);font-weight:600}
-  .phrases{display:flex;flex-direction:column;gap:.55rem;min-width:0}
-  .phrases label{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);font-weight:700}
-  .row{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
-  select,input[type=text]{font:inherit;font-size:.95rem;padding:.6rem .7rem;border:1px solid var(--border);border-radius:10px;background:#fff;min-width:0}
-  select{flex:1 1 320px}input[type=text]{flex:1 1 320px}
-  button.btn{font:inherit;font-size:.9rem;padding:.6rem .95rem;border-radius:10px;border:1px solid var(--border);background:#fff;cursor:pointer}
-  button.btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
-  button.btn:disabled{opacity:.5;cursor:default}
-  .opts{display:flex;gap:1rem;flex-wrap:wrap;color:var(--ink-faint);font-size:.8rem;align-items:center}
-  .opts label{display:inline-flex;gap:.35rem;align-items:center;cursor:pointer;text-transform:none;letter-spacing:0;font-weight:500}
-  .say{font-family:'Instrument Serif',serif;font-size:1.35rem;color:var(--ink);line-height:1.2}
-  .say small{font-family:'DM Sans';font-size:.78rem;color:var(--ink-faint);display:block;margin-top:.15rem}
+  /* header */
+  header{display:flex;align-items:center;justify-content:space-between;height:76px;border-bottom:1px solid var(--line);margin-bottom:44px}
+  .logos{display:flex;align-items:center;gap:18px}
+  .logo{display:flex;align-items:center;height:28px}
+  .logo img{height:26px;width:auto;display:block}
+  .logo .word{font-weight:600;font-size:21px;letter-spacing:-.02em}
+  .logo .word.keen{color:var(--blue)}
+  .logos .x{color:var(--ink-3);font-size:18px}
+  .hdr-right{display:flex;align-items:center;gap:10px}
+  .pill{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:500;padding:.3rem .7rem;border-radius:999px;border:1px solid var(--line)}
+  .pill i{width:7px;height:7px;border-radius:50%;background:var(--grey)} .pill.live i{background:#12b76a} .pill.sim i{background:var(--red)}
+
+  .lede{margin-bottom:36px;max-width:760px}
+  .lede h1{font-size:38px;line-height:1.1;font-weight:600;letter-spacing:-.03em;margin-bottom:10px}
+  .lede p{color:var(--ink-2);font-size:17px}
+
+  section{margin-bottom:44px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .sec-head h2{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  .sec-head .meta{font-size:13px;color:var(--ink-3)}
+
+  /* scorecard */
+  .card{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+  table.score{width:100%;border-collapse:collapse}
+  .score th,.score td{padding:18px 22px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  .score tr:last-child td{border-bottom:0}
+  .score thead th{font-size:13px;font-weight:600;color:var(--ink-2)}
+  .score thead th.p{font-size:16px;color:var(--ink)} .score thead th.p.keen{color:var(--blue)}
+  .score thead th .tier{display:block;font:12px var(--mono);color:var(--ink-3);font-weight:400;margin-top:2px}
+  .score td.m{color:var(--ink-2);font-size:14px;width:30%} .score td.m small{display:block;color:var(--ink-3);font-size:12px}
+  .score td.v{font-family:var(--mono);font-size:22px;font-weight:500;letter-spacing:-.02em}
+  .score td.v.keen{color:var(--blue)} .score td.v .u{font-size:13px;color:var(--ink-3);margin-left:4px;font-weight:400}
+  .score td.v.bad{color:var(--red)}
+  .score tfoot td{font-size:13px;color:var(--ink-3);background:var(--bg-2);border-bottom:0}
+  .progress{display:inline-flex;align-items:center;gap:8px}
+  .progress b{font-family:var(--mono);font-weight:500}
+
+  /* ask */
+  .ask{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:820px){.ask{grid-template-columns:1fr}}
+  .opt{border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;min-height:150px;transition:border-color .15s}
+  .opt:hover{border-color:var(--line-2)}
+  .opt h3{font-size:16px;font-weight:600} .opt p{color:var(--ink-2);font-size:14px;flex:1}
+  .orb{width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;position:relative;transition:background .2s}
+  .orb svg{width:22px;height:22px} .orb.recording{background:var(--red)}
+  .orb.recording::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--red);opacity:.5;animation:pulse 1.5s ease-out infinite}
+  @keyframes pulse{0%{transform:scale(.9);opacity:.6}100%{transform:scale(1.3);opacity:0}}
+  .mic-row{display:flex;align-items:center;gap:14px} .mic-status{font-size:13px;color:var(--ink-3)} .mic-status.on{color:var(--red);font-weight:500}
+  .current{margin-top:18px;padding:22px 26px;border-radius:16px;background:var(--bg-2);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .current .q{font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.3} .current .q small{display:block;font-size:12px;color:var(--ink-3);font-weight:400;letter-spacing:0;margin-bottom:4px}
 
   /* lanes */
-  .lanes{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-bottom:1rem}
-  @media (max-width:980px){.lanes{grid-template-columns:repeat(2,minmax(0,1fr))}}
-  @media (max-width:520px){.lanes{grid-template-columns:1fr}}
-  .lane{background:var(--raised);border:1px solid var(--border);border-radius:16px;padding:.9rem .95rem;display:flex;flex-direction:column;gap:.55rem;min-height:280px;transition:box-shadow .2s}
-  .lane.keen{border-color:#bfd3ff}
-  .lane.winner{box-shadow:0 0 0 2px var(--green)}
-  .lane .head{display:flex;justify-content:space-between;align-items:baseline;gap:.4rem}
-  .lane .name{font-weight:700;font-size:1rem}
-  .lane.keen .name{color:var(--accent)}
-  .lane .tier{font:.72rem var(--mono);color:var(--ink-faint)}
-  .clock{font:700 2.1rem/1 var(--mono);letter-spacing:-.02em;display:flex;align-items:baseline;gap:.3rem}
-  .clock small{font-size:.8rem;font-weight:400;color:var(--ink-faint)}
-  .bar{height:7px;border-radius:999px;background:var(--border);overflow:hidden}
-  .bar i{display:block;height:100%;width:0;background:var(--green);transition:width .08s linear,background .2s}
-  .bar.g i{background:var(--green)}.bar.a i{background:var(--amber)}.bar.r i{background:var(--red)}
-  .lstatus{font:.72rem var(--mono);color:var(--ink-faint);min-height:1em}
-  .tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.15rem .45rem;border-radius:999px;background:var(--accent-soft);color:var(--accent)}
-  .answer{border-radius:10px;padding:.55rem .7rem;background:var(--surface);font-size:.9rem;min-height:2.6rem;line-height:1.4}
-  .answer.empty{color:var(--ink-faint);font-style:italic}
-  .answer .llm{display:block;font:.68rem var(--mono);color:var(--ink-faint);margin-top:.3rem}
-  .results{display:flex;flex-direction:column;gap:.45rem}
-  .card{display:block;text-decoration:none;color:inherit;border:1px solid var(--border);border-radius:10px;padding:.45rem .6rem;transition:border-color .15s,background .15s}
-  .card:hover{border-color:var(--accent);background:var(--accent-soft)}
-  .card .title{font-size:.84rem;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card .src{font-size:.7rem;color:var(--accent);margin:.1rem 0 .15rem}
-  .card .snip{font-size:.76rem;color:var(--ink-soft);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-  .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:.4rem;font:.72rem var(--mono);color:var(--ink-faint)}
-  .foot button{font:inherit;font-size:.74rem;padding:.3rem .55rem;border-radius:8px;border:1px solid var(--border);background:#fff;cursor:pointer}
-  .err{color:var(--danger);word-break:break-word}
+  .lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  @media (max-width:820px){.lanes{grid-template-columns:1fr}}
+  .lane{border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;min-height:360px;transition:border-color .2s,box-shadow .2s}
+  .lane.keen{border-color:#c7d7ff} .lane.winner{box-shadow:0 0 0 2px var(--blue)} .lane.keen.winner{box-shadow:0 0 0 2px var(--blue)}
+  .lane.dead{border-color:#f7b4ac}
+  .lane .head{display:flex;justify-content:space-between;align-items:baseline}
+  .lane .name{font-size:17px;font-weight:600} .lane.keen .name{color:var(--blue)}
+  .lane .tier{font:12px var(--mono);color:var(--ink-3)}
+  .clock{font-family:var(--mono);font-size:44px;font-weight:500;letter-spacing:-.04em;line-height:1;display:flex;align-items:baseline;gap:6px;color:var(--grey)}
+  .lane.keen .clock{color:var(--blue)} .clock.dead{color:var(--red)!important} .clock small{font-size:14px;color:var(--ink-3);font-weight:400}
+  .bar{height:6px;border-radius:999px;background:var(--grey-soft);overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:var(--grey);transition:width .08s linear,background .2s}
+  .lane.keen .bar i{background:var(--blue)} .bar.dead i{background:var(--red)!important}
+  .flag{display:none;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--red)} .flag.show{display:inline-flex}
+  .flag i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+  .answer{border-radius:12px;padding:14px 16px;background:var(--bg-2);font-size:15px;line-height:1.5;min-height:62px}
+  .answer.empty{color:var(--ink-3)} .answer.err{color:var(--red);font-family:var(--mono);font-size:12px}
+  .answer .who{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:600}
+  .answer .who.keen{color:var(--blue)}
+  .srcs{display:flex;flex-direction:column;gap:6px}
+  .src{display:block;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:10px;transition:border-color .15s}
+  .src:hover{border-color:var(--line-2)}
+  .src .t{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .src .d{font-size:12px;color:var(--ink-3)}
+  .lane .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:12px var(--mono);color:var(--ink-3)}
 
-  /* lower panes */
-  .panes{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-  @media (max-width:760px){.panes{grid-template-columns:1fr}}
-  .pane{background:var(--raised);border:1px solid var(--border);border-radius:16px;padding:1rem 1.05rem;min-height:220px;display:flex;flex-direction:column}
-  .pane h2{font-size:.74rem;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-faint);font-weight:700;margin-bottom:.7rem;display:flex;justify-content:space-between;align-items:center}
-  .scroll{overflow-y:auto;flex:1;max-height:320px}
-  .bubble{margin-bottom:.7rem}.bubble .who{font-size:.7rem;font-weight:700;color:var(--ink-faint);margin-bottom:.15rem}
-  .bubble .txt{font-size:.93rem;line-height:1.45;background:var(--surface);border-radius:12px;padding:.5rem .75rem}
-  .bubble.assistant .txt{background:var(--accent-soft)}
-  .empty{color:var(--ink-faint);font-size:.9rem;font-style:italic}
-  table{width:100%;border-collapse:collapse;font-size:.86rem}
-  th,td{text-align:left;padding:.45rem .4rem;border-bottom:1px solid var(--border)}
-  th{font:.68rem var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);font-weight:500}
-  td.num{font-family:var(--mono)}td.keen{color:var(--accent);font-weight:700}
-  .legend{display:flex;gap:.9rem;flex-wrap:wrap;font-size:.74rem;color:var(--ink-faint);margin-top:.6rem}
-  .legend i{display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:4px}
-  details.how{margin-top:1rem;color:var(--ink-soft);font-size:.9rem}
-  details.how summary{cursor:pointer;font-weight:600;color:var(--ink)}details.how p{margin:.5rem 0}
-  .banner{margin:.4rem 0 1rem;padding:.6rem .8rem;border-radius:10px;background:var(--amber-bg);color:var(--amber);font-size:.82rem;display:none}
-  .banner.show{display:block}
+  /* transcript */
+  .transcript{border:1px solid var(--line);border-radius:16px;padding:22px;display:none;flex-direction:column;gap:10px} .transcript.show{display:flex}
+  .bubble{max-width:72%;padding:10px 14px;border-radius:14px;font-size:14px;background:var(--bg-2)} .bubble.agent{background:var(--blue-soft);align-self:flex-end}
+  .bubble .who{display:block;font-size:11px;color:var(--ink-3);margin-bottom:2px}
+
+  /* modal */
+  .modal{position:fixed;inset:0;background:rgba(10,10,10,.35);display:none;align-items:center;justify-content:center;padding:24px;z-index:50}
+  .modal.show{display:flex}
+  .sheet{background:#fff;border-radius:20px;width:min(900px,100%);max-height:88vh;overflow:auto;padding:28px}
+  .sheet .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .sheet h3{font-size:20px;font-weight:600;letter-spacing:-.02em}
+  .sheet input{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line-2);border-radius:12px;margin-bottom:22px}
+  .grp{margin-bottom:22px} .grp h4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
+  .qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
+  .qbtn{text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;line-height:1.35;transition:border-color .15s,background .15s}
+  .qbtn:hover{border-color:var(--ink);background:var(--bg-2)}
+
+  .note{font-size:13px;color:var(--ink-3)}
+  .banner{margin:-24px 0 32px;padding:12px 16px;border-radius:12px;background:var(--red-soft);color:var(--red);font-size:13px;display:none} .banner.show{display:block}
+  details.how{border-top:1px solid var(--line);padding-top:18px;color:var(--ink-2);font-size:14px;max-width:760px}
+  details.how summary{cursor:pointer;font-weight:500;color:var(--ink)} details.how p{margin:10px 0}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="header">
-    <h1>Same caller. Same question. Four search APIs.</h1>
-    <p>How long does the support agent go silent while it looks it up?</p>
-    <div class="badges">
-      <span class="badge">🎙 Gradium voice</span>
-      <span class="badge" id="activeBadge">🔎 agent answers from Keenable realtime</span>
-      <span class="badge" id="modeBadge">connecting…</span>
+  <header>
+    <div class="logos">
+      <span class="logo" id="logoDecagon"><span class="word">Decagon</span></span>
+      <span class="x">×</span>
+      <span class="logo" id="logoKeenable"><span class="word keen">Keenable</span></span>
     </div>
-  </div>
+    <div class="hdr-right">
+      <span class="pill" id="modePill"><i></i><span>connecting</span></span>
+      <button class="btn sm" id="runAll">Run the whole set</button>
+      <button class="btn sm" id="reset">Reset</button>
+    </div>
+  </header>
 
-  <div class="ask">
-    <div class="control">
-      <button class="orb" id="orb" aria-label="Start voice chat">
-        <svg id="iconMic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
-        <svg id="iconStop" style="display:none" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
-      </button>
-      <div class="status" id="status">Tap and ask out loud</div>
-    </div>
-    <div class="phrases">
-      <label>…or pick what the caller says</label>
-      <div class="row">
-        <select id="pick" aria-label="Caller phrase"></select>
-        <button class="btn primary" id="go">Race it</button>
-        <button class="btn" id="again" title="Fresh race, same phrase">Again</button>
-      </div>
-      <div class="row">
-        <input id="q" type="text" placeholder="…or type your own caller question" autocomplete="off">
-      </div>
-      <div class="say" id="say"><small>Reading this into the mic runs the same race through the live voice agent.</small></div>
-      <div class="opts">
-        <label><input type="radio" name="tier" value="fast" checked> Voice-grade tiers</label>
-        <label><input type="radio" name="tier" value="standard"> Standard tiers</label>
-        <label><input type="checkbox" id="useLlm" checked> One-sentence answer per lane</label>
-        <label><input type="checkbox" id="autoHear"> Auto-play the winner</label>
-      </div>
-    </div>
+  <div class="lede">
+    <h1>Live web search inside a voice agent.</h1>
+    <p>The same caller question goes to three search APIs at the same instant. The caller hears the answer from Keenable; the other two are timed alongside it.</p>
   </div>
   <div class="banner" id="banner"></div>
 
-  <div class="lanes" id="lanes"></div>
-
-  <div class="panes">
-    <div class="pane">
-      <h2>Conversation (voice agent)</h2>
-      <div class="scroll" id="transcript"><div class="empty" id="tEmpty">Tap the mic: the live transcript appears here, and the agent's spoken answer comes from the Keenable lane.</div></div>
+  <section>
+    <div class="sec-head"><h2>Scorecard</h2><span class="meta progress" id="progress"><span>No races yet</span></span></div>
+    <div class="card">
+      <table class="score">
+        <thead><tr><th></th>
+          <th class="p keen">Keenable<span class="tier">realtime</span></th>
+          <th class="p">Tavily<span class="tier">ultra-fast</span></th>
+          <th class="p">Exa<span class="tier">instant</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="m">Answer quality<small>NDCG, estimated from NEEDLE. Placeholder.</small></td><td class="v keen" data-q="keenable">0.74</td><td class="v" data-q="tavily">0.62</td><td class="v" data-q="exa">0.70</td></tr>
+          <tr><td class="m">Median search latency<small>Measured live, this session</small></td><td class="v keen" data-lat="keenable">–</td><td class="v" data-lat="tavily">–</td><td class="v" data-lat="exa">–</td></tr>
+          <tr><td class="m">Cost per 1,000 queries<small>Vendor-reported where the API returns it</small></td><td class="v keen" data-cost="keenable">–</td><td class="v" data-cost="tavily">–</td><td class="v" data-cost="exa">–</td></tr>
+          <tr><td class="m">Dead-air moments<small>Searches over 800 ms, cumulative</small></td><td class="v keen" data-dead="keenable">0</td><td class="v" data-dead="tavily">0</td><td class="v" data-dead="exa">0</td></tr>
+        </tbody>
+        <tfoot><tr><td colspan="4">Latency is each vendor's own API time, measured server-side around the call. A voice turn has roughly 800 ms before the caller notices silence.</td></tr></tfoot>
+      </table>
     </div>
-    <div class="pane">
-      <h2>Session scoreboard <button class="btn" id="reset" style="font-size:.72rem;padding:.25rem .5rem">Reset</button></h2>
-      <table id="scoreTable"><thead><tr><th>API</th><th>Tier</th><th>Races</th><th>Median</th><th>Best</th><th>Worst</th><th>Fastest</th><th>Cost/1K</th></tr></thead><tbody></tbody></table>
-      <div class="legend">
-        <span><i style="background:var(--green)"></i>under 300 ms: nothing unusual</span>
-        <span><i style="background:var(--amber)"></i>300 to 800 ms: noticeable pause</span>
-        <span><i style="background:var(--red)"></i>over 800 ms: dead air</span>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Ask</h2></div>
+    <div class="ask">
+      <div class="opt">
+        <h3>Ask out loud</h3>
+        <p>Talk to the live voice agent. It searches, then answers in Emma's voice.</p>
+        <div class="mic-row">
+          <button class="orb" id="orb" aria-label="Start voice chat">
+            <svg id="iconMic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+            <svg id="iconStop" style="display:none" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+          </button>
+          <span class="mic-status" id="micStatus">Tap to start a call</span>
+        </div>
+      </div>
+      <div class="opt">
+        <h3>Pick a question</h3>
+        <p>Twenty things a caller actually asks a support line, across five industries.</p>
+        <div><button class="btn dark" id="openPick">Browse questions</button></div>
+      </div>
+      <div class="opt">
+        <h3>Random question</h3>
+        <p>Let the demo choose. Good for a quick second run.</p>
+        <div><button class="btn" id="random">Surprise me</button></div>
       </div>
     </div>
-  </div>
+    <div class="current">
+      <div class="q"><small>Caller says</small><span id="qText">Pick a question to start</span></div>
+      <div style="display:flex;gap:8px"><button class="btn blue" id="go" disabled>Race</button><button class="btn" id="again" disabled>Again</button></div>
+    </div>
+  </section>
 
-  <details class="how" id="how">
-    <summary>How it works</summary>
-    <p>Every lane gets the identical query at the same instant. The big number is the vendor's own API latency, measured in the server around the HTTP call only; the voice pipeline and the browser are excluded. Each lane runs the tier a voice-agent builder would pick: Keenable <code>realtime</code>, Perplexity <code>fast</code>, Tavily <code>ultra-fast</code>, Exa <code>instant</code>. The radio switch flips all four to standard tiers.</p>
-    <p>With the mic, this is a real Gradium voice agent (Gradbot). Its <code>web_search</code> tool fires all four; the agent gets Keenable's results the moment they land and speaks, while the other lanes keep filling in. With a picked phrase, the browser runs the same race over REST, so it works without a microphone.</p>
-    <p>The one-sentence answer per lane comes from the same small model with the same prompt, from that lane's top five results only. Its latency is shown separately and is not part of the race. "Hear it" plays the measured silence first, then the sentence. Cost per 1K is the vendor-reported cost where the API returns one (Exa, Tavily), otherwise list price.</p>
+  <section>
+    <div class="sec-head"><h2>Race</h2><span class="meta" id="raceMeta"></span></div>
+    <div class="lanes" id="lanes"></div>
+  </section>
+
+  <section>
+    <div class="transcript" id="transcript"></div>
+  </section>
+
+  <details class="how">
+    <summary>How this is measured</summary>
+    <p>Every lane gets the identical query at the same instant. The number on each lane is that vendor's own API latency, measured in the server around the HTTP call, so the voice pipeline and the browser are excluded. Each vendor runs its lowest-latency tier: Keenable <span class="mono">realtime</span>, Tavily <span class="mono">ultra-fast</span>, Exa <span class="mono">instant</span>.</p>
+    <p>With the mic, this is a real Gradium voice agent (Gradbot). Its search tool fires all three; the agent gets Keenable's results the moment they land and speaks, while the other lanes keep filling in. From the question list, the browser runs the same race without a microphone.</p>
+    <p>The one-sentence answer on each lane comes from the same small model with the same prompt, from that lane's top five results only. "Hear it" plays that lane's measured silence first, then the sentence in the agent's voice. Answer quality is a placeholder until the full set has been scored.</p>
   </details>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <div class="top"><h3>What does the caller say?</h3><button class="btn sm" id="closePick">Close</button></div>
+    <input id="typed" type="text" placeholder="Type your own and press Enter" autocomplete="off">
+    <div id="groups"></div>
+  </div>
 </div>
 
 <script src="static/js/opus-encoder.js"></script>
@@ -177,264 +228,249 @@
 <script src="static/js/synced-audio-player.js"></script>
 <script>fetch("api/audio-config").then(r=>r.json()).then(c=>{window.__pcmOutput=c.pcm}).catch(()=>{})</script>
 <script>
-// ---------- Caller phrases: how a support agent would actually use live web search ----------
 const BANK = {
   "Airline": [
     "Are there any changes to today's flights out of Heathrow?",
     "Is BA117 to New York delayed this morning?",
     "What's the Ryanair cabin bag size limit at the moment?",
-    "Is there an air traffic control strike in France this week?",
-    "What's the current Heathrow drop-off charge?"
+    "Is there an air traffic control strike in France this week?"
   ],
-  "Rail & transport": [
+  "Rail and transport": [
     "Is the Elizabeth line running normally right now?",
     "Are there any UK rail strikes this week?",
     "Is there Eurostar disruption today?",
-    "Is the Blackwall Tunnel closed this weekend?",
     "Has the ULEZ daily charge changed?"
   ],
   "Retail": [
     "What time does the Apple Store on Regent Street close today?",
     "Has Zara changed its returns policy recently?",
-    "Is the Dyson Airwrap on sale anywhere right now?",
     "What's the Argos same-day delivery cutoff?",
     "Does John Lewis still price match?"
   ],
-  "Banking & utilities": [
+  "Banking and utilities": [
     "What is the Bank of England base rate today?",
     "What does Monzo charge for card spending abroad?",
-    "Is the Revolut app down right now?",
     "What is the Ofgem energy price cap this quarter?",
     "Is there a Thames Water hosepipe ban at the moment?"
   ],
-  "Events & venues": [
+  "Events and venues": [
     "Are there any tickets left for Oasis at Wembley?",
     "Is the Natural History Museum open on Mondays?",
     "What time does Borough Market close on Saturdays?",
-    "Is Wimbledon ground admission sold out?",
     "What's the dress code at Sketch in Mayfair?"
   ]
 };
-const PROVIDERS = [
-  { id:"keenable", name:"Keenable", keen:true },
-  { id:"perplexity", name:"Perplexity" },
-  { id:"tavily", name:"Tavily" },
-  { id:"exa", name:"Exa" }
-];
-// Simulated latencies for when no backend is reachable (ms, roughly NEEDLE 7-day medians, Oct 2026). Labelled on screen.
-const SIM = { fast:{keenable:[130,230],perplexity:[150,210],tavily:[900,1600],exa:[440,610]},
-              standard:{keenable:[120,1400],perplexity:[230,1600],tavily:[1800,3300],exa:[1700,3300]} };
-const SIM_LABEL = { fast:{keenable:"realtime",perplexity:"fast",tavily:"ultra-fast",exa:"instant"}, standard:{keenable:"pro",perplexity:"web",tavily:"basic",exa:"auto"} };
-const SIM_COST = { fast:{keenable:.001,perplexity:.001,tavily:.008,exa:.005}, standard:{keenable:.001,perplexity:.005,tavily:.008,exa:.005} };
+const ALL_Q = Object.values(BANK).flat();
+let PROVIDERS = [ {id:"keenable",name:"Keenable",keen:true}, {id:"tavily",name:"Tavily"}, {id:"exa",name:"Exa"} ];
+const TIER_LABEL = {keenable:"realtime",tavily:"ultra-fast",exa:"instant"};
+const DEAD_AIR_MS = 800;
+const SIM = {keenable:[130,230],tavily:[900,1600],exa:[440,610]};
+const SIM_COST = {keenable:.001,tavily:.008,exa:.005};
 
-const $ = s => document.querySelector(s);
-const lanesEl=$("#lanes"), pick=$("#pick"), qIn=$("#q"), banner=$("#banner"), sayEl=$("#say");
-const orb=$("#orb"), iconMic=$("#iconMic"), iconStop=$("#iconStop"), statusEl=$("#status"), transcript=$("#transcript");
-let demo=false, activeProvider="keenable", gradiumTts=false, stats={}, raceId=0, laneEls={}, laneTimers={};
+const $=s=>document.querySelector(s);
+const lanesEl=$("#lanes"), qText=$("#qText"), banner=$("#banner"), transcriptEl=$("#transcript");
+let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="";
+let stats = load();
+
+function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v2")); if(s&&s.races!=null) return s; }catch{} return fresh(); }
+function fresh(){ return {races:0, p:{keenable:{ms:[],cost:[],dead:0},tavily:{ms:[],cost:[],dead:0},exa:{ms:[],cost:[],dead:0}}}; }
+function save(){ try{ localStorage.setItem("vsr_stats_v2",JSON.stringify(stats)); }catch{} }
 
 // ---------- build ----------
-for (const [grp, qs] of Object.entries(BANK)) {
-  const og=document.createElement("optgroup"); og.label=grp;
-  for (const q of qs){ const o=document.createElement("option"); o.value=q; o.textContent=q; og.appendChild(o); }
-  pick.appendChild(og);
+for (const [grp,qs] of Object.entries(BANK)){
+  const g=document.createElement("div"); g.className="grp"; g.innerHTML=`<h4>${esc(grp)}</h4><div class="qs"></div>`;
+  for (const q of qs){ const b=document.createElement("button"); b.className="qbtn"; b.textContent=q; b.onclick=()=>{ closePick(); setQuestion(q); restRace(); }; g.querySelector(".qs").appendChild(b); }
+  $("#groups").appendChild(g);
 }
-for (const p of PROVIDERS) {
+for (const p of PROVIDERS){
   const el=document.createElement("div"); el.className="lane"+(p.keen?" keen":"");
-  el.innerHTML=`<div class="head"><span class="name">${p.name}</span><span class="tier" data-tier>–</span></div>
+  el.innerHTML=`<div class="head"><span class="name">${p.name}</span><span class="tier">${TIER_LABEL[p.id]}</span></div>
     <div class="clock"><span data-ms>0</span><small>ms</small></div>
     <div class="bar" data-bar><i></i></div>
-    <div class="lstatus" data-status>idle</div>
+    <span class="flag" data-flag><i></i>dead air</span>
     <div class="answer empty" data-answer>What the caller would hear</div>
-    <div class="results" data-results></div>
-    <div class="foot"><span data-cost></span><button data-hear disabled>🔊 Hear it</button></div>`;
+    <div class="srcs" data-srcs></div>
+    <div class="foot"><span data-cost></span><button class="btn sm" data-hear disabled>Hear it</button></div>`;
   lanesEl.appendChild(el); laneEls[p.id]=el;
-  el.querySelector("[data-hear]").addEventListener("click",()=>hear(p.id));
-}
-function tier(){ return document.querySelector("input[name=tier]:checked").value; }
-function cls(ms){ return ms<300?"g":ms<800?"a":"r"; }
-function esc(s){ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
-function firstSentence(s){ s=(s||"").replace(/\s+/g," ").trim(); const m=s.match(/^.{20,160}?[.!?](\s|$)/); return (m?m[0]:s.slice(0,160)).trim()||"I couldn't find that just now."; }
-function setSay(q){ sayEl.innerHTML=`“${esc(q)}”<small>Reading this into the mic runs the same race through the live voice agent.</small>`; }
-function setMode(){
-  const b=$("#modeBadge"); b.textContent=demo?"simulated":"live"; b.className="badge "+(demo?"sim":"live");
-  banner.classList.toggle("show",demo);
-  banner.textContent=demo?"No backend reached: lanes show simulated latencies and placeholder results. Run `uv run uvicorn main:app` with keys in .env for the real race.":"";
+  el.querySelector("[data-hear]").onclick=()=>hear(p.id);
 }
 
-// ---------- shared lane rendering (used by both the REST race and the voice agent's tool call) ----------
-function startRace(q, t){
-  const id=++raceId;
-  setSay(q); qIn.value=q;
-  speechSynthesis.cancel();
-  for (const p of PROVIDERS) {
-    const el=laneEls[p.id]; el.classList.remove("winner"); el._data=null;
-    el.querySelector("[data-ms]").textContent="0";
-    el.querySelector("[data-bar]").className="bar g"; el.querySelector("[data-bar] i").style.width="0%";
-    el.querySelector("[data-status]").textContent="searching…";
-    el.querySelector("[data-tier]").textContent=SIM_LABEL[t][p.id];
-    const a=el.querySelector("[data-answer]"); a.className="answer empty"; a.textContent="…";
-    el.querySelector("[data-results]").innerHTML=""; el.querySelector("[data-cost]").textContent="";
-    el.querySelector("[data-hear]").disabled=true;
-    const t0=performance.now(), msEl=el.querySelector("[data-ms]"), bar=el.querySelector("[data-bar]"), fill=bar.querySelector("i");
-    laneTimers[p.id]={t0, running:true};
-    (function tick(){ const tm=laneTimers[p.id]; if(!tm||!tm.running||id!==raceId) return;
-      const ms=Math.round(performance.now()-t0); msEl.textContent=ms; bar.className="bar "+cls(ms); fill.style.width=Math.min(100,ms/3000*100)+"%"; requestAnimationFrame(tick); })();
+function esc(s){ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function firstSentence(s){ s=(s||"").replace(/\s+/g," ").trim(); const m=s.match(/^.{20,160}?[.!?](\s|$)/); return (m?m[0]:s.slice(0,160)).trim()||"I couldn't find that just now."; }
+function setQuestion(q){ currentQ=q; qText.textContent=q; $("#go").disabled=false; $("#again").disabled=false; }
+function setMode(){
+  const p=$("#modePill"); p.className="pill "+(demo?"sim":"live"); p.querySelector("span").textContent=demo?"simulated":"live";
+  banner.classList.toggle("show",demo); banner.textContent=demo?"No backend reached. Latencies are simulated and results are placeholders. Run the server with keys in .env for the real race.":"";
+}
+
+// ---------- scorecard ----------
+function renderScore(){
+  for (const p of PROVIDERS){
+    const s=stats.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
+    const lat=document.querySelector(`[data-lat="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`);
+    if (arr.length){ const med=arr[Math.floor(arr.length/2)]; lat.innerHTML=`${med}<span class="u">ms</span>`; lat.classList.toggle("bad",med>=DEAD_AIR_MS); } else lat.textContent="–";
+    cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
+    dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
   }
+  $("#progress").innerHTML=stats.races?`<b>${stats.races}</b><span>race${stats.races===1?"":"s"} this session</span>`:"<span>No races yet</span>";
+  save();
+}
+$("#reset").onclick=()=>{ stats=fresh(); renderScore(); };
+
+// ---------- lanes ----------
+function startRace(q){
+  const id=++raceId; setQuestion(q);
+  speechSynthesis.cancel(); if(currentAudio){currentAudio.pause();currentAudio=null;}
+  for (const p of PROVIDERS){
+    const el=laneEls[p.id]; el.classList.remove("winner","dead"); el._data=null;
+    el.querySelector("[data-ms]").textContent="0";
+    const clock=el.querySelector(".clock"); clock.classList.remove("dead");
+    const bar=el.querySelector("[data-bar]"); bar.classList.remove("dead"); bar.querySelector("i").style.width="0%";
+    el.querySelector("[data-flag]").classList.remove("show");
+    const a=el.querySelector("[data-answer]"); a.className="answer empty"; a.textContent="…";
+    el.querySelector("[data-srcs]").innerHTML=""; el.querySelector("[data-cost]").textContent=""; el.querySelector("[data-hear]").disabled=true;
+    const t0=performance.now(), msEl=el.querySelector("[data-ms]"), fill=bar.querySelector("i");
+    laneTimers[p.id]={t0,running:true};
+    (function tick(){ const tm=laneTimers[p.id]; if(!tm||!tm.running||id!==raceId) return;
+      const ms=Math.round(performance.now()-t0); msEl.textContent=ms; fill.style.width=Math.min(100,ms/2500*100)+"%";
+      if (ms>=DEAD_AIR_MS){ clock.classList.add("dead"); bar.classList.add("dead"); }
+      requestAnimationFrame(tick); })();
+  }
+  $("#raceMeta").textContent="";
   return id;
 }
-async function laneDone(id, res, q){
+async function laneDone(id,res,q){
   if (id!==raceId) return;
   const pid=res.provider, el=laneEls[pid], tm=laneTimers[pid]; if(!el) return;
   if (tm) tm.running=false;
-  const rtt=tm?Math.round(performance.now()-tm.t0):null;
-  const ms=res.api_ms ?? rtt ?? 0;
+  const ms=res.api_ms ?? Math.round(performance.now()-(tm?tm.t0:performance.now()));
   el._data=res;
   el.querySelector("[data-ms]").textContent=ms;
-  el.querySelector("[data-bar]").className="bar "+cls(ms); el.querySelector("[data-bar] i").style.width=Math.min(100,ms/3000*100)+"%";
-  el.querySelector("[data-tier]").textContent=res.label||"";
-  const st=el.querySelector("[data-status]");
-  if (res.error) st.innerHTML=`<span class="err">${esc(res.error)}</span>`;
-  else st.textContent=`${res.results.length} results · api ${ms} ms`+(rtt!=null?` · seen ${rtt} ms`:"")+(res.vendor_ms?` · vendor says ${res.vendor_ms} ms`:"");
-  if (typeof res.cost_usd==="number") el.querySelector("[data-cost]").textContent=`$${res.cost_usd.toFixed(4)} / query`;
-  el.querySelector("[data-results]").innerHTML=(res.results||[]).slice(0,3).map(r=>`<a class="card" href="${esc(r.url)}" target="_blank" rel="noopener"><div class="title">${esc(r.title||r.url)}</div><div class="src">${esc(r.source||"")}${r.published?" · "+esc(String(r.published).slice(0,10)):""}</div><div class="snip">${esc(r.snippet||"")}</div></a>`).join("");
+  el.querySelector("[data-bar] i").style.width=Math.min(100,ms/2500*100)+"%";
+  const dead=!res.error && ms>=DEAD_AIR_MS;
+  el.classList.toggle("dead",dead); el.querySelector(".clock").classList.toggle("dead",dead); el.querySelector("[data-bar]").classList.toggle("dead",dead); el.querySelector("[data-flag]").classList.toggle("show",dead);
+  if (typeof res.cost_usd==="number") el.querySelector("[data-cost]").textContent=`$${res.cost_usd.toFixed(4)} per query`;
+  el.querySelector("[data-srcs]").innerHTML=(res.results||[]).slice(0,3).map(r=>`<a class="src" href="${esc(r.url)}" target="_blank" rel="noopener"><div class="t">${esc(r.title||r.url)}</div><div class="d">${esc(r.source||"")}${r.published?" · "+esc(String(r.published).slice(0,10)):""}</div></a>`).join("");
 
-  stats[pid]=stats[pid]||{ms:[],wins:0,cost:[],tier:""}; stats[pid].tier=res.label||"";
-  if (!res.error){ stats[pid].ms.push(ms); if(typeof res.cost_usd==="number") stats[pid].cost.push(res.cost_usd); }
+  const s=stats.p[pid];
+  if (!res.error){ s.ms.push(ms); if(typeof res.cost_usd==="number") s.cost.push(res.cost_usd); if(dead) s.dead++; }
 
-  // spoken sentence (not part of the race)
-  const aEl=el.querySelector("[data-answer]");
-  if (res.error || !res.results.length){ aEl.className="answer"; aEl.textContent="I couldn't find that just now."; res.answer=aEl.textContent; }
-  else if ($("#useLlm").checked && !demo){
-    aEl.textContent="composing…";
+  const aEl=el.querySelector("[data-answer]"), who=`<span class="who ${pid===activeProvider&&res._voice?"keen":""}">${pid===activeProvider&&res._voice?"The agent said":"Caller would hear"}</span>`;
+  if (res.error){ aEl.className="answer err"; aEl.textContent=res.error; res.answer="I couldn't find that just now."; }
+  else if (!res.results.length){ aEl.className="answer"; aEl.innerHTML=who+"I couldn't find that just now."; res.answer="I couldn't find that just now."; }
+  else if (!demo){
+    aEl.className="answer empty"; aEl.textContent="composing…";
     const a=await fetchAnswer(q,res.results); if(id!==raceId) return;
-    res.answer=a.answer||firstSentence(res.results[0].snippet); res.llm_ms=a.llm_ms;
-    aEl.className="answer"; aEl.innerHTML=esc(res.answer)+`<span class="llm">+ ${a.llm_ms||0} ms LLM${a.model?" · "+esc(a.model):""}${a.error?" · "+esc(a.error):""}</span>`;
-  } else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer"; aEl.innerHTML=esc(res.answer)+`<span class="llm">top snippet, no LLM</span>`; }
-  if (pid===activeProvider && res._voice) aEl.insertAdjacentHTML("afterbegin",`<span class="tag">agent spoke from this lane</span> `);
+    res.llm_ms=a.llm_ms;
+    if (a.answer){ res.answer=a.answer; aEl.className="answer"; aEl.innerHTML=who+esc(a.answer); }
+    else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer err"; aEl.textContent=a.error||"no sentence returned"; }
+  } else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer"; aEl.innerHTML=who+esc(res.answer); }
   el.querySelector("[data-hear]").disabled=false;
-  if (gradiumTts && !demo) res.audio = fetchTts(res.answer);  // pre-fetch so "Hear it" has no extra wait
-}
-async function fetchTts(text){
-  try{ const r=await fetch("api/tts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})});
-    if(!r.ok) return null; return URL.createObjectURL(await r.blob()); }
-  catch{ return null; }
+  if (gradiumTts && !demo && res.answer) res.audio=fetchTts(res.answer);
 }
 function finishRace(id){
   if (id!==raceId) return;
   const done=PROVIDERS.map(p=>laneEls[p.id]._data).filter(d=>d&&!d.error&&d.results.length);
-  if (done.length){ const w=done.reduce((a,b)=>a.api_ms<=b.api_ms?a:b); laneEls[w.provider].classList.add("winner"); stats[w.provider].wins++; if($("#autoHear").checked) setTimeout(()=>hear(w.provider),300); }
-  renderScore(); $("#go").disabled=false;
+  if (done.length){ const w=done.reduce((a,b)=>a.api_ms<=b.api_ms?a:b); laneEls[w.provider].classList.add("winner"); $("#raceMeta").textContent=`Fastest: ${PROVIDERS.find(p=>p.id===w.provider).name}, ${w.api_ms} ms`; }
+  stats.races++; renderScore(); $("#go").disabled=false; $("#again").disabled=false; $("#runAll").disabled=false;
 }
 
-// ---------- REST race (phrase picked or typed) ----------
+// ---------- REST race ----------
 async function restRace(){
-  const q=qIn.value.trim(); if(!q) return;
-  const t=tier(); $("#go").disabled=true;
-  const id=startRace(q,t);
+  const q=currentQ; if(!q) return;
+  $("#go").disabled=true; $("#again").disabled=true;
+  const id=startRace(q);
   await Promise.all(PROVIDERS.map(async p=>{
     let res;
-    try { res = demo ? await simulate(p.id,q,t) : await fetchSearch(p.id,q,t); }
-    catch(e){ if(!demo){ demo=true; setMode(); res=await simulate(p.id,q,t); } else res={provider:p.id,error:String(e),results:[]}; }
+    try{ res = demo ? await simulate(p.id,q) : await fetchSearch(p.id,q); }
+    catch(e){ if(!demo){ demo=true; setMode(); res=await simulate(p.id,q); } else res={provider:p.id,error:String(e),results:[]}; }
     await laneDone(id,res,q);
   }));
   finishRace(id);
 }
-async function fetchSearch(pid,q,t){
-  const r=await fetch(`api/search?provider=${pid}&tier=${t}&q=${encodeURIComponent(q)}`); if(!r.ok) throw new Error(`backend ${r.status}`); return r.json();
-}
-async function fetchAnswer(query,results){
-  try{ const r=await fetch("api/answer",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query,results})}); return await r.json(); }
-  catch(e){ return {answer:null,llm_ms:0,error:String(e)}; }
-}
-async function simulate(pid,q,t){
-  const [p50,p95]=SIM[t][pid]; const u=Math.random();
-  const ms=Math.round(u<.85 ? p50*(0.8+Math.random()*0.5) : p50+(p95-p50)*(0.6+Math.random()*0.8));
-  await new Promise(r=>setTimeout(r,ms));
-  return {provider:pid,tier:t,label:SIM_LABEL[t][pid],api_ms:ms,cost_usd:SIM_COST[t][pid],results:[1,2,3].map(i=>({title:`Placeholder result ${i}`,url:`https://example.com/${pid}/${i}`,source:"example.com",snippet:`Simulated result for "${q}". Run the backend with keys to see real pages.`}))};
-}
+async function fetchSearch(pid,q){ const r=await fetch(`api/search?provider=${pid}&tier=fast&q=${encodeURIComponent(q)}`); if(!r.ok) throw new Error(`backend ${r.status}`); return r.json(); }
+async function fetchAnswer(query,results){ try{ const r=await fetch("api/answer",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({query,results})}); return await r.json(); } catch(e){ return {answer:null,llm_ms:0,error:String(e)}; } }
+async function fetchTts(text){ try{ const r=await fetch("api/tts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})}); if(!r.ok) return null; return URL.createObjectURL(await r.blob()); } catch{ return null; } }
+async function simulate(pid,q){ const [p50,p95]=SIM[pid]; const u=Math.random(); const ms=Math.round(u<.85?p50*(0.8+Math.random()*0.5):p50+(p95-p50)*(0.6+Math.random()*0.8)); await new Promise(r=>setTimeout(r,ms));
+  return {provider:pid,label:TIER_LABEL[pid],api_ms:ms,cost_usd:SIM_COST[pid],results:[1,2,3].map(i=>({title:`Placeholder result ${i}`,url:`https://example.com/${pid}/${i}`,source:"example.com",snippet:`Simulated result for "${q}".`}))}; }
 
-// ---------- Hear it ----------
+// run the whole set, one after another
+$("#runAll").onclick=async()=>{
+  $("#runAll").disabled=true;
+  for (let i=0;i<ALL_Q.length;i++){ $("#progress").innerHTML=`<b>${i+1} / ${ALL_Q.length}</b><span>running the set</span>`; setQuestion(ALL_Q[i]); await restRace(); await new Promise(r=>setTimeout(r,400)); }
+  $("#runAll").disabled=false; renderScore();
+};
+
+// ---------- hear ----------
 let currentAudio=null;
 function hear(pid){
   const d=laneEls[pid]._data; if(!d) return;
-  speechSynthesis.cancel(); if(currentAudio){ currentAudio.pause(); currentAudio=null; }
+  speechSynthesis.cancel(); if(currentAudio){currentAudio.pause();currentAudio=null;}
   const silence=Math.min(6000,(d.api_ms||0)+(d.llm_ms||0));
-  const st=laneEls[pid].querySelector("[data-status]"), prev=st.textContent;
-  st.textContent=`caller waiting ${silence} ms…`;
-  setTimeout(async()=>{
-    st.textContent=prev;
-    const text=d.answer||"I couldn't find that just now.";
-    const url=d.audio ? await d.audio : null;          // Gradium voice (same voice as the agent) when available
-    if (url){ currentAudio=new Audio(url); currentAudio.play().catch(()=>speak(text)); }
-    else speak(text);                                   // browser voice fallback
-  },silence);
+  const btn=laneEls[pid].querySelector("[data-hear]"); btn.textContent=`${silence} ms of silence…`;
+  setTimeout(async()=>{ btn.textContent="Hear it"; const text=d.answer||"I couldn't find that just now."; const url=d.audio?await d.audio:null;
+    if(url){ currentAudio=new Audio(url); currentAudio.play().catch(()=>speak(text)); } else speak(text); },silence);
 }
 function speak(text){ const u=new SpeechSynthesisUtterance(text); u.lang="en-GB"; u.rate=1.05; speechSynthesis.speak(u); }
 
-// ---------- scoreboard ----------
-function renderScore(){
-  const tb=$("#scoreTable tbody"); tb.innerHTML="";
-  for (const p of PROVIDERS){ const s=stats[p.id]; if(!s||!s.ms.length) continue;
-    const arr=[...s.ms].sort((a,b)=>a-b), med=arr[Math.floor(arr.length/2)];
-    const c1k=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
-    tb.innerHTML+=`<tr><td class="${p.keen?"keen":""}">${p.name}</td><td class="num">${s.tier}</td><td class="num">${arr.length}</td><td class="num">${med}</td><td class="num">${arr[0]}</td><td class="num">${arr[arr.length-1]}</td><td class="num">${s.wins}</td><td class="num">${c1k}</td></tr>`; }
-}
-$("#reset").addEventListener("click",()=>{ stats={}; renderScore(); });
+// ---------- picker ----------
+function openPick(){ $("#modal").classList.add("show"); $("#typed").value=""; setTimeout(()=>$("#typed").focus(),50); }
+function closePick(){ $("#modal").classList.remove("show"); }
+$("#openPick").onclick=openPick; $("#closePick").onclick=closePick;
+$("#modal").addEventListener("click",e=>{ if(e.target.id==="modal") closePick(); });
+$("#typed").addEventListener("keydown",e=>{ if(e.key==="Enter"&&e.target.value.trim()){ const q=e.target.value.trim(); closePick(); setQuestion(q); restRace(); } });
+$("#random").onclick=()=>{ let q; do { q=ALL_Q[Math.floor(Math.random()*ALL_Q.length)]; } while(q===currentQ&&ALL_Q.length>1); setQuestion(q); restRace(); };
+$("#go").onclick=restRace; $("#again").onclick=restRace;
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") closePick(); });
 
 // ---------- voice session (Gradbot) ----------
+const orb=$("#orb"), iconMic=$("#iconMic"), iconStop=$("#iconStop"), micStatus=$("#micStatus");
 let ws=null, player=null, isRecording=false, turnBubbles={}, userBubble=null, hadAssistant=false, voiceRaceId=null;
-const tEmpty=$("#tEmpty");
-function setStatus(t,c){ statusEl.textContent=t; statusEl.className="status"+(c?" "+c:""); }
+function setStatus(t,on){ micStatus.textContent=t; micStatus.className="mic-status"+(on?" on":""); }
 function bubbleFor(turnIdx,isUser){
-  if (tEmpty&&tEmpty.parentNode) tEmpty.remove();
-  if (isUser){ if(userBubble&&!hadAssistant) return userBubble; hadAssistant=false;
-    userBubble=document.createElement("div"); userBubble.className="bubble user"; userBubble.innerHTML='<div class="who">Caller</div><div class="txt"></div>'; userBubble._txt=userBubble.querySelector(".txt"); transcript.appendChild(userBubble); return userBubble; }
-  let b=turnBubbles[turnIdx]; if(!b){ hadAssistant=true; b=document.createElement("div"); b.className="bubble assistant"; b.innerHTML='<div class="who">Agent</div><div class="txt"></div>'; b._txt=b.querySelector(".txt"); transcript.appendChild(b); turnBubbles[turnIdx]=b; } return b;
+  transcriptEl.classList.add("show");
+  if (isUser){ if(userBubble&&!hadAssistant) return userBubble; hadAssistant=false; userBubble=document.createElement("div"); userBubble.className="bubble"; userBubble.innerHTML='<span class="who">Caller</span><span></span>'; userBubble._txt=userBubble.lastChild; transcriptEl.appendChild(userBubble); return userBubble; }
+  let b=turnBubbles[turnIdx]; if(!b){ hadAssistant=true; b=document.createElement("div"); b.className="bubble agent"; b.innerHTML='<span class="who">Agent</span><span></span>'; b._txt=b.lastChild; transcriptEl.appendChild(b); turnBubbles[turnIdx]=b; } return b;
 }
-function handleText({text,turnIdx,isUser}){ const b=bubbleFor(turnIdx,isUser); b._txt.textContent+=text+" "; transcript.scrollTop=transcript.scrollHeight; }
+function handleText({text,turnIdx,isUser}){ const b=bubbleFor(turnIdx,isUser); b._txt.textContent+=text+" "; if(isUser) setQuestion(b._txt.textContent.trim()); }
 async function start(){
   turnBubbles={}; userBubble=null; hadAssistant=false;
   player=new SyncedAudioPlayer({ basePath:"static/js", sampleRate:24000, pcmOutput:window.__pcmOutput||false, echoCancellation:true,
-    onEncodedAudio:(opus)=>{ if(isRecording&&ws&&ws.readyState===WebSocket.OPEN) ws.send(opus); },
-    onText:handleText, onEvent:(t,m)=>console.log("event",t,m),
-    onError:(e)=>{ console.error(e); setStatus(e.message||"Audio error","error"); } });
-  try{ await player.start(); } catch(e){ console.error(e); setStatus("Microphone access denied","error"); return; }
+    onEncodedAudio:(opus)=>{ if(isRecording&&ws&&ws.readyState===WebSocket.OPEN) ws.send(opus); }, onText:handleText, onEvent:()=>{},
+    onError:(e)=>{ console.error(e); setStatus(e.message||"Audio error"); } });
+  try{ await player.start(); } catch(e){ setStatus("Microphone access denied"); return; }
   const proto=location.protocol==="https:"?"wss:":"ws:"; const base=location.pathname.replace(/\/$/,"");
   ws=new WebSocket(`${proto}//${location.host}${base}/ws/chat`);
-  ws.onopen=()=>{ ws.send(JSON.stringify({type:"start"})); isRecording=true; orb.classList.add("recording"); iconMic.style.display="none"; iconStop.style.display="block"; setStatus("Listening: ask the caller's question","active"); };
+  ws.onopen=()=>{ ws.send(JSON.stringify({type:"start"})); isRecording=true; orb.classList.add("recording"); iconMic.style.display="none"; iconStop.style.display="block"; setStatus("On a call. Ask your question",true); };
   ws.onmessage=(ev)=>{
-    if (typeof ev.data==="string"){ let msg=null; try{ msg=JSON.parse(ev.data);}catch(_){}
-      if (msg&&msg.type==="race_started"){ voiceRaceId=startRace(msg.query, msg.tier||tier()); return; }
-      if (msg&&msg.type==="race_lane"){ msg._voice=true; laneDone(voiceRaceId,msg,msg.query); return; }
-      if (msg&&msg.type==="race_done"){ finishRace(voiceRaceId); return; } }
+    if (typeof ev.data==="string"){ let m=null; try{ m=JSON.parse(ev.data);}catch(_){}
+      if (m&&m.type==="race_started"){ voiceRaceId=startRace(m.query); return; }
+      if (m&&m.type==="race_lane"){ m._voice=true; laneDone(voiceRaceId,m,m.query); return; }
+      if (m&&m.type==="race_done"){ finishRace(voiceRaceId); return; } }
     player.handleMessage(ev.data);
   };
-  ws.onerror=()=>setStatus("Connection error","error");
-  ws.onclose=()=>{ resetOrb(); if(statusEl.textContent.startsWith("Listening")) setStatus("Disconnected"); };
+  ws.onerror=()=>setStatus("Connection error");
+  ws.onclose=()=>{ resetOrb(); if(micStatus.textContent.startsWith("On a call")) setStatus("Call ended"); };
 }
-function stop(){ if(ws&&ws.readyState===WebSocket.OPEN){ ws.send(JSON.stringify({type:"stop"})); ws.close(); } ws=null; if(player){ player.stop(); player=null; } resetOrb(); setStatus("Call ended. Tap to ask again"); }
+function stop(){ if(ws&&ws.readyState===WebSocket.OPEN){ ws.send(JSON.stringify({type:"stop"})); ws.close(); } ws=null; if(player){ player.stop(); player=null; } resetOrb(); setStatus("Call ended. Tap to start again"); }
 function resetOrb(){ isRecording=false; orb.classList.remove("recording"); iconMic.style.display="block"; iconStop.style.display="none"; }
-orb.addEventListener("click",()=>isRecording?stop():start());
+orb.onclick=()=>isRecording?stop():start();
 
-// ---------- wiring ----------
-pick.addEventListener("change",()=>{ qIn.value=pick.value; restRace(); });
-$("#go").addEventListener("click",restRace); $("#again").addEventListener("click",restRace);
-qIn.addEventListener("keydown",e=>{ if(e.key==="Enter") restRace(); });
-qIn.value=pick.value; setSay(pick.value);
-
+// ---------- boot ----------
+renderScore();
+for (const [id,file] of [["logoDecagon","decagon"],["logoKeenable","keenable"]]) {
+  const img=new Image(); img.onload=()=>{ const el=document.getElementById(id); el.innerHTML=""; el.appendChild(img); }; img.alt=file; img.src=`static/logos/${file}.svg`;
+}
 (async()=>{
-  try{ const c=await (await fetch("api/race-config")).json(); activeProvider=c.active||"keenable";
-    $("#activeBadge").textContent=`🔎 agent answers from ${activeProvider} ${c.tier==="standard"?"":"realtime"}`.trim();
-    // Hide lanes with no key (Keenable always runs: it has a keyless endpoint).
+  try{ const c=await (await fetch("api/race-config")).json(); activeProvider=c.active||"keenable"; gradiumTts=!!c.gradium;
     const missing=Object.entries(c.keys||{}).filter(([k,v])=>!v&&k!=="keenable").map(([k])=>k);
-    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS.splice(PROVIDERS.findIndex(p=>p.id===k),1); }
+    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS=PROVIDERS.filter(p=>p.id!==k); document.querySelectorAll(`[data-lat="${k}"],[data-cost="${k}"],[data-dead="${k}"],[data-q="${k}"]`).forEach(td=>td.textContent="no key"); }
     lanesEl.style.gridTemplateColumns=`repeat(${PROVIDERS.length},minmax(0,1fr))`;
-    if (missing.length){ banner.classList.add("show"); banner.textContent="Hidden (no key in .env): "+missing.join(", ")+"."+(c.keys.keenable?"":" Keenable is on its keyless endpoint; add a key before a meeting."); }
-    if (!c.llm) setStatus("LLM_API_KEY missing: no voice agent, lanes show top snippet","error");
-    gradiumTts=!!c.gradium;
-    if (!c.gradium) setStatus("GRADIUM_API_KEY missing: phrases work, mic won't","error");
-  } catch{ demo=true; setMode(); }
-  if(!demo){ const b=$("#modeBadge"); b.textContent="live"; b.className="badge live"; }
+    const notes=[]; if(!c.llm) notes.push("LLM_API_KEY missing: no voice agent, no spoken sentences"); if(!c.gradium) notes.push("GRADIUM_API_KEY missing: the mic is off");
+    if(notes.length){ banner.classList.add("show"); banner.textContent=notes.join(". ")+"."; }
+    if(!c.gradium) setStatus("Needs GRADIUM_API_KEY");
+  } catch{ demo=true; }
+  setMode();
 })();
 </script>
 </body>

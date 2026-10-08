@@ -1,4 +1,4 @@
-# Voice Search Race — Gradium + Keenable vs Perplexity, Tavily, Exa
+# Keenable × Decagon voice search demo (Gradium + Keenable vs Tavily, Exa)
 
 One caller question, four search APIs, one stopwatch. A fork of
 [`web_voice_search`](../web_voice_search) that keeps the Gradium voice agent and
@@ -10,7 +10,7 @@ buyer can see (and hear) how long the agent goes silent on each search API.
 1. **Say it or pick it.** Tap the mic and ask, or choose a support-agent phrase
    from the list ("Are there any changes to today's flights out of Heathrow?"),
    or type your own.
-2. **Four lanes race.** Keenable, Perplexity, Tavily and Exa get the identical
+2. **Four lanes race.** Keenable, Tavily and Exa get the identical
    query at the same instant. Each lane shows a live stopwatch, a bar that goes
    amber at 300 ms and red at 800 ms, the top results, and the one spoken
    sentence the caller would hear from that lane.
@@ -77,3 +77,16 @@ needs `GRADIUM_API_KEY`.
 - Press "Again" once before the audience watches; first calls after a cold
   start are slow for everyone.
 - Record a 60-second screen video of three races as a backup for bad Wi-Fi.
+
+## Logos
+
+Drop `decagon.svg` and `keenable.svg` into `static/logos/` and the header picks them up
+automatically (text wordmarks are shown until then).
+
+## Scorecard
+
+The top card accumulates across the session and survives reloads (browser storage;
+"Reset" clears it). "Run the whole set" races all 20 questions back to back and fills
+the latency, cost and dead-air rows with real numbers. Answer quality is a placeholder
+estimated from NEEDLE until the set has been judged; edit the three numbers in the
+scorecard table in `static/index.html`.

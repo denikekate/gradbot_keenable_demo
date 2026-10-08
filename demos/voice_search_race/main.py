@@ -209,8 +209,7 @@ async def api_race_config():
         "active": ACTIVE_PROVIDER,
         "tier": RACE_TIER,
         "keys": {p: bool(os.environ.get(k)) for p, k in [
-            ("keenable", "KEENABLE_API_KEY"), ("perplexity", "PERPLEXITY_API_KEY"),
-            ("tavily", "TAVILY_API_KEY"), ("exa", "EXA_API_KEY")]},
+            ("keenable", "KEENABLE_API_KEY"), ("tavily", "TAVILY_API_KEY"), ("exa", "EXA_API_KEY")]},
         "llm": bool(os.environ.get("LLM_API_KEY")),
         "gradium": bool(os.environ.get("GRADIUM_API_KEY")),
     }

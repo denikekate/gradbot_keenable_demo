@@ -27,7 +27,7 @@ import httpx
 
 TIMEOUT_S = 10.0
 MAX_RESULTS = 5
-PROVIDERS = ["keenable", "perplexity", "tavily", "exa"]
+PROVIDERS = ["keenable", "tavily", "exa"]  # perplexity is implemented below but not raced
 
 # List price per query, USD, used when the vendor does not report cost in the
 # response (Exa and Tavily do). Check against each pricing page before a demo.
