@@ -1,0 +1,79 @@
+# Voice Search Race — Gradium + Keenable vs Perplexity, Tavily, Exa
+
+One caller question, four search APIs, one stopwatch. A fork of
+[`web_voice_search`](../web_voice_search) that keeps the Gradium voice agent and
+replaces the single Keenable lookup with a four-way race, so a voice-agent
+buyer can see (and hear) how long the agent goes silent on each search API.
+
+## The user journey
+
+1. **Say it or pick it.** Tap the mic and ask, or choose a support-agent phrase
+   from the list ("Are there any changes to today's flights out of Heathrow?"),
+   or type your own.
+2. **Four lanes race.** Keenable, Perplexity, Tavily and Exa get the identical
+   query at the same instant. Each lane shows a live stopwatch, a bar that goes
+   amber at 300 ms and red at 800 ms, the top results, and the one spoken
+   sentence the caller would hear from that lane.
+3. **Hear the difference.** With the mic, the agent speaks from the Keenable
+   lane the moment its results land (the other lanes keep filling in). "Hear it"
+   on any lane plays that lane's measured silence, then its sentence.
+4. **Scoreboard** accumulates median / best / worst / wins / cost per 1K across
+   the meeting, with a Reset.
+
+Each vendor runs its voice-grade tier by default (Keenable `realtime`,
+Perplexity `fast`, Tavily `ultra-fast`, Exa `instant`); a switch flips all four
+to standard tiers (`pro` / `web` / `basic` / `auto`).
+
+## Run locally
+
+```bash
+cd demos/voice_search_race
+uv sync
+cp .env.example .env    # add keys, see below
+uv run uvicorn main:app --reload --port 8070
+```
+
+Open http://localhost:8070/. Phrases work with only search keys; the mic also
+needs `GRADIUM_API_KEY`.
+
+## Configuration (`.env`)
+
+| Variable | Needed for | Notes |
+| --- | --- | --- |
+| `KEENABLE_API_KEY` | Keenable lane | Optional. Without it the keyless `/v1/search/public` endpoint is used (rate limited per IP). Use a key in a meeting. |
+| `PERPLEXITY_API_KEY` | Perplexity lane | perplexity.ai/settings/api, needs a small credit top-up. |
+| `TAVILY_API_KEY` | Tavily lane | app.tavily.com, free monthly credits. |
+| `EXA_API_KEY` | Exa lane | dashboard.exa.ai, free starter credits. |
+| `ACTIVE_PROVIDER` | voice agent | Lane the agent answers from. Default `keenable`. Set `perplexity` to show the agent on the incumbent's clock. |
+| `RACE_TIER` | both | `fast` (default) or `standard`. The page's radio switch only affects REST races; the voice agent uses this value. |
+| `GRADIUM_API_KEY` | mic | Gradium STT + TTS. |
+| `LLM_API_KEY`, `LLM_BASE_URL`, `LLM_MODEL` | voice agent and per-lane sentence | OpenAI-compatible, must support tool calling. Defaults to OpenRouter + `openai/gpt-4o-mini`. |
+
+## How it's built
+
+- `providers.py`: the four vendors behind one `search(provider, query, tier)`,
+  each timed around its own HTTP call. `race()` fires them all with
+  `asyncio.gather` and awaits an `on_lane` callback as each finishes.
+- `main.py`: the Gradbot voice session from the original demo. Its
+  `web_search` tool now starts the race, sends each lane to the browser as it
+  completes, and hands the `ACTIVE_PROVIDER` results back to the LLM the moment
+  they land, so the spoken answer is on that lane's clock. Also exposes
+  `GET /api/search`, `POST /api/answer` and `GET /api/race-config` so the page
+  can run the same race without a microphone.
+- `answer.py`: one spoken sentence per lane from the same model and prompt.
+- `static/index.html`: orb + phrase picker on top, four lanes, transcript,
+  scoreboard. Reuses Gradbot's bundled audio JS. Falls back to clearly labelled
+  simulated latencies if the backend is unreachable.
+
+## Before a meeting
+
+- Run every phrase in the bank once and swap out any where the Keenable lane
+  loses on relevance. The bank is the first thing in the page's `<script>`.
+- Perplexity `fast` is priced at $1/1K and quotes ~160 ms p50, so it ties
+  Keenable on speed and price. Keep the lane in; the clean wins are against
+  Tavily and Exa, and on index independence. Hiding it would be noticed.
+- Cost per 1K uses vendor-reported cost where the API returns it (Exa, Tavily)
+  and `LIST_PRICE` in `providers.py` otherwise. Check against each pricing page.
+- Press "Again" once before the audience watches; first calls after a cold
+  start are slow for everyone.
+- Record a 60-second screen video of three races as a backup for bad Wi-Fi.
