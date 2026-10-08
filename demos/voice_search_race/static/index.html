@@ -425,8 +425,12 @@ qIn.value=pick.value; setSay(pick.value);
 (async()=>{
   try{ const c=await (await fetch("api/race-config")).json(); activeProvider=c.active||"keenable";
     $("#activeBadge").textContent=`🔎 agent answers from ${activeProvider} ${c.tier==="standard"?"":"realtime"}`.trim();
-    const missing=Object.entries(c.keys||{}).filter(([,v])=>!v).map(([k])=>k);
-    if (missing.length){ banner.classList.add("show"); banner.textContent="No key in .env for: "+missing.join(", ")+(missing.includes("keenable")?" (Keenable falls back to its keyless endpoint)":"")+". Those lanes will show an error until you add one."; }
+    // Hide lanes with no key (Keenable always runs: it has a keyless endpoint).
+    const missing=Object.entries(c.keys||{}).filter(([k,v])=>!v&&k!=="keenable").map(([k])=>k);
+    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS.splice(PROVIDERS.findIndex(p=>p.id===k),1); }
+    lanesEl.style.gridTemplateColumns=`repeat(${PROVIDERS.length},minmax(0,1fr))`;
+    if (missing.length){ banner.classList.add("show"); banner.textContent="Hidden (no key in .env): "+missing.join(", ")+"."+(c.keys.keenable?"":" Keenable is on its keyless endpoint; add a key before a meeting."); }
+    if (!c.llm) setStatus("LLM_API_KEY missing: no voice agent, lanes show top snippet","error");
     gradiumTts=!!c.gradium;
     if (!c.gradium) setStatus("GRADIUM_API_KEY missing: phrases work, mic won't","error");
   } catch{ demo=true; setMode(); }
