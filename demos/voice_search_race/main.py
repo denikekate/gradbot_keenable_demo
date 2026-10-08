@@ -28,6 +28,7 @@ import pathlib
 from datetime import datetime
 
 import fastapi
+import httpx
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
@@ -174,6 +175,31 @@ class AnswerIn(BaseModel):
 @app.post("/api/answer")
 async def api_answer(body: AnswerIn):
     return await spoken_answer(body.query, body.results)
+
+
+class TtsIn(BaseModel):
+    text: str
+    voice_id: str | None = None
+
+
+@app.post("/api/tts")
+async def api_tts(body: TtsIn):
+    """Speak one lane's sentence with the same Gradium voice the agent uses. Returns WAV bytes."""
+    key = (os.environ.get("GRADIUM_API_KEY") or "").strip()
+    if not key:
+        return fastapi.Response(status_code=503, content="GRADIUM_API_KEY not set")
+    text = body.text.strip()[:400]
+    if not text:
+        return fastapi.Response(status_code=400, content="empty text")
+    async with httpx.AsyncClient(timeout=20.0) as client:
+        r = await client.post(
+            "https://api.gradium.ai/api/post/speech/tts",
+            headers={"x-api-key": key},
+            json={"text": text, "voice_id": body.voice_id or DEFAULT_VOICE_ID, "output_format": "wav", "only_audio": True},
+        )
+    if r.status_code >= 400:
+        return fastapi.Response(status_code=502, content=f"Gradium TTS {r.status_code}: {r.text[:200]}")
+    return fastapi.Response(content=r.content, media_type="audio/wav", headers={"Cache-Control": "no-store"})
 
 
 @app.get("/api/race-config")

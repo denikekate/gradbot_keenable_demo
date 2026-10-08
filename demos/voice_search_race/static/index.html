@@ -230,7 +230,7 @@ const SIM_COST = { fast:{keenable:.001,perplexity:.001,tavily:.008,exa:.005}, st
 const $ = s => document.querySelector(s);
 const lanesEl=$("#lanes"), pick=$("#pick"), qIn=$("#q"), banner=$("#banner"), sayEl=$("#say");
 const orb=$("#orb"), iconMic=$("#iconMic"), iconStop=$("#iconStop"), statusEl=$("#status"), transcript=$("#transcript");
-let demo=false, activeProvider="keenable", stats={}, raceId=0, laneEls={}, laneTimers={};
+let demo=false, activeProvider="keenable", gradiumTts=false, stats={}, raceId=0, laneEls={}, laneTimers={};
 
 // ---------- build ----------
 for (const [grp, qs] of Object.entries(BANK)) {
@@ -312,6 +312,12 @@ async function laneDone(id, res, q){
   } else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer"; aEl.innerHTML=esc(res.answer)+`<span class="llm">top snippet, no LLM</span>`; }
   if (pid===activeProvider && res._voice) aEl.insertAdjacentHTML("afterbegin",`<span class="tag">agent spoke from this lane</span> `);
   el.querySelector("[data-hear]").disabled=false;
+  if (gradiumTts && !demo) res.audio = fetchTts(res.answer);  // pre-fetch so "Hear it" has no extra wait
+}
+async function fetchTts(text){
+  try{ const r=await fetch("api/tts",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})});
+    if(!r.ok) return null; return URL.createObjectURL(await r.blob()); }
+  catch{ return null; }
 }
 function finishRace(id){
   if (id!==raceId) return;
@@ -348,14 +354,22 @@ async function simulate(pid,q,t){
 }
 
 // ---------- Hear it ----------
+let currentAudio=null;
 function hear(pid){
   const d=laneEls[pid]._data; if(!d) return;
-  speechSynthesis.cancel();
+  speechSynthesis.cancel(); if(currentAudio){ currentAudio.pause(); currentAudio=null; }
   const silence=Math.min(6000,(d.api_ms||0)+(d.llm_ms||0));
   const st=laneEls[pid].querySelector("[data-status]"), prev=st.textContent;
   st.textContent=`caller waiting ${silence} ms…`;
-  setTimeout(()=>{ st.textContent=prev; const u=new SpeechSynthesisUtterance(d.answer||"I couldn't find that just now."); u.lang="en-GB"; u.rate=1.05; speechSynthesis.speak(u); },silence);
+  setTimeout(async()=>{
+    st.textContent=prev;
+    const text=d.answer||"I couldn't find that just now.";
+    const url=d.audio ? await d.audio : null;          // Gradium voice (same voice as the agent) when available
+    if (url){ currentAudio=new Audio(url); currentAudio.play().catch(()=>speak(text)); }
+    else speak(text);                                   // browser voice fallback
+  },silence);
 }
+function speak(text){ const u=new SpeechSynthesisUtterance(text); u.lang="en-GB"; u.rate=1.05; speechSynthesis.speak(u); }
 
 // ---------- scoreboard ----------
 function renderScore(){
@@ -413,6 +427,7 @@ qIn.value=pick.value; setSay(pick.value);
     $("#activeBadge").textContent=`🔎 agent answers from ${activeProvider} ${c.tier==="standard"?"":"realtime"}`.trim();
     const missing=Object.entries(c.keys||{}).filter(([,v])=>!v).map(([k])=>k);
     if (missing.length){ banner.classList.add("show"); banner.textContent="No key in .env for: "+missing.join(", ")+(missing.includes("keenable")?" (Keenable falls back to its keyless endpoint)":"")+". Those lanes will show an error until you add one."; }
+    gradiumTts=!!c.gradium;
     if (!c.gradium) setStatus("GRADIUM_API_KEY missing: phrases work, mic won't","error");
   } catch{ demo=true; setMode(); }
   if(!demo){ const b=$("#modeBadge"); b.textContent="live"; b.className="badge live"; }
