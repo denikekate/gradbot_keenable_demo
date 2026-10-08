@@ -140,7 +140,6 @@
     </div>
     <div class="hdr-right">
       <span class="pill" id="modePill"><i></i><span>connecting</span></span>
-      <button class="btn sm" id="runAll">Run the whole set</button>
       <button class="btn sm" id="reset">Reset</button>
     </div>
   </header>
@@ -188,7 +187,7 @@
       </div>
       <div class="opt">
         <h3>Pick a question</h3>
-        <p>Twenty things a caller actually asks a support line, across five industries.</p>
+        <p>Thirty things a caller actually asks a support line, across five industries.</p>
         <div><button class="btn dark" id="openPick">Browse questions</button></div>
       </div>
       <div class="opt">
@@ -233,39 +232,9 @@
 <script src="static/js/synced-audio-player.js"></script>
 <script>fetch("api/audio-config").then(r=>r.json()).then(c=>{window.__pcmOutput=c.pcm}).catch(()=>{})</script>
 <script>
-const BANK = {
-  "Airline": [
-    "Are there any changes to today's flights out of Heathrow?",
-    "Is BA117 to New York delayed this morning?",
-    "What's the Ryanair cabin bag size limit at the moment?",
-    "Is there an air traffic control strike in France this week?"
-  ],
-  "Rail and transport": [
-    "Is the Elizabeth line running normally right now?",
-    "Are there any UK rail strikes this week?",
-    "Is there Eurostar disruption today?",
-    "Has the ULEZ daily charge changed?"
-  ],
-  "Retail": [
-    "What time does the Apple Store on Regent Street close today?",
-    "Has Zara changed its returns policy recently?",
-    "What's the Argos same-day delivery cutoff?",
-    "Does John Lewis still price match?"
-  ],
-  "Banking and utilities": [
-    "What is the Bank of England base rate today?",
-    "What does Monzo charge for card spending abroad?",
-    "What is the Ofgem energy price cap this quarter?",
-    "Is there a Thames Water hosepipe ban at the moment?"
-  ],
-  "Events and venues": [
-    "Are there any tickets left for Oasis at Wembley?",
-    "Is the Natural History Museum open on Mondays?",
-    "What time does Borough Market close on Saturdays?",
-    "What's the dress code at Sketch in Mayfair?"
-  ]
-};
-const ALL_Q = Object.values(BANK).flat();
+let BANK = {};
+let ALL_Q = [];
+
 let PROVIDERS = [ {id:"keenable",name:"Keenable",keen:true}, {id:"tavily",name:"Tavily"}, {id:"exa",name:"Exa"} ];
 const TIER_LABEL = {keenable:"realtime",tavily:"ultra-fast",exa:"instant"};
 const DEAD_AIR_MS = 800;
@@ -275,18 +244,20 @@ const SIM_COST = {keenable:.001,tavily:.008,exa:.005};
 const $=s=>document.querySelector(s);
 const lanesEl=$("#lanes"), qText=$("#qText"), banner=$("#banner"), transcriptEl=$("#transcript");
 let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="", isRecording=false;
-let store = load(); let view = store.view || "session"; let runningSet = false;
-function cur(){ return store[view]; }
+let store = load(); let view = store.view || "session"; let SET = null;  // baked full-set results
 
-function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v3")); if(s&&s.session&&s.set) return s; }catch{} return {session:fresh(),set:fresh(),view:"session"}; }
+function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v4")); if(s&&s.session) return s; }catch{} return {session:fresh(),view:"session"}; }
 function fresh(){ return {races:0, ranAt:null, p:{keenable:{ms:[],cost:[],dead:0},tavily:{ms:[],cost:[],dead:0},exa:{ms:[],cost:[],dead:0}}}; }
-function save(){ store.view=view; try{ localStorage.setItem("vsr_stats_v3",JSON.stringify(store)); }catch{} }
+function save(){ store.view=view; try{ localStorage.setItem("vsr_stats_v4",JSON.stringify(store)); }catch{} }
 
 // ---------- build ----------
-for (const [grp,qs] of Object.entries(BANK)){
-  const g=document.createElement("div"); g.className="grp"; g.innerHTML=`<h4>${esc(grp)}</h4><div class="qs"></div>`;
-  for (const q of qs){ const b=document.createElement("button"); b.className="qbtn"; b.textContent=q; b.onclick=()=>{ closePick(); setQuestion(q); restRace(); }; g.querySelector(".qs").appendChild(b); }
-  $("#groups").appendChild(g);
+function buildPicker(){
+  $("#groups").innerHTML="";
+  for (const [grp,qs] of Object.entries(BANK)){
+    const g=document.createElement("div"); g.className="grp"; g.innerHTML=`<h4>${esc(grp)}</h4><div class="qs"></div>`;
+    for (const q of qs){ const b=document.createElement("button"); b.className="qbtn"; b.textContent=q; b.onclick=()=>{ closePick(); setQuestion(q); restRace(); }; g.querySelector(".qs").appendChild(b); }
+    $("#groups").appendChild(g);
+  }
 }
 for (const p of PROVIDERS){
   const el=document.createElement("div"); el.className="lane"+(p.keen?" keen":"");
@@ -310,26 +281,34 @@ function setMode(){
 }
 
 // ---------- scorecard ----------
+function fmt(v){ return v==null?"–":`${v}<span class="u">ms</span>`; }
 function renderScore(){
-  const stats=cur();
   document.querySelectorAll("#viewSeg button").forEach(b=>b.classList.toggle("on",b.dataset.view===view));
-  $("#p95Row").style.display = view==="session" ? "none" : "";
-  $("#latNote").textContent = view==="session" ? "Measured live, this session" : "Measured live across the 20-question set";
-  $("#deadNote").textContent = view==="session" ? "Searches over 800 ms, this session" : "Searches over 800 ms across the set";
+  const set = view==="set";
+  $("#p95Row").style.display = set ? "" : "none";
+  $("#latNote").textContent = set ? `Measured across the ${SET?SET.questions:30}-question set` : "Measured live, this session";
+  $("#deadNote").textContent = set ? "Searches over 800 ms across the set" : "Searches over 800 ms, this session";
+  $("#reset").style.display = set ? "none" : "";
   for (const p of PROVIDERS){
-    const s=stats.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
-    const lat=document.querySelector(`[data-lat="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`);
-    if (arr.length){ const med=arr[Math.floor(arr.length/2)]; lat.innerHTML=`${med}<span class="u">ms</span>`; lat.classList.toggle("bad",med>=DEAD_AIR_MS); } else lat.textContent="–";
-    const p95=document.querySelector(`[data-p95="${p.id}"]`);
-    if (arr.length){ const v=arr[Math.min(arr.length-1,Math.ceil(arr.length*0.95)-1)]; p95.innerHTML=`${v}<span class="u">ms</span>`; p95.classList.toggle("bad",v>=DEAD_AIR_MS); } else p95.textContent="–";
-    cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
-    dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
+    const lat=document.querySelector(`[data-lat="${p.id}"]`), p95=document.querySelector(`[data-p95="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`);
+    if (set){
+      const s=SET&&SET.summary&&SET.summary[p.id];
+      lat.innerHTML=fmt(s&&s.median_ms); lat.classList.toggle("bad",!!(s&&s.median_ms>=DEAD_AIR_MS));
+      p95.innerHTML=fmt(s&&s.p95_ms); p95.classList.toggle("bad",!!(s&&s.p95_ms>=DEAD_AIR_MS));
+      cost.textContent=s&&s.cost_per_1k!=null?"$"+s.cost_per_1k.toFixed(2):"–";
+      dead.innerHTML=s?`${s.dead_air}<span class="u">of ${s.races}</span>`:"–"; dead.classList.toggle("bad",!!(s&&s.dead_air>0&&!p.keen));
+    } else {
+      const s=store.session.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
+      const med=arr.length?arr[Math.floor(arr.length/2)]:null; lat.innerHTML=fmt(med); lat.classList.toggle("bad",med!=null&&med>=DEAD_AIR_MS);
+      cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
+      dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
+    }
   }
-  if (view==="session") $("#progress").innerHTML=stats.races?`<b>${stats.races}</b><span>race${stats.races===1?"":"s"} this session</span>`:"<span>No races yet</span>";
-  else $("#progress").innerHTML=stats.ranAt?`<b>${stats.races} / ${ALL_Q.length}</b><span>set run ${new Date(stats.ranAt).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</span>`:"<span>Set not run yet</span>";
+  if (set) $("#progress").innerHTML=SET?`<b>${SET.questions} × ${SET.passes}</b><span>run ${new Date(SET.ran_at).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</span>`:"<span>Not benchmarked yet: run bench.py</span>";
+  else { const n=store.session.races; $("#progress").innerHTML=n?`<b>${n}</b><span>race${n===1?"":"s"} this session</span>`:"<span>No races yet</span>"; }
   save();
 }
-$("#reset").onclick=()=>{ store[view]=fresh(); renderScore(); };
+$("#reset").onclick=()=>{ store.session=fresh(); renderScore(); };
 document.querySelectorAll("#viewSeg button").forEach(b=>b.onclick=()=>{ view=b.dataset.view; renderScore(); });
 
 // ---------- lanes ----------
@@ -367,9 +346,7 @@ async function laneDone(id,res,q){
   if (typeof res.cost_usd==="number") el.querySelector("[data-cost]").textContent=`$${res.cost_usd.toFixed(4)} per query`;
   el.querySelector("[data-srcs]").innerHTML=(res.results||[]).slice(0,3).map(r=>`<a class="src" href="${esc(r.url)}" target="_blank" rel="noopener"><div class="t">${esc(r.title||r.url)}</div><div class="d">${esc(r.source||"")}${r.published?" · "+esc(String(r.published).slice(0,10)):""}</div></a>`).join("");
 
-  for (const b of (runningSet ? [store.session, store.set] : [store.session])){
-    const s=b.p[pid]; if (!res.error){ s.ms.push(ms); if(typeof res.cost_usd==="number") s.cost.push(res.cost_usd); if(dead) s.dead++; }
-  }
+  { const s=store.session.p[pid]; if (!res.error){ s.ms.push(ms); if(typeof res.cost_usd==="number") s.cost.push(res.cost_usd); if(dead) s.dead++; } }
 
   const aEl=el.querySelector("[data-answer]"), who=`<span class="who ${pid===activeProvider&&res._voice?"keen":""}">${pid===activeProvider&&res._voice?"The agent said":"Caller would hear"}</span>`;
   if (res.error){ aEl.className="answer err"; aEl.textContent=res.error; res.answer="I couldn't find that just now."; }
@@ -388,7 +365,7 @@ function finishRace(id){
   if (id!==raceId) return;
   const done=PROVIDERS.map(p=>laneEls[p.id]._data).filter(d=>d&&!d.error&&d.results.length);
   if (done.length){ const w=done.reduce((a,b)=>a.api_ms<=b.api_ms?a:b); laneEls[w.provider].classList.add("winner"); $("#raceMeta").textContent=`Fastest: ${PROVIDERS.find(p=>p.id===w.provider).name}, ${w.api_ms} ms`; }
-  store.session.races++; if(runningSet) store.set.races++; renderScore(); $("#go").disabled=false; $("#again").disabled=false; $("#runAll").disabled=false;
+  store.session.races++; renderScore(); $("#go").disabled=false; $("#again").disabled=false;
 }
 
 // ---------- REST race ----------
@@ -411,11 +388,7 @@ async function simulate(pid,q){ const [p50,p95]=SIM[pid]; const u=Math.random();
   return {provider:pid,label:TIER_LABEL[pid],api_ms:ms,cost_usd:SIM_COST[pid],results:[1,2,3].map(i=>({title:`Placeholder result ${i}`,url:`https://example.com/${pid}/${i}`,source:"example.com",snippet:`Simulated result for "${q}".`}))}; }
 
 // run the whole set, one after another
-$("#runAll").onclick=async()=>{
-  $("#runAll").disabled=true; store.set=fresh(); store.set.ranAt=Date.now(); view="set"; runningSet=true; renderScore();
-  for (let i=0;i<ALL_Q.length;i++){ setQuestion(ALL_Q[i]); await restRace(); $("#progress").innerHTML=`<b>${i+1} / ${ALL_Q.length}</b><span>running the set</span>`; await new Promise(r=>setTimeout(r,400)); }
-  runningSet=false; $("#runAll").disabled=false; renderScore();
-};
+// Full set numbers come from static/set_results.json, produced by bench.py
 
 // ---------- hear ----------
 let currentAudio=null;
@@ -475,7 +448,12 @@ function resetOrb(){ isRecording=false; orb.classList.remove("recording"); iconM
 orb.onclick=()=>isRecording?stop():start();
 
 // ---------- boot ----------
-renderScore();
+(async()=>{
+  try{ BANK=await (await fetch("static/questions.json")).json(); }catch{ BANK={"Questions":["What is the Bank of England base rate today?"]}; }
+  ALL_Q=Object.values(BANK).flat(); buildPicker();
+  try{ SET=await (await fetch("static/set_results.json")).json(); }catch{ SET=null; }
+  renderScore();
+})();
 for (const [id,file] of [["logoDecagon","decagon"],["logoKeenable","keenable"]]) {
   const img=new Image(); img.onload=()=>{ const el=document.getElementById(id); el.innerHTML=""; el.appendChild(img); }; img.alt=file; img.src=`static/logos/${file}.svg`;
 }

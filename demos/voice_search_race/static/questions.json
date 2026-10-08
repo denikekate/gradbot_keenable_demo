@@ -1,0 +1,42 @@
+{
+  "Airline": [
+    "Are there any changes to today's flights out of Heathrow?",
+    "Is BA117 to New York delayed this morning?",
+    "What's the Ryanair cabin bag size limit at the moment?",
+    "Is there an air traffic control strike in France this week?",
+    "What's the current Heathrow drop-off charge?",
+    "Can I take a power bank in hold luggage on easyJet?"
+  ],
+  "Rail and transport": [
+    "Is the Elizabeth line running normally right now?",
+    "Are there any UK rail strikes this week?",
+    "Is there Eurostar disruption today?",
+    "Has the ULEZ daily charge changed?",
+    "Is the Blackwall Tunnel closed this weekend?",
+    "What time is the last Thameslink train from St Pancras to St Albans tonight?"
+  ],
+  "Retail": [
+    "What time does the Apple Store on Regent Street close today?",
+    "Has Zara changed its returns policy recently?",
+    "What's the Argos same-day delivery cutoff?",
+    "Does John Lewis still price match?",
+    "Is the Dyson Airwrap on sale anywhere right now?",
+    "What time does IKEA Wembley open on Sundays?"
+  ],
+  "Banking and utilities": [
+    "What is the Bank of England base rate today?",
+    "What does Monzo charge for card spending abroad?",
+    "What is the Ofgem energy price cap this quarter?",
+    "Is there a Thames Water hosepipe ban at the moment?",
+    "What's the current Premium Bonds prize fund rate?",
+    "Is the Revolut app down right now?"
+  ],
+  "Events and venues": [
+    "Are there any tickets left for Oasis at Wembley?",
+    "Is the Natural History Museum open on Mondays?",
+    "What time does Borough Market close on Saturdays?",
+    "What's the dress code at Sketch in Mayfair?",
+    "Is Wimbledon ground admission sold out?",
+    "What time does the Tate Modern close on Fridays?"
+  ]
+}

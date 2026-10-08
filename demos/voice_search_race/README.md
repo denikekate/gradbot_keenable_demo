@@ -85,8 +85,26 @@ automatically (text wordmarks are shown until then).
 
 ## Scorecard
 
-The top card accumulates across the session and survives reloads (browser storage;
-"Reset" clears it). "Run the whole set" races all 20 questions back to back and fills
-the latency, cost and dead-air rows with real numbers. Answer quality is a placeholder
-estimated from NEEDLE until the set has been judged; edit the three numbers in the
-scorecard table in `static/index.html`.
+Two views, toggled next to the heading:
+
+- **This session**: every race since Reset (voice calls included), kept in the
+  browser so it survives a reload.
+- **Full set**: the baked benchmark in `static/set_results.json`, produced by
+  `bench.py`. Median, p95, cost per 1K and dead-air count across the 30-question
+  set in `static/questions.json`. Not run yet → the view says so.
+
+To bake the numbers (about 2 minutes on a normal connection):
+
+```bash
+cd demos/voice_search_race
+uv run python bench.py            # 2 passes x 30 questions x 3 lanes
+git add static/set_results.json && git commit -m "bench: <date>" && git push
+```
+
+Run it from the laptop you'll present from, not through a VPN, and ideally at
+two different times of day; `--passes 3` tightens the p95. The file also keeps
+each lane's top five URLs per question, so answer quality can be judged later
+and the placeholder NDCG row replaced.
+
+Answer quality is a placeholder estimated from NEEDLE until the set has been
+judged; edit the three numbers in the scorecard table in `static/index.html`.
