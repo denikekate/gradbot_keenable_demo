@@ -56,7 +56,7 @@ async def spoken_answer(query: str, results: list[dict[str, Any]]) -> dict[str, 
         ms = round((time.perf_counter() - t0) * 1000)
         if r.status_code >= 400 or "choices" not in j:
             err = (j.get("error") or {}).get("message") if isinstance(j.get("error"), dict) else j.get("error")
-            return {"answer": None, "llm_ms": ms, "model": model, "error": f"LLM {r.status_code}: {err or r.text[:160]}"}
+            return {"answer": None, "llm_ms": ms, "model": model, "error": f"LLM {r.status_code}: {(err or r.text)[:140]}"}
         text = (j["choices"][0].get("message") or {}).get("content", "").strip()
         return {"answer": text or None, "llm_ms": ms, "model": model}
     except Exception as e:
