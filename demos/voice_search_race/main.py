@@ -183,6 +183,9 @@ class TtsIn(BaseModel):
     voice_id: str | None = None
 
 
+_TTS_LOCK = asyncio.Semaphore(1)  # Gradium free tier allows 2 concurrent sessions; a live call uses both
+
+
 @app.post("/api/tts")
 async def api_tts(body: TtsIn):
     """Speak one lane's sentence with the same Gradium voice the agent uses. Returns WAV bytes."""
@@ -192,7 +195,7 @@ async def api_tts(body: TtsIn):
     text = body.text.strip()[:400]
     if not text:
         return fastapi.Response(status_code=400, content="empty text")
-    async with httpx.AsyncClient(timeout=20.0) as client:
+    async with _TTS_LOCK, httpx.AsyncClient(timeout=20.0) as client:
         r = await client.post(
             "https://api.gradium.ai/api/post/speech/tts",
             headers={"x-api-key": key},

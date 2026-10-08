@@ -273,7 +273,7 @@ const SIM_COST = {keenable:.001,tavily:.008,exa:.005};
 
 const $=s=>document.querySelector(s);
 const lanesEl=$("#lanes"), qText=$("#qText"), banner=$("#banner"), transcriptEl=$("#transcript");
-let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="";
+let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="", isRecording=false;
 let store = load(); let view = store.view || "session"; let runningSet = false;
 function cur(){ return store[view]; }
 
@@ -378,7 +378,7 @@ async function laneDone(id,res,q){
     else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer err"; aEl.textContent=a.error||"no sentence returned"; }
   } else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer"; aEl.innerHTML=who+esc(res.answer); }
   el.querySelector("[data-hear]").disabled=false;
-  if (gradiumTts && !demo && res.answer) res.audio=fetchTts(res.answer);
+  if (gradiumTts && !demo && res.answer && !isRecording) res.audio=fetchTts(res.answer);  // never during a live call: Gradium's session cap
 }
 function finishRace(id){
   if (id!==raceId) return;
@@ -420,7 +420,9 @@ function hear(pid){
   speechSynthesis.cancel(); if(currentAudio){currentAudio.pause();currentAudio=null;}
   const silence=Math.min(6000,(d.api_ms||0)+(d.llm_ms||0));
   const btn=laneEls[pid].querySelector("[data-hear]"); btn.textContent=`${silence} ms of silence…`;
-  setTimeout(async()=>{ btn.textContent="Hear it"; const text=d.answer||"I couldn't find that just now."; const url=d.audio?await d.audio:null;
+  setTimeout(async()=>{ btn.textContent="Hear it"; const text=d.answer||"I couldn't find that just now.";
+    if (!d.audio && gradiumTts && !demo && !isRecording) d.audio=fetchTts(text);   // fetched on demand once the call is over
+    const url=(d.audio && !isRecording)?await d.audio:null;
     if(url){ currentAudio=new Audio(url); currentAudio.play().catch(()=>speak(text)); } else speak(text); },silence);
 }
 function speak(text){ const u=new SpeechSynthesisUtterance(text); u.lang="en-GB"; u.rate=1.05; speechSynthesis.speak(u); }
@@ -437,7 +439,7 @@ document.addEventListener("keydown",e=>{ if(e.key==="Escape") closePick(); });
 
 // ---------- voice session (Gradbot) ----------
 const orb=$("#orb"), iconMic=$("#iconMic"), iconStop=$("#iconStop"), micStatus=$("#micStatus");
-let ws=null, player=null, isRecording=false, turnBubbles={}, userBubble=null, hadAssistant=false, voiceRaceId=null;
+let ws=null, player=null, turnBubbles={}, userBubble=null, hadAssistant=false, voiceRaceId=null;
 function setStatus(t,on){ micStatus.textContent=t; micStatus.className="mic-status"+(on?" on":""); }
 function bubbleFor(turnIdx,isUser){
   transcriptEl.classList.add("show");
