@@ -163,6 +163,7 @@
         <tbody>
           <tr><td class="m">Answer quality<small>NDCG, estimated from NEEDLE. Placeholder.</small></td><td class="v keen" data-q="keenable">0.74</td><td class="v" data-q="tavily">0.62</td><td class="v" data-q="exa">0.70</td></tr>
           <tr><td class="m">Median search latency<small id="latNote">Measured live, this session</small></td><td class="v keen" data-lat="keenable">–</td><td class="v" data-lat="tavily">–</td><td class="v" data-lat="exa">–</td></tr>
+          <tr id="p95Row"><td class="m">p95 search latency<small>Slowest one in twenty across the set</small></td><td class="v keen" data-p95="keenable">–</td><td class="v" data-p95="tavily">–</td><td class="v" data-p95="exa">–</td></tr>
           <tr><td class="m">Cost per 1,000 queries<small>Vendor-reported where the API returns it</small></td><td class="v keen" data-cost="keenable">–</td><td class="v" data-cost="tavily">–</td><td class="v" data-cost="exa">–</td></tr>
           <tr><td class="m">Dead-air moments<small id="deadNote">Searches over 800 ms, this session</small></td><td class="v keen" data-dead="keenable">0</td><td class="v" data-dead="tavily">0</td><td class="v" data-dead="exa">0</td></tr>
         </tbody>
@@ -312,12 +313,15 @@ function setMode(){
 function renderScore(){
   const stats=cur();
   document.querySelectorAll("#viewSeg button").forEach(b=>b.classList.toggle("on",b.dataset.view===view));
+  $("#p95Row").style.display = view==="session" ? "none" : "";
   $("#latNote").textContent = view==="session" ? "Measured live, this session" : "Measured live across the 20-question set";
   $("#deadNote").textContent = view==="session" ? "Searches over 800 ms, this session" : "Searches over 800 ms across the set";
   for (const p of PROVIDERS){
     const s=stats.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
     const lat=document.querySelector(`[data-lat="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`);
     if (arr.length){ const med=arr[Math.floor(arr.length/2)]; lat.innerHTML=`${med}<span class="u">ms</span>`; lat.classList.toggle("bad",med>=DEAD_AIR_MS); } else lat.textContent="–";
+    const p95=document.querySelector(`[data-p95="${p.id}"]`);
+    if (arr.length){ const v=arr[Math.min(arr.length-1,Math.ceil(arr.length*0.95)-1)]; p95.innerHTML=`${v}<span class="u">ms</span>`; p95.classList.toggle("bad",v>=DEAD_AIR_MS); } else p95.textContent="–";
     cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
     dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
   }
@@ -478,7 +482,7 @@ for (const [id,file] of [["logoDecagon","decagon"],["logoKeenable","keenable"]])
 (async()=>{
   try{ const c=await (await fetch("api/race-config")).json(); activeProvider=c.active||"keenable"; gradiumTts=!!c.gradium;
     const missing=Object.entries(c.keys||{}).filter(([k,v])=>!v&&k!=="keenable").map(([k])=>k);
-    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS=PROVIDERS.filter(p=>p.id!==k); document.querySelectorAll(`[data-lat="${k}"],[data-cost="${k}"],[data-dead="${k}"],[data-q="${k}"]`).forEach(td=>td.textContent="no key"); }
+    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS=PROVIDERS.filter(p=>p.id!==k); document.querySelectorAll(`[data-lat="${k}"],[data-p95="${k}"],[data-cost="${k}"],[data-dead="${k}"],[data-q="${k}"]`).forEach(td=>td.textContent="no key"); }
     lanesEl.style.gridTemplateColumns=`repeat(${PROVIDERS.length},minmax(0,1fr))`;
     const notes=[]; if(!c.llm) notes.push("LLM_API_KEY missing: no voice agent, no spoken sentences"); if(!c.gradium) notes.push("GRADIUM_API_KEY missing: the mic is off");
     if(notes.length){ banner.classList.add("show"); banner.textContent=notes.join(". ")+"."; }
