@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Keenable × Decagon · Voice search demo</title>
+<title>Keenable × Voice Agent (Support)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,67 +11,79 @@
   :root{
     --ink:#0a0a0a; --ink-2:#55575c; --ink-3:#8b8e95; --bg:#ffffff; --bg-2:#f6f6f7; --line:#e6e7ea; --line-2:#d5d7dc;
     --blue:#1d4ed8; --blue-soft:#e8efff; --grey:#9a9ca3; --grey-soft:#eceef1; --red:#d92d20; --red-soft:#fee4e2;
-    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace; --r:12px;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px 80px}
+  body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;line-height:1.5;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;letter-spacing:-.005em;min-height:100vh}
   a{color:inherit}
   button{font:inherit;color:inherit;cursor:pointer;background:none;border:0}
-  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border-radius:999px;border:1px solid var(--line-2);background:#fff;font-weight:500;font-size:14px;transition:background .15s,border-color .15s}
+  .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.65rem 1.1rem;border-radius:999px;border:1px solid var(--line-2);background:#fff;font-weight:500;font-size:14px;transition:background .15s,border-color .15s,transform .15s}
   .btn:hover{background:var(--bg-2)} .btn:disabled{opacity:.45;cursor:default}
   .btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)} .btn.dark:hover{background:#222}
   .btn.blue{background:var(--blue);color:#fff;border-color:var(--blue)} .btn.blue:hover{background:#1a43bd}
   .btn.sm{padding:.4rem .8rem;font-size:13px}
-  .mono{font-family:var(--mono)}
+  .view{display:none} .view.on{display:block}
 
-  /* header */
-  header{display:flex;align-items:center;justify-content:space-between;height:76px;border-bottom:1px solid var(--line);margin-bottom:44px}
-  .logos{display:flex;align-items:center;gap:18px}
-  .logo{display:flex;align-items:center;height:28px}
-  .logo img{height:26px;width:auto;display:block}
-  .logo .word{font-weight:600;font-size:21px;letter-spacing:-.02em}
-  .logo .word.keen{color:var(--blue)}
-  .logos .x{color:var(--ink-3);font-size:18px}
-  .hdr-right{display:flex;align-items:center;gap:10px}
+  /* ---------- home ---------- */
+  #home.on{display:flex;min-height:100vh;align-items:center;justify-content:center;padding:40px 24px}
+  .hero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px;max-width:720px}
+  .eyes{width:150px;height:84px}
+  .eyes .pupil{transition:transform .25s cubic-bezier(.3,.9,.3,1.2)}
+  .eyes[data-look="left"] .pupil{transform:translateX(-11px)} .eyes[data-look="right"] .pupil{transform:translateX(11px)}
+  .eyes .lid{transform-origin:center 47%;transform:scaleY(0);transition:transform .08s}
+  .eyes.blink .lid{transform:scaleY(1)}
+  .hero h1{font-size:40px;font-weight:600;letter-spacing:-.035em;line-height:1.05}
+  .hero h1 b{color:var(--blue);font-weight:600}
+  .hero p{color:var(--ink-2);font-size:17px;max-width:520px}
+  .choices{display:flex;gap:14px;margin-top:6px;flex-wrap:wrap;justify-content:center}
+  .choice{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;width:250px;padding:20px 22px;border:1px solid var(--line-2);border-radius:18px;background:#fff;transition:border-color .15s,transform .15s,box-shadow .15s}
+  .choice:hover{border-color:var(--ink);transform:translateY(-2px);box-shadow:0 10px 30px rgba(10,10,10,.06)}
+  .choice b{font-size:17px;font-weight:600} .choice span{font-size:13px;color:var(--ink-2)}
+  .choice.blue{border-color:var(--blue);background:var(--blue)} .choice.blue b,.choice.blue span{color:#fff} .choice.blue span{opacity:.85} .choice.blue:hover{border-color:var(--blue);background:#1a43bd}
+
+  /* ---------- inner pages ---------- */
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px 80px}
+  header{display:flex;align-items:center;justify-content:space-between;height:72px;border-bottom:1px solid var(--line);margin-bottom:40px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand svg{width:46px;height:26px} .brand b{font-size:16px;font-weight:600;letter-spacing:-.02em} .brand b i{font-style:normal;color:var(--ink-3);font-weight:500}
+  .nav{display:flex;align-items:center;gap:8px}
+  .seg{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:3px;gap:2px}
+  .seg a{padding:.35rem .9rem;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-2);text-decoration:none} .seg a.on{background:var(--ink);color:#fff}
   .pill{display:inline-flex;align-items:center;gap:.4rem;font-size:12px;font-weight:500;padding:.3rem .7rem;border-radius:999px;border:1px solid var(--line)}
   .pill i{width:7px;height:7px;border-radius:50%;background:var(--grey)} .pill.live i{background:#12b76a} .pill.sim i{background:var(--red)}
-
-  .lede{margin-bottom:36px;max-width:760px}
-  .lede h1{font-size:38px;line-height:1.1;font-weight:600;letter-spacing:-.03em;margin-bottom:10px}
-  .lede p{color:var(--ink-2);font-size:17px}
-
-  section{margin-bottom:44px}
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .lede{margin-bottom:32px;max-width:760px}
+  .lede h1{font-size:34px;line-height:1.1;font-weight:600;letter-spacing:-.03em;margin-bottom:8px}
+  .lede p{color:var(--ink-2);font-size:16px}
+  section{margin-bottom:40px}
+  .sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
   .sec-head h2{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
-  .sec-head .meta{font-size:13px;color:var(--ink-3)}
+  .sec-head .meta{font-size:13px;color:var(--ink-3)} .sec-head .meta b{font-family:var(--mono);font-weight:500}
+  .banner{margin:-16px 0 28px;padding:12px 16px;border-radius:12px;background:var(--red-soft);color:var(--red);font-size:13px;display:none} .banner.show{display:block}
 
-  /* scorecard */
+  /* table */
   .card{border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
   table.score{width:100%;border-collapse:collapse}
-  .score th,.score td{padding:18px 22px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
+  .score th,.score td{padding:16px 22px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
   .score tr:last-child td{border-bottom:0}
   .score thead th{font-size:13px;font-weight:600;color:var(--ink-2)}
   .score thead th.p{font-size:16px;color:var(--ink)} .score thead th.p.keen{color:var(--blue)}
   .score thead th .tier{display:block;font:12px var(--mono);color:var(--ink-3);font-weight:400;margin-top:2px}
-  .score td.m{color:var(--ink-2);font-size:14px;width:30%} .score td.m small{display:block;color:var(--ink-3);font-size:12px}
-  .score td.v{font-family:var(--mono);font-size:22px;font-weight:500;letter-spacing:-.02em}
+  .score td.m{color:var(--ink-2);font-size:14px;width:32%} .score td.m small{display:block;color:var(--ink-3);font-size:12px}
+  .score td.v{font-family:var(--mono);font-size:21px;font-weight:500;letter-spacing:-.02em}
   .score td.v.keen{color:var(--blue)} .score td.v .u{font-size:13px;color:var(--ink-3);margin-left:4px;font-weight:400}
   .score td.v.bad{color:var(--red)}
-  .score tfoot td{font-size:13px;color:var(--ink-3);background:var(--bg-2);border-bottom:0}
-  .progress{display:inline-flex;align-items:center;gap:8px}
-  .seg{display:inline-flex;border:1px solid var(--line-2);border-radius:999px;padding:3px;gap:2px}
-  .seg button{padding:.3rem .8rem;border-radius:999px;font-size:13px;font-weight:500;color:var(--ink-2)}
-  .seg button.on{background:var(--ink);color:#fff}
-  .sec-head .right{display:flex;align-items:center;gap:14px}
-  .progress b{font-family:var(--mono);font-weight:500}
+  .score tr.grp td{padding:10px 22px;background:var(--bg-2);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .score tfoot td{font-size:13px;color:var(--ink-3);background:var(--bg-2);border-bottom:0;line-height:1.5}
+  details.how{border:1px solid var(--line);border-radius:16px;padding:18px 22px;color:var(--ink-2);font-size:14px}
+  details.how summary{cursor:pointer;font-weight:600;color:var(--ink);font-size:15px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details.how summary::after{content:"+";font-size:20px;color:var(--ink-3)} details.how[open] summary::after{content:"–"}
+  details.how p{margin:12px 0 0;max-width:800px} details.how h4{margin:16px 0 4px;font-size:13px;color:var(--ink)}
+  .mono{font-family:var(--mono)}
 
   /* ask */
   .ask{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
   @media (max-width:820px){.ask{grid-template-columns:1fr}}
-  .opt{border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;min-height:150px;transition:border-color .15s}
-  .opt:hover{border-color:var(--line-2)}
+  .opt{border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;min-height:150px}
   .opt h3{font-size:16px;font-weight:600} .opt p{color:var(--ink-2);font-size:14px;flex:1}
   .orb{width:52px;height:52px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;position:relative;transition:background .2s}
   .orb svg{width:22px;height:22px} .orb.recording{background:var(--red)}
@@ -85,73 +97,68 @@
   .lanes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
   @media (max-width:820px){.lanes{grid-template-columns:1fr}}
   .lane{border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;min-height:360px;transition:border-color .2s,box-shadow .2s}
-  .lane.keen{border-color:#c7d7ff} .lane.winner{box-shadow:0 0 0 2px var(--blue)} .lane.keen.winner{box-shadow:0 0 0 2px var(--blue)}
-  .lane.dead{border-color:#f7b4ac}
+  .lane.keen{border-color:#c7d7ff} .lane.winner{box-shadow:0 0 0 2px var(--blue)} .lane.dead{border-color:#f7b4ac}
   .lane .head{display:flex;justify-content:space-between;align-items:baseline}
-  .lane .name{font-size:17px;font-weight:600} .lane.keen .name{color:var(--blue)}
-  .lane .tier{font:12px var(--mono);color:var(--ink-3)}
+  .lane .name{font-size:17px;font-weight:600} .lane.keen .name{color:var(--blue)} .lane .tier{font:12px var(--mono);color:var(--ink-3)}
   .clock{font-family:var(--mono);font-size:44px;font-weight:500;letter-spacing:-.04em;line-height:1;display:flex;align-items:baseline;gap:6px;color:var(--grey)}
   .lane.keen .clock{color:var(--blue)} .clock.dead{color:var(--red)!important} .clock small{font-size:14px;color:var(--ink-3);font-weight:400}
   .bar{height:6px;border-radius:999px;background:var(--grey-soft);overflow:hidden}
   .bar i{display:block;height:100%;width:0;background:var(--grey);transition:width .08s linear,background .2s}
   .lane.keen .bar i{background:var(--blue)} .bar.dead i{background:var(--red)!important}
-  .flag{display:none;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--red)} .flag.show{display:inline-flex}
-  .flag i{width:7px;height:7px;border-radius:50%;background:var(--red)}
+  .flag{display:none;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--red)} .flag.show{display:inline-flex} .flag i{width:7px;height:7px;border-radius:50%;background:var(--red)}
   .answer{border-radius:12px;padding:14px 16px;background:var(--bg-2);font-size:15px;line-height:1.5;min-height:62px}
   .answer.empty{color:var(--ink-3)} .answer.err{color:var(--red);font-family:var(--mono);font-size:12px;word-break:break-all}
-  .answer .who{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:600}
-  .answer .who.keen{color:var(--blue)}
+  .answer .who{display:block;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px;font-weight:600} .answer .who.keen{color:var(--blue)}
   .srcs{display:flex;flex-direction:column;gap:6px}
-  .src{display:block;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:10px;transition:border-color .15s}
-  .src:hover{border-color:var(--line-2)}
+  .src{display:block;text-decoration:none;padding:9px 12px;border:1px solid var(--line);border-radius:10px;transition:border-color .15s} .src:hover{border-color:var(--line-2)}
   .src .t{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis} .src .d{font-size:12px;color:var(--ink-3)}
   .lane .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font:12px var(--mono);color:var(--ink-3)}
-
-  /* transcript */
   .transcript{border:1px solid var(--line);border-radius:16px;padding:22px;display:none;flex-direction:column;gap:10px} .transcript.show{display:flex}
   .bubble{max-width:72%;padding:10px 14px;border-radius:14px;font-size:14px;background:var(--bg-2)} .bubble.agent{background:var(--blue-soft);align-self:flex-end}
   .bubble .who{display:block;font-size:11px;color:var(--ink-3);margin-bottom:2px}
 
   /* modal */
-  .modal{position:fixed;inset:0;background:rgba(10,10,10,.35);display:none;align-items:center;justify-content:center;padding:24px;z-index:50}
-  .modal.show{display:flex}
+  .modal{position:fixed;inset:0;background:rgba(10,10,10,.35);display:none;align-items:center;justify-content:center;padding:24px;z-index:50} .modal.show{display:flex}
   .sheet{background:#fff;border-radius:20px;width:min(900px,100%);max-height:88vh;overflow:auto;padding:28px}
-  .sheet .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-  .sheet h3{font-size:20px;font-weight:600;letter-spacing:-.02em}
+  .sheet .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px} .sheet h3{font-size:20px;font-weight:600;letter-spacing:-.02em}
   .sheet input{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1px solid var(--line-2);border-radius:12px;margin-bottom:22px}
   .grp{margin-bottom:22px} .grp h4{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px}
   .qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px}
-  .qbtn{text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;line-height:1.35;transition:border-color .15s,background .15s}
-  .qbtn:hover{border-color:var(--ink);background:var(--bg-2)}
-
-  .note{font-size:13px;color:var(--ink-3)}
-  .banner{margin:-24px 0 32px;padding:12px 16px;border-radius:12px;background:var(--red-soft);color:var(--red);font-size:13px;display:none} .banner.show{display:block}
-  details.how{border-top:1px solid var(--line);padding-top:18px;color:var(--ink-2);font-size:14px;max-width:760px}
-  details.how summary{cursor:pointer;font-weight:500;color:var(--ink)} details.how p{margin:10px 0}
+  .qbtn{text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:14px;line-height:1.35;transition:border-color .15s,background .15s} .qbtn:hover{border-color:var(--ink);background:var(--bg-2)}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logos">
-      <span class="logo" id="logoDecagon"><span class="word">Decagon</span></span>
-      <span class="x">×</span>
-      <span class="logo" id="logoKeenable"><span class="word keen">Keenable</span></span>
-    </div>
-    <div class="hdr-right">
-      <span class="pill" id="modePill"><i></i><span>connecting</span></span>
-      <button class="btn sm" id="reset">Reset</button>
-    </div>
-  </header>
 
-  <div class="lede">
-    <h1>Live web search inside a voice agent.</h1>
-    <p>The same caller question goes to three search APIs at the same instant. The caller hears the answer from Keenable; the other two are timed alongside it.</p>
+<svg style="display:none"><symbol id="eyesSym" viewBox="0 0 150 84">
+  <circle cx="42" cy="42" r="36" fill="#fff" stroke="#1d4ed8" stroke-width="6"/>
+  <circle cx="108" cy="42" r="36" fill="#fff" stroke="#1d4ed8" stroke-width="6"/>
+  <g class="pupil"><circle cx="46" cy="44" r="13" fill="#0a0a0a"/><circle cx="51" cy="39" r="3.5" fill="#fff"/></g>
+  <g class="pupil"><circle cx="112" cy="44" r="13" fill="#0a0a0a"/><circle cx="117" cy="39" r="3.5" fill="#fff"/></g>
+  <rect class="lid" x="3" y="3" width="144" height="78" fill="#fff"/>
+</symbol></svg>
+
+<!-- ============ HOME ============ -->
+<div class="view" id="home">
+  <div class="hero">
+    <svg class="eyes" id="eyes" aria-hidden="true"><use href="#eyesSym"/></svg>
+    <h1><b>Keenable</b> × Voice Agent <span style="color:var(--ink-3);font-weight:500">(Support)</span></h1>
+    <p>Live web search inside a support voice agent, measured against Tavily and Exa.</p>
+    <div class="choices">
+      <a class="choice" href="#card" data-look="left"><b>Demo card</b><span>Quality, latency and cost across the whole set</span></a>
+      <a class="choice blue" href="#run" data-look="right"><b>Run now</b><span>Ask a question and watch three search APIs race</span></a>
+    </div>
   </div>
-  <div class="banner" id="banner"></div>
+</div>
+
+<!-- ============ DEMO CARD ============ -->
+<div class="view" id="card"><div class="wrap">
+  <header>
+    <a class="brand" href="#"><svg aria-hidden="true"><use href="#eyesSym"/></svg><b>Keenable <i>× Voice Agent</i></b></a>
+    <div class="nav"><span class="seg"><a href="#card" class="on">Demo card</a><a href="#run">Run now</a></span></div>
+  </header>
+  <div class="lede"><h1>Three search APIs, one support agent.</h1><p>Same questions, same agent, same voice stack. Only the search backend changes.</p></div>
 
   <section>
-    <div class="sec-head"><h2>Scorecard</h2><div class="right"><span class="meta progress" id="progress"><span>No races yet</span></span><span class="seg" id="viewSeg"><button data-view="session" class="on">This session</button><button data-view="set">Full set</button></span></div></div>
     <div class="card">
       <table class="score">
         <thead><tr><th></th>
@@ -160,13 +167,60 @@
           <th class="p">Exa<span class="tier">instant</span></th>
         </tr></thead>
         <tbody>
-          <tr><td class="m">Answer quality<small>NDCG, estimated from NEEDLE. Placeholder.</small></td><td class="v keen" data-q="keenable">0.74</td><td class="v" data-q="tavily">0.62</td><td class="v" data-q="exa">0.70</td></tr>
-          <tr><td class="m">Median search latency<small id="latNote">Measured live, this session</small></td><td class="v keen" data-lat="keenable">–</td><td class="v" data-lat="tavily">–</td><td class="v" data-lat="exa">–</td></tr>
-          <tr id="p95Row"><td class="m">p95 search latency<small>Slowest one in twenty across the set</small></td><td class="v keen" data-p95="keenable">–</td><td class="v" data-p95="tavily">–</td><td class="v" data-p95="exa">–</td></tr>
-          <tr><td class="m">Cost per 1,000 queries<small>Vendor-reported where the API returns it</small></td><td class="v keen" data-cost="keenable">–</td><td class="v" data-cost="tavily">–</td><td class="v" data-cost="exa">–</td></tr>
-          <tr><td class="m">Dead-air moments<small id="deadNote">Searches over 800 ms, this session</small></td><td class="v keen" data-dead="keenable">0</td><td class="v" data-dead="tavily">0</td><td class="v" data-dead="exa">0</td></tr>
+          <tr class="grp"><td colspan="4">Quality · tau2-bench, 20 support tasks</td></tr>
+          <tr><td class="m">Task success<small>All 20 tasks, judged end to end</small></td><td class="v keen" data-t2="success.keenable"></td><td class="v" data-t2="success.tavily"></td><td class="v" data-t2="success.exa"></td></tr>
+          <tr><td class="m">Facts that changed since 2025<small>Current figure given, not last year's</small></td><td class="v keen" data-t2="changed.keenable"></td><td class="v" data-t2="changed.tavily"></td><td class="v" data-t2="changed.exa"></td></tr>
+          <tr><td class="m">Searches per conversation<small>How often the agent had to look again</small></td><td class="v keen" data-t2="searches.keenable"></td><td class="v" data-t2="searches.tavily"></td><td class="v" data-t2="searches.exa"></td></tr>
+          <tr class="grp"><td colspan="4">Speed · <span id="setMeta">30-question caller set</span></td></tr>
+          <tr><td class="m">Median search latency<small>Vendor API time, voice-grade tier</small></td><td class="v keen" data-lat="keenable">–</td><td class="v" data-lat="tavily">–</td><td class="v" data-lat="exa">–</td></tr>
+          <tr><td class="m">p95 search latency<small>Slowest one in twenty</small></td><td class="v keen" data-p95="keenable">–</td><td class="v" data-p95="tavily">–</td><td class="v" data-p95="exa">–</td></tr>
+          <tr><td class="m">Dead-air moments<small>Searches over 800 ms</small></td><td class="v keen" data-dead="keenable">–</td><td class="v" data-dead="tavily">–</td><td class="v" data-dead="exa">–</td></tr>
+          <tr class="grp"><td colspan="4">Cost</td></tr>
+          <tr><td class="m">Per 1,000 searches<small>Vendor-reported where the API returns it</small></td><td class="v keen" data-cost="keenable">–</td><td class="v" data-cost="tavily">–</td><td class="v" data-cost="exa">–</td></tr>
+          <tr><td class="m">Search cost per conversation<small>tau2-bench, searches × price</small></td><td class="v keen" data-t2="convcost.keenable"></td><td class="v" data-t2="convcost.tavily"></td><td class="v" data-t2="convcost.exa"></td></tr>
         </tbody>
-        <tfoot><tr><td colspan="4">Latency is each vendor's own API time, measured server-side around the call. A voice turn has roughly 800 ms before the caller notices silence.</td></tr></tfoot>
+        <tfoot><tr><td colspan="4" id="cardFoot"></td></tr></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <details class="how">
+      <summary>Methodology</summary>
+      <h4>Quality</h4>
+      <p>tau2-bench with a new <span class="mono">web_support</span> domain: an "AnswerLine" consumer helpdesk with 20 tasks whose answers sit on real public pages, verified against official sources on 9 October 2026. Ten are evergreen facts, ten changed since 2025 (FSCS limit, passport fee, stamps, Congestion Charge, TV licence, Delta bag fee, Wise limits, Costco UK, Netflix prices, Ryanair bag size). The harness is fixed: Sonnet 5.5 agent, Haiku 5.5 user simulator, Sonnet 5.5 judge. Only the agent's <span class="mono">web_search</span> backend changes, at voice-grade settings (fast tiers, 5 results, 400-character snippets). The judge checks the current figure was given, not the old one. With no search tool at all the same agent scored 53% overall and 10% on the changed facts. Trials: Keenable 60 conversations, Tavily 43, Exa 19; with 20 tasks only gaps above about 15 points are significant.</p>
+      <h4>Speed</h4>
+      <p>The 30 caller questions in the "Run now" set, each sent to all three APIs at the same instant, two passes, from a Mac on a home connection in Hertfordshire. The number is each vendor's own API time, measured around the HTTP call; the voice pipeline and the browser are excluded. Each vendor runs its lowest-latency tier: Keenable <span class="mono">realtime</span>, Tavily <span class="mono">ultra-fast</span>, Exa <span class="mono">instant</span>. A voice turn has roughly 800 ms before the caller notices silence. In the tau2 runs Keenable's own p50 was 153 ms, Tavily 327 ms, Exa 487 ms.</p>
+      <h4>Cost</h4>
+      <p>Per-search cost is what the vendor reports in the API response where it does (Exa, Tavily), otherwise list price. Per-conversation cost multiplies that by the searches the agent actually made in tau2; Tavily's thin ultra-fast results made the agent search about four times per conversation, which also roughly quadrupled its LLM spend and doubled wall time.</p>
+      <h4>Code</h4>
+      <p>Benchmark harness: <a href="https://github.com/denikekate/tau2-bench-keenable" target="_blank" rel="noopener">tau2-bench-keenable</a>, branch <span class="mono">web-support-benchmark</span>. This demo: <a href="https://github.com/denikekate/gradbot_keenable_demo" target="_blank" rel="noopener">gradbot_keenable_demo</a>, <span class="mono">demos/voice_search_race</span>.</p>
+    </details>
+  </section>
+</div></div>
+
+<!-- ============ RUN NOW ============ -->
+<div class="view" id="run"><div class="wrap">
+  <header>
+    <a class="brand" href="#"><svg aria-hidden="true"><use href="#eyesSym"/></svg><b>Keenable <i>× Voice Agent</i></b></a>
+    <div class="nav"><span class="pill" id="modePill"><i></i><span>connecting</span></span><span class="seg"><a href="#card">Demo card</a><a href="#run" class="on">Run now</a></span></div>
+  </header>
+  <div class="banner" id="banner"></div>
+
+  <section>
+    <div class="sec-head"><h2>This session</h2><div style="display:flex;gap:12px;align-items:center"><span class="meta" id="progress"><span>No races yet</span></span><button class="btn sm" id="reset">Reset</button></div></div>
+    <div class="card">
+      <table class="score">
+        <thead><tr><th></th>
+          <th class="p keen">Keenable<span class="tier">realtime</span></th>
+          <th class="p">Tavily<span class="tier">ultra-fast</span></th>
+          <th class="p">Exa<span class="tier">instant</span></th>
+        </tr></thead>
+        <tbody>
+          <tr><td class="m">Median search latency<small>Measured live</small></td><td class="v keen" data-slat="keenable">–</td><td class="v" data-slat="tavily">–</td><td class="v" data-slat="exa">–</td></tr>
+          <tr><td class="m">Dead-air moments<small>Searches over 800 ms</small></td><td class="v keen" data-sdead="keenable">0</td><td class="v" data-sdead="tavily">0</td><td class="v" data-sdead="exa">0</td></tr>
+          <tr><td class="m">Cost per 1,000 searches<small>Vendor-reported</small></td><td class="v keen" data-scost="keenable">–</td><td class="v" data-scost="tavily">–</td><td class="v" data-scost="exa">–</td></tr>
+        </tbody>
       </table>
     </div>
   </section>
@@ -206,18 +260,8 @@
     <div class="sec-head"><h2>Race</h2><span class="meta" id="raceMeta"></span></div>
     <div class="lanes" id="lanes"></div>
   </section>
-
-  <section>
-    <div class="transcript" id="transcript"></div>
-  </section>
-
-  <details class="how">
-    <summary>How this is measured</summary>
-    <p>Every lane gets the identical query at the same instant. The number on each lane is that vendor's own API latency, measured in the server around the HTTP call, so the voice pipeline and the browser are excluded. Each vendor runs its lowest-latency tier: Keenable <span class="mono">realtime</span>, Tavily <span class="mono">ultra-fast</span>, Exa <span class="mono">instant</span>.</p>
-    <p>With the mic, this is a real Gradium voice agent (Gradbot). Its search tool fires all three; the agent gets Keenable's results the moment they land and speaks, while the other lanes keep filling in. From the question list, the browser runs the same race without a microphone.</p>
-    <p>The one-sentence answer on each lane comes from the same small model with the same prompt, from that lane's top five results only. "Hear it" plays that lane's measured silence first, then the sentence in the agent's voice. Answer quality is a placeholder until the full set has been scored.</p>
-  </details>
-</div>
+  <section><div class="transcript" id="transcript"></div></section>
+</div></div>
 
 <div class="modal" id="modal">
   <div class="sheet">
@@ -232,9 +276,16 @@
 <script src="static/js/synced-audio-player.js"></script>
 <script>fetch("api/audio-config").then(r=>r.json()).then(c=>{window.__pcmOutput=c.pcm}).catch(()=>{})</script>
 <script>
-let BANK = {};
-let ALL_Q = [];
+// ---------- baked benchmark numbers (tau2-bench, 9 Oct 2026). Update when trials finish. ----------
+const TAU2 = {
+  success:  { keenable:"100%", tavily:"91%",  exa:"100%" },
+  changed:  { keenable:"100%", tavily:"87%",  exa:"100%" },
+  searches: { keenable:"1.5",  tavily:"4.3",  exa:"1.1" },
+  convcost: { keenable:"$0.0015", tavily:"$0.034", exa:"$0.0044" },
+  n: { keenable:60, tavily:43, exa:19 }, nosearch: { success:"53%", changed:"10%" }
+};
 
+let BANK = {}, ALL_Q = [];
 let PROVIDERS = [ {id:"keenable",name:"Keenable",keen:true}, {id:"tavily",name:"Tavily"}, {id:"exa",name:"Exa"} ];
 const TIER_LABEL = {keenable:"realtime",tavily:"ultra-fast",exa:"instant"};
 const DEAD_AIR_MS = 800;
@@ -243,12 +294,57 @@ const SIM_COST = {keenable:.001,tavily:.008,exa:.005};
 
 const $=s=>document.querySelector(s);
 const lanesEl=$("#lanes"), qText=$("#qText"), banner=$("#banner"), transcriptEl=$("#transcript");
-let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="", isRecording=false;
-let store = load(); let view = store.view || "session"; let SET = null;  // baked full-set results
+let demo=false, activeProvider="keenable", gradiumTts=false, raceId=0, laneEls={}, laneTimers={}, currentQ="", isRecording=false, SET=null;
+let store = load();
+function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v4")); if(s&&s.session) return s; }catch{} return {session:fresh()}; }
+function fresh(){ return {races:0, p:{keenable:{ms:[],cost:[],dead:0},tavily:{ms:[],cost:[],dead:0},exa:{ms:[],cost:[],dead:0}}}; }
+function save(){ try{ localStorage.setItem("vsr_stats_v4",JSON.stringify(store)); }catch{} }
+function esc(s){ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function fmt(v){ return v==null?"–":`${v}<span class="u">ms</span>`; }
 
-function load(){ try{ const s=JSON.parse(localStorage.getItem("vsr_stats_v4")); if(s&&s.session) return s; }catch{} return {session:fresh(),view:"session"}; }
-function fresh(){ return {races:0, ranAt:null, p:{keenable:{ms:[],cost:[],dead:0},tavily:{ms:[],cost:[],dead:0},exa:{ms:[],cost:[],dead:0}}}; }
-function save(){ store.view=view; try{ localStorage.setItem("vsr_stats_v4",JSON.stringify(store)); }catch{} }
+// ---------- routing ----------
+function route(){
+  const h=(location.hash||"#").replace("#","");
+  const v=h==="card"?"card":h==="run"?"run":"home";
+  document.querySelectorAll(".view").forEach(el=>el.classList.toggle("on",el.id===v));
+  window.scrollTo(0,0);
+  if (v==="card") renderCard();
+}
+window.addEventListener("hashchange",route);
+
+// ---------- home: the eyes follow the buttons ----------
+const eyes=$("#eyes");
+document.querySelectorAll(".choice").forEach(a=>{ a.onmouseenter=()=>eyes.dataset.look=a.dataset.look; a.onmouseleave=()=>eyes.dataset.look=""; });
+(function blink(){ setTimeout(()=>{ eyes.classList.add("blink"); setTimeout(()=>eyes.classList.remove("blink"),120); blink(); }, 2600+Math.random()*3000); })();
+
+// ---------- demo card ----------
+function renderCard(){
+  for (const k of ["success","changed","searches","convcost"]) for (const [p,v] of Object.entries(TAU2[k])){ const td=document.querySelector(`[data-t2="${k}.${p}"]`); if(td) td.textContent=v; }
+  for (const p of PROVIDERS){
+    const s=SET&&SET.summary&&SET.summary[p.id];
+    const lat=document.querySelector(`[data-lat="${p.id}"]`), p95=document.querySelector(`[data-p95="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`);
+    lat.innerHTML=fmt(s&&s.median_ms); lat.classList.toggle("bad",!!(s&&s.median_ms>=DEAD_AIR_MS));
+    p95.innerHTML=fmt(s&&s.p95_ms); p95.classList.toggle("bad",!!(s&&s.p95_ms>=DEAD_AIR_MS));
+    dead.innerHTML=s?`${s.dead_air}<span class="u">of ${s.races}</span>`:"–"; dead.classList.toggle("bad",!!(s&&s.dead_air>0&&!p.keen));
+    cost.textContent=s&&s.cost_per_1k!=null?"$"+s.cost_per_1k.toFixed(2):"–";
+  }
+  $("#setMeta").textContent=SET?`${SET.questions}-question caller set × ${SET.passes} passes, ${new Date(SET.ran_at).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric"})}`:"30-question caller set (not yet benchmarked)";
+  $("#cardFoot").innerHTML=`Quality: tau2-bench web_support, ${TAU2.n.keenable} / ${TAU2.n.tavily} / ${TAU2.n.exa} conversations per lane. Without any search tool the same agent scored ${TAU2.nosearch.success} overall and ${TAU2.nosearch.changed} on facts that changed since 2025. Speed and per-search cost: measured on the caller set from a Mac on a home connection; run <span class="mono">bench.py</span> to refresh.`;
+}
+
+// ---------- run now: session scorecard ----------
+function renderScore(){
+  for (const p of PROVIDERS){
+    const s=store.session.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
+    const lat=document.querySelector(`[data-slat="${p.id}"]`), dead=document.querySelector(`[data-sdead="${p.id}"]`), cost=document.querySelector(`[data-scost="${p.id}"]`);
+    const med=arr.length?arr[Math.floor(arr.length/2)]:null; lat.innerHTML=fmt(med); lat.classList.toggle("bad",med!=null&&med>=DEAD_AIR_MS);
+    dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
+    cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
+  }
+  const n=store.session.races; $("#progress").innerHTML=n?`<b>${n}</b> race${n===1?"":"s"}`:"<span>No races yet</span>";
+  save();
+}
+$("#reset").onclick=()=>{ store.session=fresh(); renderScore(); };
 
 // ---------- build ----------
 function buildPicker(){
@@ -271,45 +367,12 @@ for (const p of PROVIDERS){
   lanesEl.appendChild(el); laneEls[p.id]=el;
   el.querySelector("[data-hear]").onclick=()=>hear(p.id);
 }
-
-function esc(s){ return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
 function firstSentence(s){ s=(s||"").replace(/\s+/g," ").trim(); const m=s.match(/^.{20,160}?[.!?](\s|$)/); return (m?m[0]:s.slice(0,160)).trim()||"I couldn't find that just now."; }
 function setQuestion(q){ currentQ=q; qText.textContent=q; $("#go").disabled=false; $("#again").disabled=false; }
 function setMode(){
   const p=$("#modePill"); p.className="pill "+(demo?"sim":"live"); p.querySelector("span").textContent=demo?"simulated":"live";
   banner.classList.toggle("show",demo); banner.textContent=demo?"No backend reached. Latencies are simulated and results are placeholders. Run the server with keys in .env for the real race.":"";
 }
-
-// ---------- scorecard ----------
-function fmt(v){ return v==null?"–":`${v}<span class="u">ms</span>`; }
-function renderScore(){
-  document.querySelectorAll("#viewSeg button").forEach(b=>b.classList.toggle("on",b.dataset.view===view));
-  const set = view==="set";
-  $("#p95Row").style.display = set ? "" : "none";
-  $("#latNote").textContent = set ? `Measured across the ${SET?SET.questions:30}-question set` : "Measured live, this session";
-  $("#deadNote").textContent = set ? "Searches over 800 ms across the set" : "Searches over 800 ms, this session";
-  $("#reset").style.display = set ? "none" : "";
-  for (const p of PROVIDERS){
-    const lat=document.querySelector(`[data-lat="${p.id}"]`), p95=document.querySelector(`[data-p95="${p.id}"]`), cost=document.querySelector(`[data-cost="${p.id}"]`), dead=document.querySelector(`[data-dead="${p.id}"]`);
-    if (set){
-      const s=SET&&SET.summary&&SET.summary[p.id];
-      lat.innerHTML=fmt(s&&s.median_ms); lat.classList.toggle("bad",!!(s&&s.median_ms>=DEAD_AIR_MS));
-      p95.innerHTML=fmt(s&&s.p95_ms); p95.classList.toggle("bad",!!(s&&s.p95_ms>=DEAD_AIR_MS));
-      cost.textContent=s&&s.cost_per_1k!=null?"$"+s.cost_per_1k.toFixed(2):"–";
-      dead.innerHTML=s?`${s.dead_air}<span class="u">of ${s.races}</span>`:"–"; dead.classList.toggle("bad",!!(s&&s.dead_air>0&&!p.keen));
-    } else {
-      const s=store.session.p[p.id]; const arr=[...s.ms].sort((a,b)=>a-b);
-      const med=arr.length?arr[Math.floor(arr.length/2)]:null; lat.innerHTML=fmt(med); lat.classList.toggle("bad",med!=null&&med>=DEAD_AIR_MS);
-      cost.textContent=s.cost.length?"$"+(s.cost.reduce((a,b)=>a+b,0)/s.cost.length*1000).toFixed(2):"–";
-      dead.textContent=s.dead; dead.classList.toggle("bad",s.dead>0&&!p.keen);
-    }
-  }
-  if (set) $("#progress").innerHTML=SET?`<b>${SET.questions} × ${SET.passes}</b><span>run ${new Date(SET.ran_at).toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</span>`:"<span>Not benchmarked yet: run bench.py</span>";
-  else { const n=store.session.races; $("#progress").innerHTML=n?`<b>${n}</b><span>race${n===1?"":"s"} this session</span>`:"<span>No races yet</span>"; }
-  save();
-}
-$("#reset").onclick=()=>{ store.session=fresh(); renderScore(); };
-document.querySelectorAll("#viewSeg button").forEach(b=>b.onclick=()=>{ view=b.dataset.view; renderScore(); });
 
 // ---------- lanes ----------
 function startRace(q){
@@ -345,7 +408,6 @@ async function laneDone(id,res,q){
   el.classList.toggle("dead",dead); el.querySelector(".clock").classList.toggle("dead",dead); el.querySelector("[data-bar]").classList.toggle("dead",dead); el.querySelector("[data-flag]").classList.toggle("show",dead);
   if (typeof res.cost_usd==="number") el.querySelector("[data-cost]").textContent=`$${res.cost_usd.toFixed(4)} per query`;
   el.querySelector("[data-srcs]").innerHTML=(res.results||[]).slice(0,3).map(r=>`<a class="src" href="${esc(r.url)}" target="_blank" rel="noopener"><div class="t">${esc(r.title||r.url)}</div><div class="d">${esc(r.source||"")}${r.published?" · "+esc(String(r.published).slice(0,10)):""}</div></a>`).join("");
-
   { const s=store.session.p[pid]; if (!res.error){ s.ms.push(ms); if(typeof res.cost_usd==="number") s.cost.push(res.cost_usd); if(dead) s.dead++; } }
 
   const aEl=el.querySelector("[data-answer]"), who=`<span class="who ${pid===activeProvider&&res._voice?"keen":""}">${pid===activeProvider&&res._voice?"The agent said":"Caller would hear"}</span>`;
@@ -359,7 +421,7 @@ async function laneDone(id,res,q){
     else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer err"; aEl.textContent=a.error||"no sentence returned"; }
   } else { res.answer=firstSentence(res.results[0].snippet); aEl.className="answer"; aEl.innerHTML=who+esc(res.answer); }
   el.querySelector("[data-hear]").disabled=false;
-  if (gradiumTts && !demo && res.answer && !isRecording) res.audio=fetchTts(res.answer);  // never during a live call: Gradium's session cap
+  if (gradiumTts && !demo && res.answer && !isRecording) res.audio=fetchTts(res.answer);
 }
 function finishRace(id){
   if (id!==raceId) return;
@@ -387,9 +449,6 @@ async function fetchTts(text){ try{ const r=await fetch("api/tts",{method:"POST"
 async function simulate(pid,q){ const [p50,p95]=SIM[pid]; const u=Math.random(); const ms=Math.round(u<.85?p50*(0.8+Math.random()*0.5):p50+(p95-p50)*(0.6+Math.random()*0.8)); await new Promise(r=>setTimeout(r,ms));
   return {provider:pid,label:TIER_LABEL[pid],api_ms:ms,cost_usd:SIM_COST[pid],results:[1,2,3].map(i=>({title:`Placeholder result ${i}`,url:`https://example.com/${pid}/${i}`,source:"example.com",snippet:`Simulated result for "${q}".`}))}; }
 
-// run the whole set, one after another
-// Full set numbers come from static/set_results.json, produced by bench.py
-
 // ---------- hear ----------
 let currentAudio=null;
 function hear(pid){
@@ -398,7 +457,7 @@ function hear(pid){
   const silence=Math.min(6000,(d.api_ms||0)+(d.llm_ms||0));
   const btn=laneEls[pid].querySelector("[data-hear]"); btn.textContent=`${silence} ms of silence…`;
   setTimeout(async()=>{ btn.textContent="Hear it"; const text=d.answer||"I couldn't find that just now.";
-    if (!d.audio && gradiumTts && !demo && !isRecording) d.audio=fetchTts(text);   // fetched on demand once the call is over
+    if (!d.audio && gradiumTts && !demo && !isRecording) d.audio=fetchTts(text);
     const url=(d.audio && !isRecording)?await d.audio:null;
     if(url){ currentAudio=new Audio(url); currentAudio.play().catch(()=>speak(text)); } else speak(text); },silence);
 }
@@ -448,25 +507,20 @@ function resetOrb(){ isRecording=false; orb.classList.remove("recording"); iconM
 orb.onclick=()=>isRecording?stop():start();
 
 // ---------- boot ----------
+renderScore(); route();
 (async()=>{
   try{ BANK=await (await fetch("static/questions.json")).json(); }catch{ BANK={"Questions":["What is the Bank of England base rate today?"]}; }
   ALL_Q=Object.values(BANK).flat(); buildPicker();
   try{ SET=await (await fetch("static/set_results.json")).json(); }catch{ SET=null; }
-  renderScore();
-})();
-for (const [id,file] of [["logoDecagon","decagon"],["logoKeenable","keenable"]]) {
-  const img=new Image(); img.onload=()=>{ const el=document.getElementById(id); el.innerHTML=""; el.appendChild(img); }; img.alt=file; img.src=`static/logos/${file}.svg`;
-}
-(async()=>{
   try{ const c=await (await fetch("api/race-config")).json(); activeProvider=c.active||"keenable"; gradiumTts=!!c.gradium;
     const missing=Object.entries(c.keys||{}).filter(([k,v])=>!v&&k!=="keenable").map(([k])=>k);
-    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS=PROVIDERS.filter(p=>p.id!==k); document.querySelectorAll(`[data-lat="${k}"],[data-p95="${k}"],[data-cost="${k}"],[data-dead="${k}"],[data-q="${k}"]`).forEach(td=>td.textContent="no key"); }
+    for (const k of missing){ laneEls[k].style.display="none"; PROVIDERS=PROVIDERS.filter(p=>p.id!==k); document.querySelectorAll(`[data-slat="${k}"],[data-scost="${k}"],[data-sdead="${k}"]`).forEach(td=>td.textContent="no key"); }
     lanesEl.style.gridTemplateColumns=`repeat(${PROVIDERS.length},minmax(0,1fr))`;
     const notes=[]; if(!c.llm) notes.push("LLM_API_KEY missing: no voice agent, no spoken sentences"); if(!c.gradium) notes.push("GRADIUM_API_KEY missing: the mic is off");
     if(notes.length){ banner.classList.add("show"); banner.textContent=notes.join(". ")+"."; }
     if(!c.gradium) setStatus("Needs GRADIUM_API_KEY");
   } catch{ demo=true; }
-  setMode();
+  setMode(); route();
 })();
 </script>
 </body>
