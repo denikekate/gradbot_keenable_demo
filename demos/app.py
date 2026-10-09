@@ -2,6 +2,7 @@
 
 import contextlib
 import importlib
+import os
 import sys
 from pathlib import Path
 
@@ -17,6 +18,13 @@ demo_names = sorted(
     for d in DEMOS_DIR.iterdir()
     if d.is_dir() and (d / "main.py").exists()
 )
+
+# DEMOS="a,b" serves only those demos. Other demos may need their own secrets
+# (paris_rental_agent wants SECRET_KEY, hotel wants a Linkup key) and would
+# otherwise crash the whole app at startup.
+_only = [n.strip() for n in os.environ.get("DEMOS", "").split(",") if n.strip()]
+if _only:
+    demo_names = [n for n in demo_names if n in _only]
 
 _demos: list[tuple[str, FastAPI]] = []
 for name in demo_names:
@@ -36,10 +44,13 @@ for name in demo_names:
 @contextlib.asynccontextmanager
 async def _lifespan(_app: FastAPI):
     async with contextlib.AsyncExitStack() as stack:
-        for _, demo_app in _demos:
-            await stack.enter_async_context(
-                demo_app.router.lifespan_context(demo_app)
-            )
+        for name, demo_app in _demos:
+            try:
+                await stack.enter_async_context(
+                    demo_app.router.lifespan_context(demo_app)
+                )
+            except Exception as e:  # one demo's startup must not take the others down
+                print(f"Warning: demo '{name}' failed to start: {e}")
         yield
 
 
@@ -49,6 +60,12 @@ app = FastAPI(title="Gradbot Demos", lifespan=_lifespan)
 @app.get("/healthz")
 async def healthz():
     return {"status": "ok"}
+
+
+@app.get("/")
+async def index():
+    from fastapi.responses import RedirectResponse
+    return RedirectResponse(f"/{_demos[0][0]}/" if _demos else "/healthz")
 
 
 for name, demo_app in _demos:
